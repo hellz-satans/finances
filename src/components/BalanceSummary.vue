@@ -41,7 +41,7 @@ export default {
     ... mapState('preferences', [ 'preferences', ]),
 
     cssClasses() {
-      let color = 'black';
+      let color = 'inherit';
 
       if (this.goal > 0) {
         if (this.balanceSummary > (this.goal * 0.80))

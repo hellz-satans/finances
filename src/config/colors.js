@@ -1,3 +1,5 @@
+import { PREFERS_DARK } from '@/config/application_properties'
+
 /**
  * Generate list of HSL colors.
  *
@@ -38,6 +40,9 @@ const darkMaterialColors = [
   '#616161',
   '#455A64',
 ];
+
+export const bgColor = (darkMode = PREFERS_DARK) => darkMode ? '#232323' : '#ffffff'
+export const fgColor = (darkMode = PREFERS_DARK) => darkMode ? '#dedede' : '#000000'
 
 const colors = hslColors(20, "100%", "35%");
 const primary = colors[15];

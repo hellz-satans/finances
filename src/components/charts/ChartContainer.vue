@@ -117,6 +117,6 @@ export default {
 
 <style lang="scss">
 .chart-container {
-  font-family: 'xkcd', 'Fira Mono', 'Fira';
+  font-family: 'xkcd', sans-serif;
 }
 </style>

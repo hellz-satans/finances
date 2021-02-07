@@ -7,9 +7,13 @@
 import chartXkcd from "chart.xkcd";
 import dayjs from "dayjs";
 
+import { bgColor, fgColor } from '@/config/colors'
+
 const DEFAULT_OPTIONS = {
   timeFormat: "MMM",
   showLine:   true,
+  backgroundColor: bgColor(),
+  strokeColor: fgColor(),
   //legendPosition: chartXkcd.config.positionType.downRight,
 };
 

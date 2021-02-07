@@ -13,7 +13,6 @@ export default {
 <style lang="scss">
 $animation-count: infinite;
 $duration: 1s;
-$loader-bg: #fff;
 
 .loader {
   width: 100%;
@@ -23,7 +22,7 @@ $loader-bg: #fff;
   left: 0;
   overflow: hidden;
   z-index: 10;
-  background-color: $loader-bg;
+  background-color: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;

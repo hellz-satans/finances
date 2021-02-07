@@ -7,6 +7,8 @@
 body {
     overflow-y: scroll;
     font: normal 16px/20px sans-serif;
+    background-color: var(--bg);
+    color: var(--fg);
 }
 
 /* set font size so safari does NOT zoom */
@@ -32,7 +34,7 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 h5 { font-size: 1.10rem; font-weight: 500; }
 h6 { font-size: 1.05rem; font-weight: 500; }
 
-a, a:visited { white-space: nowrap; color: $link-color; }
+a, a:visited { white-space: nowrap; color: var(--link-color); }
 p { @apply mb-3; }
 ul { list-style: disc; margin-left: 1rem; }
 details { margin: 0.75rem 0.5rem; }
@@ -76,7 +78,7 @@ input:not([type="file"]):not([type="checkbox"])
 .text-larger  { font-size: larger; }
 .text-smaller { font-size: smaller; }
 
-.title { color: #111 !important; font-size: 1.3rem; font-weight: 600; }
+.title { color: var(--fg) !important; font-size: 1.3rem; font-weight: 600; }
 
 .hidden { display: none; }
 

@@ -1,26 +1,69 @@
-$default-color-degree: 285;
+$tron_black: #0c141f;
+$tron_yellow: #ffe64d;
+$tron_red: #df740c;
+$tron_orange: #f58c4b;
+$tron_green: #00ff00;
+$tron_blue: #6f15cb;
+$tron_magenta: #cb15c9;
+$tron_cyan: #6fc3df;
+$tron_white: #e6ffff;
 
-$default-color:       hsl($default-color-degree, 15%, 90%);
-$default-color-dark:  hsl($default-color-degree, 15%, 80%);
-$default-color-light: hsl($default-color-degree, 15%, 95%);
+$primary-color-degree: 285;
+
+$primary-color-dark:  hsl($primary-color-degree, 15%, 13%);
+$primary-color:       hsl($primary-color-degree, 15%, 26%);
+$primary-color-light: hsl($primary-color-degree, 35%, 50%);
 
 $link-color: #1e70bf;
 
-$input-bg: $default-color-light;
+$input-bg: $primary-color-dark;
 
-$border-color: $default-color-dark;
-$border-color-light: $default-color;
+$border-color: $primary-color-dark;
+$border-color-light: $primary-color;
 
-$shadow-color: $default-color-light;
+$shadow-color: $primary-color-light;
 
 :root {
-  --default-color: #{$default-color};
-  --default-color-dark: #{$default-color-dark};
-  --default-color-light: #{$default-color-light};
+  --black: #{$tron_black};
+  --yellow: #{$tron_yellow};
+  --red: #{$tron_red};
+  --orange: #{$tron_orange};
+  --green: #{$tron_green};
+  --blue: #{$tron_blue};
+  --magenta: #{$tron_magenta};
+  --cyan: #{$tron_cyan};
+  --white: #{$tron_white};
+
+  --bg: #232323;
+  --fg: #dedede;
+  --link-color: var(--yellow);
+  --primary-color: #{$primary-color};
+  --primary-color-dark: #{$primary-color-dark};
+  --primary-color-light: #{$primary-color-light};
 
   --input-bg: #{$input-bg};
+  --btn-bg-color: #{$primary-color-light};
 
   --border-color: #{$border-color};
   --border-color-light: #{$border-color-light};
   --shadow-color: #{$shadow-color};
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --fg: #000000;
+    --link-color: #2222f0;
+
+    --primary-color: #{$primary-color};
+    --primary-color-dark: #{$primary-color-dark};
+    --primary-color-light: #{$primary-color-light};
+
+    --input-bg: #{$input-bg};
+    --btn-bg-color: #{$primary-color-light};
+
+    --border-color: #{$border-color};
+    --border-color-light: #{$border-color-light};
+    --shadow-color: #{$shadow-color};
+  }
 }
