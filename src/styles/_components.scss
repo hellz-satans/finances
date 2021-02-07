@@ -1,0 +1,36 @@
+.expense-form, .transfer-form {
+  &-button {
+    position: fixed;
+    right: 1rem;
+    z-index: 999;
+    cursor: pointer;
+    border-radius: 1em;
+    width:  2em;
+    height: 2em;
+    line-height: 1em;
+    padding-top: 0.5em;
+    text-align: center;
+  }
+}
+
+.expense-form-button  { bottom: 1rem; }
+.transfer-form-button { bottom: 4rem; }
+
+.btn {
+  border: 1px solid var(--border-color);
+  background-color: var(--default-color);
+  @apply border rounded py-2 px-5;
+
+  &:disabled, &[disabled] {
+    background-color: $default-color-dark;
+    cursor: not-allowed;
+  }
+}
+
+.btn-submit, button[type=submit] {
+  @apply btn bg-green-500 border-green-600 text-white;
+}
+
+.btn-cancel, .btn-red {
+  @apply btn bg-red-500 border-red-600 text-white;
+}

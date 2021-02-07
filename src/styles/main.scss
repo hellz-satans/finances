@@ -1,0 +1,152 @@
+@import 'packages';
+@import '_variables';
+@import '_colors';
+@import '_components';
+@import '_card';
+
+body {
+    overflow-y: scroll;
+    font: normal 16px/20px sans-serif;
+}
+
+/* set font size so safari does NOT zoom */
+input,
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="text"],
+input[type="time"],
+input[type="email"],
+input[type="number"],
+input[type="datetime"],
+input[type="datetime-local"],
+select:focus,
+textarea {
+  font-size: 16px;
+}
+
+h1 { font-size: 1.30rem; font-weight: 600; }
+h2 { font-size: 1.25rem; font-weight: 600; }
+h3 { font-size: 1.20rem; font-weight: 500; }
+h4 { font-size: 1.15rem; font-weight: 500; }
+h5 { font-size: 1.10rem; font-weight: 500; }
+h6 { font-size: 1.05rem; font-weight: 500; }
+
+a, a:visited { white-space: nowrap; color: $link-color; }
+p { @apply mb-3; }
+ul { list-style: disc; margin-left: 1rem; }
+details { margin: 0.75rem 0.5rem; }
+details summary { cursor: pointer; }
+
+/******* forms *******/
+label { @apply block mb-2 font-medium; }
+
+input:not([type="file"]):not([type="checkbox"])
+{
+  display: block;
+  width: 100%;
+  min-height: 2.5em;
+  background-color: var(--input-bg, #eaeaea);
+  padding: 0.15rem 0.5rem;
+  border: none;
+  border-bottom: 1px solid var(--border-color, #ababab);
+  border-radius: 2px;
+}
+
+.pointer { cursor: pointer; }
+.strike-through, .strike { text-decoration: line-through; }
+
+.semi-bold { font-weight: 500; }
+.bold { font-weight: 600; }
+
+.text-center { text-align: center; }
+.text-left { text-align: right; }
+.text-right { text-align: right; }
+
+.text-xxsmall  { font-size: xx-small; }
+.text-xsmall   { font-size: x-small; }
+.text-small    { font-size: small; }
+.text-medium   { font-size: medium; }
+.text-large    { font-size: large; }
+.text-xlarge   { font-size: x-large; }
+.text-xxlarge  { font-size: xx-large; }
+.text-xxxlarge { font-size: xxx-large; }
+
+/* these sizes are RELATIVE to parent's font size */
+.text-larger  { font-size: larger; }
+.text-smaller { font-size: smaller; }
+
+.title { color: #111 !important; font-size: 1.3rem; font-weight: 600; }
+
+.hidden { display: none; }
+
+/***** positioning *****/
+.left  { float: left; }
+.right { float: right; }
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/***** transitions *****/
+.fade-enter-active {
+  transition: all .3s ease; transition-delay: .3s; }
+.fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.fade-enter, .fade-leave-to { opacity: 0; }
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+  transition-delay: .3s;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translatey(10px);
+  opacity: 0;
+}
+
+.sweep-left-enter-active {
+  transition: all 0.3s ease;
+}
+.sweep-left-leave-active {
+  transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.sweep-left-enter, .sweep-left-leave-to {
+  transform: translatex(100px);
+  opacity: 0;
+}
+
+.rot-90 { transform: rotate(90deg); }
+.rot-180 { transform: rotate(180deg); }
+.rot-270 { transform: rotate(270deg); }
+
+/**
+ * spacings, e.g.:
+ *
+ * * .mr-2: margin-right: 2rem
+ * * .p-1: padding: 2rem
+ *
+ * See:
+ *   + https://sass-lang.com/documentation/file.SASS_REFERENCE.html#for
+ *   + https://sass-lang.com/documentation/Sass/Script/Functions.html#str_slice-instance_method
+ */
+//$spacers: (margin, padding);
+//$sides: (top, right, bottom, left);
+//
+//@each $spacer in $spacers {
+//  @for $space from 0 through 5 {
+//    @each $side in $sides {
+//      .#{str-slice($spacer, 0, 1)}#{str-slice($side, 0, 1)}-#{$space} {
+//        #{$spacer}-#{$side}: #{$space}rem !important;
+//      }
+//    }
+//    .#{str-slice($spacer, 0, 1)}-#{$space} {
+//      #{$spacer}: #{$space}rem !important;
+//    }
+//  }
+//}

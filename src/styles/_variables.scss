@@ -1,0 +1,26 @@
+$default-color-degree: 285;
+
+$default-color:       hsl($default-color-degree, 15%, 90%);
+$default-color-dark:  hsl($default-color-degree, 15%, 80%);
+$default-color-light: hsl($default-color-degree, 15%, 95%);
+
+$link-color: #1e70bf;
+
+$input-bg: $default-color-light;
+
+$border-color: $default-color-dark;
+$border-color-light: $default-color;
+
+$shadow-color: $default-color-light;
+
+:root {
+  --default-color: #{$default-color};
+  --default-color-dark: #{$default-color-dark};
+  --default-color-light: #{$default-color-light};
+
+  --input-bg: #{$input-bg};
+
+  --border-color: #{$border-color};
+  --border-color-light: #{$border-color-light};
+  --shadow-color: #{$shadow-color};
+}

@@ -1,0 +1,24 @@
+#!/bin/sh
+# Publish built application to Github Pages
+
+set -e
+DIST_PATH="dist/my-finances-pwa"
+BRANCH="${1:-master}"
+
+# delete gh-pages branches if the exist
+git branch -D gh-pages || true
+git push origin --delete gh-pages || true
+
+git checkout "$BRANCH"
+npm run build
+
+# push to newly createg gh-pages branch
+git checkout -b gh-pages
+sed -i bak -e "s|${DIST_PATH}|#${DIST_PATH}|" .gitignore
+git add "${DIST_PATH}"
+git commit -m "Build $BRANCH"
+git subtree push --prefix "${DIST_PATH}" origin gh-pages
+
+# switch back to initial branch
+sed -i bak -e "s|#${DIST_PATH}|${DIST_PATH}|" .gitignore
+git checkout "$BRANCH"

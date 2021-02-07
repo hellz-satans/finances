@@ -1,0 +1,326 @@
+{
+	"categories": [
+		{
+			"key": "food",
+			"name": "Food & Drinks",
+			"icon": "utensils",
+			"subcategories": [
+				{
+					"key": "groceries",
+					"name": "Groceries",
+					"icon": "shopping-basket"
+				},
+				{
+					"key": "restaurant",
+					"name": "Restaurant",
+					"icon": "utensils"
+				},
+				{
+					"key": "fastfood",
+					"name": "Fast Food",
+					"icon": "utensils"
+				},
+				{
+					"key": "coffee",
+					"name": "Coffee",
+					"icon": "coffee"
+				},
+				{
+					"key": "bar",
+					"name": "Bar",
+					"icon": "beer"
+				},
+				{
+					"key": "petfood",
+					"name": "Pet Food",
+					"icon": "dog"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "shopping-cart"
+				}
+			]
+		},
+		{
+			"key": "shopping",
+			"name": "Shopping",
+			"icon": "tags",
+			"subcategories": [
+				{
+					"key": "gifts",
+					"name": "Gifts",
+					"icon": "gift"
+				},
+				{
+					"key": "clothes",
+					"name": "Clothes",
+					"icon": "shopping-cart"
+				},
+				{
+					"key": "books",
+					"name": "Books",
+					"icon": "book"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "tag"
+				}
+			]
+		},
+		{
+			"key": "health",
+			"name": "Health & Beauty",
+			"icon": "heartbeat",
+			"subcategories": [
+				{
+					"key": "hospital",
+					"name": "Hospital",
+					"icon": "stethoscope"
+				},
+				{
+					"key": "dentist",
+					"name": "Dentist",
+					"icon": "user-md"
+				},
+				{
+					"key": "medicines",
+					"name": "Medicines",
+					"icon": "pills"
+				},
+				{
+					"key": "gym",
+					"name": "Gym",
+					"icon": "balance-scale"
+				},
+				{
+					"key": "haircut",
+					"name": "Haircut",
+					"icon": "cut"
+				}
+			]
+		},
+		{
+			"key": "hobbies",
+			"name": "Hobbies",
+			"icon": "hiking",
+			"subcategories": [
+				{
+					"key": "movies",
+					"name": "Movies",
+					"icon": "film"
+				},
+				{
+					"key": "nature",
+					"name": "Nature",
+					"icon": "leaf"
+				},
+				{
+					"key": "museums",
+					"name": "Museums",
+					"icon": "university"
+				},
+				{
+					"key": "vacations",
+					"name": "Vacations",
+					"icon": "map"
+				},
+				{
+					"key": "concerts",
+					"name": "Concerts",
+					"icon": "music"
+				},
+				{
+					"key": "sports",
+					"name": "Sports",
+					"icon": "futbol"
+				}
+			]
+		},
+		{
+			"key": "social",
+			"name": "Social",
+			"icon": "users",
+			"subcategories": [
+				{
+					"key": "gathering",
+					"name": "Gathering",
+					"icon": "users"
+				},
+				{
+					"key": "drinks",
+					"name": "Drinks",
+					"icon": "beer"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "street-view"
+				}
+			]
+		},
+		{
+			"key": "household",
+			"name": "Household",
+			"icon": "home",
+			"subcategories": [
+				{
+					"key": "cleaning",
+					"name": "Cleaning Products",
+					"icon": "bath"
+				},
+				{
+					"key": "services",
+					"name": "Basic Services",
+					"icon": "home"
+				},
+				{
+					"key": "rent",
+					"name": "Rent",
+					"icon": "home"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "dollar-sign"
+				}
+			]
+		},
+		{
+			"key": "transport",
+			"name": "Transportation",
+			"icon": "bicycle",
+			"subcategories": [
+				{
+					"key": "taxi",
+					"name": "Taxi",
+					"icon": "taxi"
+				},
+				{
+					"key": "public",
+					"name": "Public Transport",
+					"icon": "subway"
+				},
+				{
+					"key": "flights",
+					"name": "Flights",
+					"icon": "plane"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "car"
+				}
+			]
+		},
+		{
+			"key": "tech",
+			"name": "Technology",
+			"icon": "laptop",
+			"subcategories": [
+				{
+					"key": "hosting",
+					"name": "Hosting",
+					"icon": "hdd"
+				},
+				{
+					"key": "gadgets",
+					"name": "Gadgets",
+					"icon": "phone"
+				},
+				{
+					"key": "videogames",
+					"name": "Videogames",
+					"icon": "gamepad"
+				},
+				{
+					"key": "streaming",
+					"name": "Streaming",
+					"icon": "cloud"
+				},
+				{
+					"key": "software",
+					"name": "Software",
+					"icon": "keyboard"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "save"
+				}
+			]
+		},
+		{
+			"key": "subscriptions",
+			"name": "Subscriptions",
+			"icon": "sync",
+			"subcategories": [
+				{
+					"key": "insurance",
+					"name": "Insurance",
+					"icon": "certificate"
+				},
+				{
+					"key": "streaming",
+					"name": "Streaming",
+					"icon": "tv"
+				},
+				{
+					"key": "donations",
+					"name": "Donations",
+					"icon": "heart"
+				},
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "sync"
+				}
+			]
+		},
+		{
+			"key": "income",
+			"name": "Income",
+			"icon": "dollar-sign",
+			"subcategories": [
+				{
+					"key": "income",
+					"name": "Wage, Invoices",
+					"icon": "dollar-sign"
+				},
+				{
+					"key": "investments",
+					"name": "Interests, Dividends",
+					"icon": "chart-line"
+				},
+				{
+					"key": "presents",
+					"name": "Gifts",
+					"icon": "birthday-cake"
+				},
+				{
+					"key": "rental",
+					"name": "Rental Income",
+					"icon": "building"
+				},
+				{
+					"key": "sales",
+					"name": "Sales",
+					"icon": "handshake"
+				}
+			]
+		},
+		{
+			"key": "other",
+			"name": "Other",
+			"icon": "dollar-sign",
+			"subcategories": [
+				{
+					"key": "other",
+					"name": "Other",
+					"icon": "dollar-sign"
+				}
+			]
+		}
+	]
+}
