@@ -1,12 +1,21 @@
-$tron_black: #0c141f;
-$tron_yellow: #ffe64d;
-$tron_red: #df740c;
-$tron_orange: #f58c4b;
-$tron_green: #00ff00;
-$tron_blue: #6f15cb;
-$tron_magenta: #cb15c9;
-$tron_cyan: #6fc3df;
-$tron_white: #e6ffff;
+$cyan_degree: 195;
+
+$cyan_saturation: 64%;
+
+$cyan_lightness: 65%;
+
+$black: #0c141f;
+$yellow: #ffe64d;
+$red: #df740c;
+$orange: #f58c4b;
+$green: #00ff00;
+$blue: #6f15cb;
+$magenta: #cb15c9;
+$cyan: hsl($cyan_degree, $cyan_saturation, $cyan_lightness);
+$white: #e6ffff;
+
+$bg_dark: #232323;
+$fg_dark: #dedede;
 
 $primary-color-degree: 285;
 
@@ -16,7 +25,8 @@ $primary-color-light: hsl($primary-color-degree, 35%, 50%);
 
 $link-color: #1e70bf;
 
-$input-bg: $primary-color-dark;
+$btn-bg: hsla($cyan_degree, $cyan_saturation, $cyan_lightness, 0.25);
+$input-bg: hsla($cyan_degree, $cyan_saturation, $cyan_lightness, 0.45);
 
 $border-color: $primary-color-dark;
 $border-color-light: $primary-color;
@@ -24,25 +34,25 @@ $border-color-light: $primary-color;
 $shadow-color: $primary-color-light;
 
 :root {
-  --black: #{$tron_black};
-  --yellow: #{$tron_yellow};
-  --red: #{$tron_red};
-  --orange: #{$tron_orange};
-  --green: #{$tron_green};
-  --blue: #{$tron_blue};
-  --magenta: #{$tron_magenta};
-  --cyan: #{$tron_cyan};
-  --white: #{$tron_white};
+  --black: #{$black};
+  --yellow: #{$yellow};
+  --red: #{$red};
+  --orange: #{$orange};
+  --green: #{$green};
+  --blue: #{$blue};
+  --magenta: #{$magenta};
+  --cyan: #{$cyan};
+  --white: #{$white};
 
-  --bg: #232323;
-  --fg: #dedede;
+  --bg: #{$bg_dark};
+  --fg: #{$fg_dark};
   --link-color: var(--yellow);
   --primary-color: #{$primary-color};
   --primary-color-dark: #{$primary-color-dark};
   --primary-color-light: #{$primary-color-light};
 
+  --btn-bg: #{$btn-bg};
   --input-bg: #{$input-bg};
-  --btn-bg-color: #{$primary-color-light};
 
   --border-color: #{$border-color};
   --border-color-light: #{$border-color-light};
@@ -60,7 +70,7 @@ $shadow-color: $primary-color-light;
     --primary-color-light: #{$primary-color-light};
 
     --input-bg: #{$input-bg};
-    --btn-bg-color: #{$primary-color-light};
+    --btn-bg: #{$primary-color-light};
 
     --border-color: #{$border-color};
     --border-color-light: #{$border-color-light};

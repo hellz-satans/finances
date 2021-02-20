@@ -3,7 +3,7 @@
     <select
       @input="$emit('input', $event.target.value)"
       :placeholder="placeholder"
-      class="block appearance-none w-full bg-gray-100 border border-gray-500 p-2 rounded focus:outline-none focus:bg-white focus:border-gray-600"
+      class="block appearance-none w-full p-2 rounded focus:outline-none"
     >
       <option
         v-for="(option, i) in options"
