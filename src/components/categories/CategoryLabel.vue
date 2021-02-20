@@ -1,22 +1,30 @@
 <style lang="scss">
 .category-label {
+  $icon-size: 1.5em;
+
   figure {
-    height:     1.5em;
-    min-width:  1.5em;
-    line-height: 1em;
-    font-size: 2em;
+    font-size: 0.75em;
+    line-height: 1.25em;
+    height: $icon-size;
+    min-width: $icon-size;
     padding-top: 0.25em;
     border-radius: 1em;
     text-align: center;
+
+    .icon {
+      padding: 0.5em;
+    }
   }
 }
 </style>
 
 <template>
   <div class="category-label flex">
+  <!--
     <figure :style="figureStyles">
-      <span>{{ getName(category.subcategory) }}</span>
+      <span class="icon">{{ getName(category.subcategory) }}</span>
     </figure>
+  -->
 
     <div class="flex flex-col justify-start pl-1">
       <span class="text-small leading-tight mb-1">
