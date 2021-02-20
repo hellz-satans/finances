@@ -1,15 +1,23 @@
+<style lang="scss">
+.date-label {
+  cursor: help;
+}
+</style>
+
 <template>
-  <span class="date-label" @click="toggleFormat">
-    <span v-if="format === 'ago'">
-      {{ date }}
-    </span>
-    <span v-else>
-      {{ date }}
-    </span>
-  </span>
+  <time
+    class="date-label"
+    @click="toggleFormat"
+    :title="date.toISOString()"
+    :datetime="date.toISOString()"
+  >
+    {{ label }}
+  </time>
 </template>
 
 <script>
+import { ago } from '@/filters'
+
 export default {
   props: {
     date: { required: true, },
@@ -19,6 +27,16 @@ export default {
     return {
       format: 'ago',
     }
+  },
+
+  computed: {
+    label() {
+      if (this.format === 'ago') {
+        return ago(this.date)
+      }
+
+      return this.date.toISOString()
+    },
   },
 
   methods: {
