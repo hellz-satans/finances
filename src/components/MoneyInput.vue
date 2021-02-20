@@ -5,7 +5,8 @@
       @click="emitSign"
     >{{ (sign > 0) ? '+' : '-' }}</span>
 
-    <input
+    <money
+      v-bind="moneyConf"
       @input="emitValue($event)"
       :value="money"
     />
@@ -13,9 +14,13 @@
 </template>
 
 <script>
-//import { Money } from 'v-money'
+import { Money } from '@/components/v-money'
 
 export default {
+  components: {
+    Money,
+  },
+
   props: {
     value: { type: Number, required: true, default: 0, },
   },
@@ -34,6 +39,9 @@ export default {
 
   methods: {
     emitValue(val) {
+      if (isNaN(val))
+        return undefined
+
       //console.debug('emitValue:', typeof val, val);
       if (val != 0) {
         this.$emit('input', val * this.sign);
@@ -72,8 +80,8 @@ export default {
     margin: 0 2.5%;
     width: 10%;
 
-    &.positive { color: green; }
-    &.negative { color: red; left: 1.75rem; }
+    &.positive { color: var(--green); }
+    &.negative { color: var(--red); left: 1.75rem; }
   }
 
   .v-money {
