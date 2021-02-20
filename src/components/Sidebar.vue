@@ -2,14 +2,19 @@
   <nav class="sidebar">
     <a
       href="#"
-      class="pointer burger text-large mr-1"
+      class="burger"
+      id="navmenu"
+      :data-open="!!visible"
       @click.stop.prevent="visible = !visible"
     >
-      burger
+      <div></div>
+      <span hidden>Menu</span>
+      <div></div>
+      <div></div>
     </a>
 
     <transition name="grow-235">
-      <nav v-if="visible">
+      <nav v-if="visible" aria-labelledby="navmenu">
         <router-link
           v-for="route in routes"
           :key="route.name"
@@ -53,11 +58,46 @@ $border-radius-min: 1em;
 $duration: 0.5s;
 $final-width: 70%;
 
+$burger-width: 1.50rem;
+$burger-line-width: 2px;
+
 .sidebar {
   display: inline-block;
 
   .burger, .burger:visited {
-    color: #000;
+    border: none;
+    color: var(--fg);
+    cursor: pointer;
+    display: inline-block;
+    padding: calc($burger-line-width * 1.5) 0 $burger-line-width;
+  }
+
+  .burger {
+    div {
+      width: $burger-width;
+      height: $burger-line-width;
+      background-color: var(--fg);
+      transition: ease-in-out all 0.2s;
+
+      &:first-child {
+        margin-bottom: ($burger-line-width * 2);
+      }
+      &:last-child {
+        margin-top: ($burger-line-width * 2);
+      }
+    }
+
+    &[data-open="true"] {
+      div {
+        transform: scale(0);
+      }
+      div:first-child {
+        transform: scale(1.1) rotate(45deg) translate(calc(#{$burger-line-width} * 2.5), calc(#{$burger-line-width} * 2.5));
+      }
+      div:last-child {
+        transform: scale(1.1) rotate(-45deg) translate(calc(#{$burger-line-width} * 1), calc(#{$burger-line-width} * -1.5));
+      }
+    }
   }
 
   nav {
