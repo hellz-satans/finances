@@ -19,7 +19,7 @@
     <header class="text-right mb-3 mx-4 text-small">
       <span class="text font-medium green">Income</span>:
       {{ income }},
-      <span class="text font-medium red">Outcome</span>:
+      <span class="text font-medium orange">Outcome</span>:
       {{ outcome }}<br>
       <span class="text font-medium">Total</span>:
       {{ expensesSum }}
@@ -60,20 +60,20 @@
 
         <p class="px-2 text-small">{{ e.description }}</p>
 
-        <div class="actions text-center min-w-1/5">
+        <div class="actions min-w-1/5 text-small">
           <router-link
-            class="text-small"
             :to="'/expense/' + e.id"
           >
             Edit
           </router-link>
 
-          <span
-            class="text-small text-red-500 pointer whitespace-no-wrap"
+          <button
+            href="#"
+            class="red pointer whitespace-no-wrap"
             @click="deleteProxy(e.id)"
           >
             Delete
-          </span>
+          </button>
         </div>
       </div>
     </article>
