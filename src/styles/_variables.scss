@@ -1,17 +1,20 @@
 $cyan_degree: 195;
+$red_degree: 20;
 
 $cyan_saturation: 64%;
+$red_saturation: 100%;
 
 $cyan_lightness: 65%;
+$red_lightness: 46%;
 
 $black: #0c141f;
 $yellow: #ffe64d;
-$red: #df740c;
 $orange: #f58c4b;
 $green: #00ff00;
 $blue: #6f15cb;
 $magenta: #cb15c9;
 $cyan: hsl($cyan_degree, $cyan_saturation, $cyan_lightness);
+$red: hsl($red_degree, $red_saturation, $red_lightness);
 $white: #e6ffff;
 
 $bg_dark: #232323;

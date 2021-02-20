@@ -5,10 +5,11 @@
 @import '_card';
 
 body {
-    overflow-y: scroll;
-    font: normal 16px/20px sans-serif;
-    background-color: var(--bg);
-    color: var(--fg);
+  overflow-y: scroll;
+  font-size: 16px;
+  line-height: 20px;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
 /* set font size so safari does NOT zoom */
@@ -34,7 +35,7 @@ h4 { font-size: 1.15rem; font-weight: 500; }
 h5 { font-size: 1.10rem; font-weight: 500; }
 h6 { font-size: 1.05rem; font-weight: 500; }
 
-a, a:visited { white-space: nowrap; color: var(--link-color); }
+a, a:visited { white-space: nowrap; color: var(--link-color); outline-color: currentColor; }
 p { @apply mb-3; }
 ul { list-style: disc; margin-left: 1rem; }
 details { margin: 0.75rem 0.5rem; }
@@ -54,6 +55,13 @@ select
   border: none;
   border-bottom: 1px solid var(--border-color, #ababab);
   border-radius: 2px;
+}
+
+select option,
+select option:focus
+{
+  background-color: var(--input-bg);
+  color: var(--bg);
 }
 
 .pointer { cursor: pointer; }
