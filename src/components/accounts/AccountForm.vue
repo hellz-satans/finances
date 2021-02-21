@@ -48,7 +48,13 @@
     <div class="w-full">
       <label class="block font-semibold" for="account_color">Color</label>
       <div class="mt-2">
-        <span>color-picker</span>
+        <v-swatches
+          @input="color = $event"
+          inline
+          shapes="circles"
+          :swatches="colorList"
+          background-color="transparent"
+        />
       </div>
     </div>
 
@@ -62,6 +68,7 @@
 
 <script>
 import { mapActions, mapState } from 'vuex';
+import VSwatches from 'vue-swatches/src/VSwatches.vue';
 import MoneyInput from '@/components/MoneyInput.vue'
 import { colors as COLORS, primary as primaryColor } from '@/config/colors';
 
@@ -70,6 +77,7 @@ export default {
 
   components: {
     MoneyInput,
+    VSwatches,
   },
 
   data() {
