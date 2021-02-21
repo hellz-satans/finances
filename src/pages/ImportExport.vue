@@ -21,7 +21,7 @@
           type="button"
           @click.prevent.stop="readData"
         >
-          <span class="icon">upload</span>
+          <span class="icon">&#128193;</span>
           Upload
         </button>
       </footer>
@@ -57,7 +57,7 @@
           @click.prevent.stop="exportData()"
           class="mr-4"
         >
-          <span class="icon">download</span>
+          <span class="icon">&#128190;</span>
           As .json
         </button>
 
@@ -65,7 +65,7 @@
           type="button"
           @click.prevent.stop="exportData('txt')"
         >
-          <span class="icon">download</span>
+          <span class="icon">&#128190;</span>
           As .txt
         </button>
       </footer>
@@ -85,7 +85,7 @@
           type="button"
           @click.prevent.stop="seedData"
         >
-          <span class="icon">cogs</span>
+          <span class="icon">&#9881;</span>
           Seed
         </button>
       </footer>
@@ -108,7 +108,7 @@
           type="button"
           @click.prevent.stop="deleteData"
         >
-          <span class="icon">trash</span>
+          <span class="icon">&#128465;</span>
           Destroy
         </button>
       </footer>
