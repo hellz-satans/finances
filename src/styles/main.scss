@@ -87,6 +87,8 @@ select option:focus
 .text-larger  { font-size: larger; }
 .text-smaller { font-size: smaller; }
 
+.mirror { rotate: 90deg; }
+
 .title { color: var(--fg) !important; font-size: 1.3rem; font-weight: 600; }
 
 .hidden { display: none; }

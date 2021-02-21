@@ -23,7 +23,7 @@
       to="/preference/goal"
     >
       Edit goal &nbsp;
-      <span class="icon">edit</span>
+      <span class="icon inline-block mirror">&#9999;</span>
     </router-link>
   </section>
 </template>

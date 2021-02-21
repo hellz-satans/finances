@@ -14,17 +14,17 @@
 
     <nav v-if="currentRoute == 'home'">
       <router-link
-        class="expense-form-button text-white bg-green-500"
+        class="expense-form-button text-white bg-green-500 text-large"
         to="/expense/new"
       >
-        <span class="icon">+</span>
+        +
       </router-link>
 
       <router-link
-        class="transfer-form-button text-white bg-blue-500"
+        class="transfer-form-button text-white bg-blue-500 text-large"
         to="/transfer"
       >
-        <span class="icon">transfer</span>
+        &#8644;
       </router-link>
     </nav>
 

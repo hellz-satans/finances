@@ -61,9 +61,7 @@
         <p class="px-2 text-small">{{ e.description }}</p>
 
         <div class="actions min-w-1/5 text-small">
-          <router-link
-            :to="'/expense/' + e.id"
-          >
+          <router-link class="inline-block mr-1" :to="`/expense/${e.id}`">
             Edit
           </router-link>
 

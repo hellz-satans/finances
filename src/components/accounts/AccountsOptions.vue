@@ -13,6 +13,10 @@
       min-width: 5em;
       border-radius: 6px;
       margin: 0 0.5em;
+      padding: 0 0.25rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
     }
   }
 </style>
@@ -24,8 +28,8 @@
       class="account-option"
       v-for="acc in filteredAccounts"
       :key="acc.key"
-      @click="$emit('input', acc.key)"
       :style="accountButtonStyles(acc)"
+      @click="$emit('input', acc.key)"
     >
       {{ acc.name }}
     </button>

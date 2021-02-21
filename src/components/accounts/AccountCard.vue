@@ -5,17 +5,15 @@
 
       <span class="card-actions">
         <span
-          class="icon right floated text-small mr-1 text-white"
+          class="icon right floated text-small mr-1"
           @click="deleteAccountProxy(account)"
         >
           X
         </span>
 
-        <router-link
-          :to="'/account/' + account.key"
-        >
-          <span class="icon right floated text-small mr-3 text-white">
-            edit
+        <router-link :to="accountUrl">
+          <span class="icon right floated text-small mr-3 inline-block mirror">
+            &#9999;
           </span>
         </router-link>
       </span>
@@ -26,12 +24,10 @@
     </section>
 
     <footer class="m-0 text-smaller text-right">
-      <span class="pointer" @click="toggleIncludeAccount(account.key)">
-        <span class="icon right floated mt-1 ml-1 text-small">
-          {{ account.includeInSummary ? 'O' : 'X' }}
-        </span>
+      <label>
         Include in balance?
-      </span>
+        <input type="checkbox" v-model="account.includeInSummary" />
+      </label>
     </footer>
   </article>
 </template>
@@ -60,6 +56,10 @@ export default {
 
       return str
     },
+
+    accountUrl(account) {
+      return `/account/${this.account.key}`
+    },
   },
 
   methods: {
@@ -73,6 +73,12 @@ export default {
       if (window.confirm('Are you sure?')) {
         this.deleteAccount(account)
       }
+    },
+  },
+
+  watch: {
+    account(newAccount, oldAccount) {
+      this.toggleIncludeAccount(newAccount.key)
     },
   },
 }
