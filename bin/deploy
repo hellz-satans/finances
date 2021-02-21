@@ -2,7 +2,7 @@
 # Publish built application to Github Pages
 
 set -e
-DIST_PATH="dist/my-finances-pwa"
+DIST_PATH="dist/finances"
 BRANCH="${1:-master}"
 
 # delete gh-pages branches if the exist
@@ -10,7 +10,7 @@ git branch -D gh-pages || true
 git push origin --delete gh-pages || true
 
 git checkout "$BRANCH"
-npm run build
+yarn build
 
 # push to newly createg gh-pages branch
 git checkout -b gh-pages

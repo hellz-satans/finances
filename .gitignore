@@ -1,7 +1,6 @@
 node_modules
 .DS_Store
-dist
-dist-ssr
+dist/finances
 *.local
 # vim swap files
 .*.swp

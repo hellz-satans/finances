@@ -10,5 +10,9 @@ export default {
     { find: '@', replacement: path.resolve(__dirname, 'src') },
   ],
 
+  build: {
+    outDir: 'dist/finances',
+  },
+
   plugins: [vue()],
 }
