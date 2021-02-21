@@ -3,6 +3,7 @@
     <span
       :class="{ 'sign': true, positive: sign > 0, negative: sign < 0 }"
       @click="emitSign"
+      v-if="!hideSign"
     >{{ (sign > 0) ? '+' : '-' }}</span>
 
     <money
@@ -23,6 +24,7 @@ export default {
 
   props: {
     value: { type: Number, required: true, default: 0, },
+    hideSign: { type: Boolean, default: false, },
   },
 
   data() {

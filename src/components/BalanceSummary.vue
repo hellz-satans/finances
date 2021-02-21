@@ -20,7 +20,7 @@
 
     <router-link
       class="text-small rounded inline-block py-1 px-3 m-2"
-      to="/preference/goal"
+      to="/preference/goal?type=money"
     >
       Edit goal &nbsp;
       <span class="icon inline-block mirror">&#9999;</span>

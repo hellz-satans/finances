@@ -12,10 +12,18 @@
       >
         {{ key }}
       </label>
+      <money-input
+        name="preferenceKey"
+        v-if="type === 'money'"
+        v-model.lazy="value"
+        :value="value"
+        :hide-sign="true"
+      />
       <input
+        v-else
+        :type="type"
         id="preferenceKey"
         name="preferenceKey"
-        class="shadow appearance-none border border-gray-400 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         required
         v-model="value"
       />
@@ -32,9 +40,16 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import MoneyInput from '@/components/MoneyInput.vue'
+
+const ALLOWED_TYPES = ['money', 'number', 'text']
 
 export default {
   name: 'PreferenceForm',
+
+  components: {
+    MoneyInput,
+  },
 
   data() {
     return {
@@ -60,19 +75,25 @@ export default {
 
   computed: {
     ... mapState('preferences', [ 'preferences', ]),
+
+    type() {
+      const idx = ALLOWED_TYPES.findIndex(el => el === this.$route?.query.type)
+
+      if (idx === -1)
+        return 'text'
+
+      return ALLOWED_TYPES[idx]
+    },
   },
 
   mounted() {
-    // give the browser time to load preferences
-    window.setTimeout((ev) => {
-      this.key = this.$route.params.key;
+    this.key = this.$route.params.key;
 
-      if (this.preferences[this.key]) {
-        this.value = this.preferences[this.key];
-      }
+    if (this.preferences[this.key]) {
+      this.value = this.preferences[this.key];
+    }
 
-      this.loaded = true;
-    }, 600);
+    this.loaded = true;
   },
 }
 </script>
