@@ -16,6 +16,7 @@
     "validate.js": "^0.13.1",
     "vue": "^3.0.5",
     "vue-router": "4",
+    "vue-swatches": "hellz-satans/vue-swatches",
     "vuex": "^4.0.0"
   },
   "devDependencies": {

@@ -1076,6 +1076,10 @@ vue-router@4:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.3.tgz#8b26050c88b2dec7e27a88835f71046b365823ec"
   integrity sha512-AD1OjtVPyQHTSpoRsEGfPpxRQwhAhxcacOYO3zJ3KNkYP/r09mileSp6kdMQKhZWP2cFsPR3E2M3PZguSN5/ww==
 
+vue-swatches@hellz-satans/vue-swatches:
+  version "2.1.0"
+  resolved "https://codeload.github.com/hellz-satans/vue-swatches/tar.gz/73863234408479121261ffadb5a40a3260649e42"
+
 vue@^3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.5.tgz#de1b82eba24abfe71e0970fc9b8d4b2babdc3fe1"

@@ -5,10 +5,10 @@
 
       <span class="card-actions">
         <span
-          class="icon right floated text-small mr-1"
+          class="icon right floated text-xlarge mr-1 pointer"
           @click="deleteAccountProxy(account)"
         >
-          X
+          &#215;
         </span>
 
         <router-link :to="accountUrl">

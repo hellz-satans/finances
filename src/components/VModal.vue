@@ -3,23 +3,39 @@
  *
  * Original: https://github.com/vuetailwind/components/blob/13ee91518e5af15d49df0193b07c441d72c23a10/modal/with-header-and-close-button/v-modal.vue
  */
+<style lang="scss">
+.v-modal {
+  .container {
+    box-shadow: 0 0 0.3em 0.05em var(--shadow-color, #bbbbbb);
+  }
+
+  header {
+    background-color: var(--bg-dark);
+  }
+
+  section {
+    background-color: var(--bg);
+  }
+}
+</style>
+
 <template>
   <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center z-10" v-if="open">
-    <div class="absolute w-full h-full bg-gray-900 opacity-50" @click="close"></div>
+    <div class="absolute w-full h-full" @click="close"></div>
 
-    <div class="absolute max-h-full" :class="maxWidth">
-      <div class="container bg-white overflow-hidden md:rounded">
-        <div
-          class="px-4 py-4 leading-none flex justify-between items-center font-medium text-sm bg-gray-100 border-b select-none">
+    <div class="absolute max-h-full v-modal p-4" :class="maxWidth">
+      <div class="container overflow-hidden rounded">
+        <header
+          class="px-4 py-4 leading-none flex justify-between items-center font-medium text-sm border-b select-none">
           <h3>{{ title }}</h3>
-          <div @click="close" class="text-2xl hover:text-gray-600 cursor-pointer">
+          <div @click="close" class="text-2xl cursor-pointer">
             &#215;
           </div>
-        </div>
+        </header>
 
-        <div class="max-h-full px-4 py-4">
+        <section class="max-h-full px-4 py-4">
           <slot></slot>
-        </div>
+        </section>
       </div>
     </div>
   </div>

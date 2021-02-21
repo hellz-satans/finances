@@ -1,7 +1,7 @@
 <template>
   <div class="color-picker">
     <div class="toggler" @click.stop.prevent="isOpen = true">
-      <span class="icon">eye-dropper</span>
+      Change color
     </div>
 
     <v-modal
@@ -15,6 +15,7 @@
           inline
           shapes="circles"
           :swatches="colorList"
+          background-color="transparent"
         />
       </div>
 
@@ -23,7 +24,7 @@
       <div class="actions text-right">
         <button
           type="button"
-          class="text-gray-700 py-2 px-4 hover:underline"
+          class="py-2 px-4 hover:underline"
           @click.prevent.stop="isOpen = false"
         >
           Close
@@ -35,10 +36,12 @@
 
 <script>
 import VModal from '@/components/VModal.vue';
-import VSwatches from 'vue-swatches';
-import COLORS    from '@/config/colors';
+import VSwatches from 'vue-swatches/src/VSwatches.vue';
+import colors from '@/config/colors';
 
 export default {
+  name: 'ColorPickerModal',
+
   components: {
     VModal,
     VSwatches,
@@ -51,7 +54,7 @@ export default {
   },
 
   computed: {
-    colorList() { return COLORS; },
+    colorList() { return colors; },
   },
 }
 </script>

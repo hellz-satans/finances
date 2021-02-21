@@ -49,7 +49,10 @@
 
     <article :style="previewStyle" class="category-preview card pt-0 pb-6">
       <header class="justify-end m-0 mt-2 mr-4 p-0">
-        <span>&lt;color-picker&gt;</span>
+        <color-picker-modal
+          class="inline-block"
+          @input="setColor($event)"
+        />
       </header>
 
       <section class="icon-cat-subcat">
@@ -88,7 +91,7 @@
 
 <script>
 import { mapActions, mapState, mapGetters } from 'vuex'
-//import ColorPickerModal from '@/components/ColorPickerModal.vue'
+import ColorPickerModal from '@/components/ColorPickerModal.vue'
 import IconPickerModal from '@/components/IconPickerModal.vue'
 import DeleteCategoryButton from '@/components/categories/DeleteCategoryButton.vue'
 import CategoryPicker from '@/components/categories/CategoryPicker.vue'
@@ -106,6 +109,7 @@ export default {
 
   components: {
     CategoryPicker,
+    ColorPickerModal,
     DeleteCategoryButton,
     IconPickerModal,
   },
