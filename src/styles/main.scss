@@ -30,10 +30,10 @@ textarea {
 
 h1 { font-size: 1.30rem; font-weight: 600; }
 h2 { font-size: 1.25rem; font-weight: 600; }
-h3 { font-size: 1.20rem; font-weight: 500; }
-h4 { font-size: 1.15rem; font-weight: 500; }
-h5 { font-size: 1.10rem; font-weight: 500; }
-h6 { font-size: 1.05rem; font-weight: 500; }
+h3 { font-size: 1.20rem; font-weight: 600; }
+h4 { font-size: 1.15rem; font-weight: 600; }
+h5 { font-size: 1.10rem; font-weight: 600; }
+h6 { font-size: 1.05rem; font-weight: 600; }
 
 a, a:visited { white-space: nowrap; color: var(--link-color); outline-color: currentColor; }
 p { @apply mb-3; }

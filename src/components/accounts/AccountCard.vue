@@ -20,7 +20,7 @@
     </header>
 
     <section class="m-0 p-0">
-      <h3 class="balance">{{ account.balance }}</h3>
+      <h3 class="balance">{{ balance }}</h3>
     </section>
 
     <footer class="m-0 text-smaller text-right">
@@ -34,6 +34,7 @@
 
 <script>
 import { mapActions, mapGetters, mapState } from 'vuex'
+import { currency } from '@/filters'
 
 export default {
   props: {
@@ -59,6 +60,10 @@ export default {
 
     accountUrl(account) {
       return `/account/${this.account.key}`
+    },
+
+    balance() {
+      return currency(this.account.balance)
     },
   },
 
