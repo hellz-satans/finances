@@ -69,17 +69,17 @@ $shadow-color: $primary-color-light;
     --bg: #ffffff;
     --bg-dark: #dddddd;
     --fg: #000000;
-    --link-color: #2222f0;
+    --link-color: #1e70bf;
 
     --primary-color: #{$primary-color};
     --primary-color-dark: #{$primary-color-dark};
     --primary-color-light: #{$primary-color-light};
 
-    --input-bg: #{$input-bg};
-    --btn-bg: #{$primary-color-light};
+    --input-bg: #{hsla($cyan_degree, $cyan_saturation, $cyan_lightness, 0.15)};
+    --btn-bg: #{$btn-bg};
 
     --border-color: #{$border-color};
     --border-color-light: #{$border-color-light};
-    --shadow-color: #{$shadow-color};
+    --shadow-color: #{$btn-bg};
   }
 }
