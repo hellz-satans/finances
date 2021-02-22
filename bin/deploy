@@ -10,7 +10,7 @@ git branch -D gh-pages || true
 git push origin --delete gh-pages || true
 
 git checkout "$BRANCH"
-yarn build
+yarn build --base="${DIST_PATH#dist}/"
 
 # push to newly createg gh-pages branch
 git checkout -b gh-pages

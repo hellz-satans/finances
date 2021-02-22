@@ -31,7 +31,7 @@
 
     <article
       class="expense-entry"
-      v-for="(e, idx) in expenses"
+      v-for="(e, idx) in paginatedExpenses"
       :key="e.id"
       :style="entryStyles(e)"
     >
@@ -165,7 +165,7 @@ export default {
 
     paginatedExpenses() {
       return this.expenses
-        .slice(0, upTo)
+        .slice(0, this.upTo)
     },
   },
 

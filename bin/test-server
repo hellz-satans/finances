@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exec docker run \
+    --rm \
+    --name finances_test \
+    --publish 8000:80 \
+    -v $PWD/dist:/usr/share/nginx/html:ro \
+    nginx
