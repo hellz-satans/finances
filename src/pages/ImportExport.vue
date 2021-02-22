@@ -106,7 +106,7 @@
       <footer class="justify-center text-white bg-red-500 border border-red-600">
         <button
           type="button"
-          @click.prevent.stop="deleteData"
+          @click.prevent.stop="confirmDelete"
         >
           <span class="icon">&#128465;</span>
           Destroy
@@ -123,7 +123,20 @@ export default {
   methods: {
     ... mapActions([ 'deleteData', 'exportData', 'importData', 'seedData' ]),
     handleFile(ev) {
-      console.debug("handleFile: ev", ev)
+      if (this.$refs.importFile.files.length > 0) {
+        const reader = new FileReader()
+
+          reader.addEventListener('load', (ev) => {
+            const data = JSON.parse(ev.target.result)
+              this.importData(data)
+          })
+
+        reader.readAsBinaryString(this.$refs.importFile.files.item(0))
+      }
+    },
+
+    confirmDelete() {
+      window.confirm('Are you sure?') && this.deleteData()
     },
   }
 }

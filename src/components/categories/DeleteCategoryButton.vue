@@ -4,7 +4,7 @@
     type="button"
     @click.stop.prevent="confirmDelete"
   >
-    <span class="icon">trash</span>
+    <span class="icon">&#128465;</span>
   </button>
 </template>
 

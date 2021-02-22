@@ -181,6 +181,7 @@ const AccountsStore = {
 		},
 
 		deleteAll({ dispatch }) {
+      console.warn('Accounts: deleting...')
 			db.accounts
 				.toArray()
 				.then((arr) => {

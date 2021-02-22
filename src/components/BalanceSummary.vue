@@ -2,19 +2,19 @@
   <section class="balance-summary text-right m-3">
     <p :class="cssClasses">
       <span class="inline-block mb-1 hidden">Balance:</span>
-      <span class="text-xxlarge">{{ totalBalance }}</span>
+      <span class="text-xxlarge">{{ currency(totalBalance) }}</span>
     </p>
 
     <p class="balance-summary__goal">
       Goal:
-      <span class="text-large">{{ goal }}</span>
+      <span class="text-large">{{ currency(goal) }}</span>
     </p>
 
     <span>Week:</span>
-    <span class="font-medium">{{ expensesPastWeek }}</span>
+    <span class="font-medium">{{ currency(expensesPastWeek) }}</span>
     <br>
     <span>Month:</span>
-    <span class="font-medium">{{ expensesPastMonth }}</span>
+    <span class="font-medium">{{ currency(expensesPastMonth) }}</span>
 
     <br />
 
@@ -30,6 +30,7 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+import { currency } from '@/filters'
 
 export default {
   name: 'BalanceSummary',
@@ -61,6 +62,10 @@ export default {
     goal() {
       return this.preferences.goal || 0;
     },
+  },
+
+  methods: {
+    currency: currency,
   },
 }
 </script>

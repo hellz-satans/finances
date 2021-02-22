@@ -7,7 +7,6 @@
 <template>
   <time
     class="date-label"
-    @click="toggleFormat"
     :title="date.toISOString()"
     :datetime="date.toISOString()"
   >

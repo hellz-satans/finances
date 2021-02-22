@@ -18,11 +18,11 @@
   <section class="expenses-list">
     <header class="text-right mb-3 mx-4 text-small">
       <span class="text font-medium green">Income</span>:
-      {{ income }},
+      {{ currency(income) }},
       <span class="text font-medium orange">Outcome</span>:
-      {{ outcome }}<br>
+      {{ currency(outcome) }}<br>
       <span class="text font-medium">Total</span>:
-      {{ expensesSum }}
+      {{ currency(expensesSum) }}
     </header>
 
     <h2 class="text-center" v-if="expenses.length === 0">
@@ -91,6 +91,7 @@
 
 <script>
 import { mapActions, mapState, mapGetters } from 'vuex';
+import { currency } from '@/filters';
 import { expensesSum } from '@/stores/filters';
 import AccountLabel from '@/components/accounts/AccountLabel.vue'
 import CategoryLabel from '@/components/categories/CategoryLabel.vue'
@@ -118,12 +119,14 @@ export default {
   methods: {
     ... mapActions('expenses', [ 'editExpense', 'deleteExpense' ]),
 
+    currency: currency,
+
     entryStyles(exp) {
       let styles = {},
         cat = this.categoriesCache[exp.subcategory];
       let str = '';
 
-      if (!cat) cat = this.categoriesCache[this.category];
+      if (!cat) cat = this.categoriesCache[exp.category];
       if (cat) styles['border-left'] = `5px solid ${cat.color}`;
 
       for (const k in styles)

@@ -46,7 +46,7 @@ import Loader  from '@/components/Loader.vue'
 import Sidebar from '@/components/Sidebar.vue'
 
 // NOTE: this should be relative to <loader>'s animation duration
-const INITIAL_LOAD_TIMEOUT = 2600;
+const INITIAL_LOAD_TIMEOUT = 600;
 
 export default {
   components: {

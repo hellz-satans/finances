@@ -33,6 +33,7 @@ export const store = createStore({
 		 * @return void
 		 */
 		deleteData({ dispatch }) {
+      console.warn('Deleting data...')
 			dispatch('accounts/deleteAll')
 			dispatch('expenses/deleteAll')
 		},

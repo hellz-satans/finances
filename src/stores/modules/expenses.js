@@ -137,6 +137,8 @@ export const ExpensesStore = {
     },
 
     deleteAll({ dispatch }) {
+      console.warn('Expenses: deleting...')
+
       db.expenses
         .toArray()
         .then((arr) => {
@@ -169,7 +171,7 @@ export const ExpensesStore = {
             // convert newData's date to dayjs instance
             exp.date = dayjs(exp.date)
 
-            // compare price & dayjs's dates
+            // compare price & dayjs' dates
             exists = arr.some((el) => el.price == exp.price && exp.date.isSame(el.date))
 
             if (!exists) {
