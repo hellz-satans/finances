@@ -83,7 +83,9 @@ export default {
 
   watch: {
     account(newAccount, oldAccount) {
-      this.toggleIncludeAccount(newAccount.key)
+      if (newAccount.includeInSummary != oldAccount.includeInSummary) {
+        this.toggleIncludeAccount(newAccount.key)
+      }
     },
   },
 }
