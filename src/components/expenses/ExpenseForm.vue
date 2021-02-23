@@ -9,7 +9,7 @@
       <money-input
         v-model.lazy="price"
         :value="price"
-      ></money-input>
+      />
       <p v-for="(err, i) in expenseErrors.price" :key="i" class="red text">
         {{ err }}
       </p>
@@ -77,10 +77,9 @@
     </div>
 
     <footer class="text-right w-full mt-4">
-      <button
-        type="submit"
-        class="btn-submit"
-      >{{ action }}</button>
+      <button type="submit" class="btn-submit">
+        Save
+      </button>
     </footer>
   </form>
 </template>
@@ -133,10 +132,6 @@ export default {
 
     subcategoryOptions() {
       return this.categorySubcategories(this.category.key);
-    },
-
-    action() {
-      return this.id ? 'Update' : 'Save'
     },
   },
 

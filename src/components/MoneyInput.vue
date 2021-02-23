@@ -41,12 +41,13 @@ export default {
 
   methods: {
     emitValue(val) {
-      if (isNaN(val))
+      if (isNaN(val)) {
         return undefined
+      }
 
       //console.debug('emitValue:', typeof val, val);
       if (val != 0) {
-        this.$emit('input', val * this.sign);
+        this.$emit('update:modelValue', val * this.sign);
         this.money = val;
       } else {
         this.$emit('input', 0);
