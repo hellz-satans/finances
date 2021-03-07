@@ -26,7 +26,11 @@
     <footer class="m-0 text-smaller text-right">
       <label>
         Include in balance?
-        <input type="checkbox" v-model="account.includeInSummary" />
+        <input
+          type="checkbox"
+          :checked="account.includeInSummary"
+          @change="toggleIncludeAccount(account.key)"
+        />
       </label>
     </footer>
   </article>
@@ -77,14 +81,6 @@ export default {
     deleteAccountProxy(account) {
       if (window.confirm('Are you sure?')) {
         this.deleteAccount(account)
-      }
-    },
-  },
-
-  watch: {
-    account(newAccount, oldAccount) {
-      if (newAccount.includeInSummary != oldAccount.includeInSummary) {
-        this.toggleIncludeAccount(newAccount.key)
       }
     },
   },
