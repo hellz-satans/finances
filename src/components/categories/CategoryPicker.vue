@@ -14,7 +14,7 @@
 
     <div
       v-if="open"
-      class="w-full flex flex-row flex-wrap bg-white absolute origin-top-right rounded-md shadow-xl z-10 border border-gray-600"
+      class="category-picker__options w-full flex flex-row flex-wrap absolute origin-top-right rounded-md shadow-xl z-10 border border-gray-600"
     >
       <div
         v-for="(opt, i) in options"
@@ -63,6 +63,10 @@ export default {
 .category-picker {
   > button {
     min-height: 4em;
+  }
+
+  &__options {
+    background-color: var(--bg-dark);
   }
 }
 </style>
