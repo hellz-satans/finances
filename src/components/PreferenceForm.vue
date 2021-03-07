@@ -63,7 +63,7 @@ export default {
     ... mapActions('preferences', [ 'submitPreference', ]),
 
     submitForm() {
-      this.submitPreference({ key: this.key, value: this.value })
+      this.submitPreference({ key: this.key, value: this.processedValue })
         .then((n) => {
           // if we hit save but not change the value (update action), n = 0
           if (n >= 0) {
@@ -75,6 +75,18 @@ export default {
 
   computed: {
     ... mapState('preferences', [ 'preferences', ]),
+
+    processedValue() {
+      switch (this.type) {
+        case 'number':
+          return Number(this.value)
+        case 'money':
+          return Math.abs(this.value)
+        case 'text':
+        default:
+          return this.value
+      }
+    },
 
     type() {
       const idx = ALLOWED_TYPES.findIndex(el => el === this.$route?.query.type)
