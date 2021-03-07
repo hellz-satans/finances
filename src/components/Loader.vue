@@ -1,6 +1,11 @@
 <template>
   <div class="loader">
-    <span>loading...</span>
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+      <div class="spinner"></div>
+    </div>
+    <p>my<br>expenses</p>
   </div>
 </template>
 
@@ -27,42 +32,47 @@ $duration: 1s;
   align-items: center;
   justify-content: center;
 
-  &-bill {
+  .spinner-container {
     position: absolute;
-    font-size: 2em;
-    color: #333;
-    opacity: 0;
-    animation: fall $duration ease-in 0.3s $animation-count;
-
-    &:nth-child(2) { animation-delay: 0.6s; }
-    &:nth-child(3) { animation-delay: 0.8s; }
+    top: 50%;
+    left: 50%;
   }
 
-  &-wallet {
-    color: #222;
-
-    width: 50%;
-    margin: 0;
-    text-align: center;
-    animation: mf ($duration * 1.1) $duration $animation-count;
+  .spinner {
+    border: 3px solid transparent;
     position: absolute;
-    font-size: 6em;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: sp1n linear $animation-count;
+
+    &:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      border-top-color: var(--link-color);
+      border-bottom-color: var(--link-color);
+      animation-duration: 1.5s;
+    }
+    &:nth-child(2) {
+      width: 120px;
+      height: 120px;
+      border-top-color: var(--link-color);
+      border-bottom-color: var(--link-color);
+      animation-duration: 2s;
+    }
+    &:nth-child(3) {
+      width: 140px;
+      height: 140px;
+      border-left-color: var(--link-color);
+      border-right-color: var(--link-color);
+      animation-duration: 2.5s;
+    }
   }
 }
 
-@keyframes mf {
-  00%  { transform: scale(1.0); }
-  60%  { transform: scale(1.2); }
-  66%  { transform: scale(1.0); }
-  72%  { transform: scale(1.3); }
-  80%  { transform: scale(1.0); }
-}
-
-@keyframes fall {
-  0%   { opacity: 0.0;  top: 0%;  transform: rotate(0deg); }
-  10%  { opacity: 0.25; }
-  30%  { opacity: 1.00; }
-  80%  { opacity: 0.75; }
-  100% { top: 50%; transform: rotate(360deg); }
+@keyframes sp1n {
+  0%  { transform: translate(-50%, -50%) rotate(0deg); }
+  100%  { transform: translate(-50%, -50%) rotate(360deg); }
 }
 </style>

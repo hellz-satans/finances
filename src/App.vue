@@ -31,7 +31,7 @@
     <router-view></router-view>
   </section>
 
-  <footer class="py-2 border-t-2 border-grey-900">
+  <footer class="py-2 border-t-2 border-grey-900" v-if="!isLoading">
     <p class="text-center text-small mb-0">
       {{ NAME }} <strong>v{{ VERSION }}</strong>
     </p>
@@ -45,8 +45,8 @@ import { NAME, VERSION } from '@/config/application_properties'
 import Loader  from '@/components/Loader.vue'
 import Sidebar from '@/components/Sidebar.vue'
 
-// NOTE: this should be relative to <loader>'s animation duration
-const INITIAL_LOAD_TIMEOUT = 600;
+// NOTE: this SHOULD be relative to <loader>'s animation duration
+const INITIAL_LOAD_TIMEOUT = 1700;
 
 export default {
   components: {
@@ -76,7 +76,7 @@ export default {
     this.$store.commit('preferences/getPreferences');
     this.$store.commit('expenses/getExpenses');
 
-    window.setTimeout((ev) => this.isLoading = false, INITIAL_LOAD_TIMEOUT);
+    window.setTimeout((ev) => this.isLoading = false, INITIAL_LOAD_TIMEOUT)
   },
 }
 </script>
