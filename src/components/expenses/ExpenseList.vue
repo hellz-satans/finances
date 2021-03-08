@@ -42,7 +42,7 @@
 
         <div class="flex flex-col justify-between text-center">
           <div class="text-large">
-            {{ e.price }}
+            {{ currency(e.price) }}
           </div>
           <div>
             <account-label

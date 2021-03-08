@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss">
+// styles gotten from: https://codepen.io/bojidar-bg/pen/gWqrym
 $animation-count: infinite;
 $duration: 1s;
 
