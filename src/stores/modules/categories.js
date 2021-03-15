@@ -115,6 +115,11 @@ const CategoriesStore = {
         : category;
     },
 
+    deleteAll({ commit, state }, input) {
+      console.warn('Categories: deleting...')
+			db.categories.clear()
+    },
+
     async deleteCategory({ commit, state }, input) {
       const count = await CategoriesService.deleteCategory(input);
       console.info(`Deleted ${count} categories`);
