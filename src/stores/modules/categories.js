@@ -5,7 +5,7 @@ import COLORS from '@/config/colors';
 
 const DEFAULT_VALUES = {
   color: '#455A64',
-  icon:  'dollar-sign',
+  icon:  '💵',
 };
 const OTHER_CATEGORY = {
   color: DEFAULT_VALUES.color,

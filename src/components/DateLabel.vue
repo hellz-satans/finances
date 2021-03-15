@@ -9,6 +9,7 @@
     class="date-label"
     :title="date.toISOString()"
     :datetime="date.toISOString()"
+    @click="toggleFormat"
   >
     {{ label }}
   </time>

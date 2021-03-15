@@ -7,7 +7,7 @@
       :disabled="disabled"
       @click="open = !open"
     >
-      <!--<div><span class="icon">{{ category.icon }}</span></div>-->
+      <div><span class="icon">{{ category.icon }}</span></div>
       <div v-if="category.name">{{ category.name }}</div>
       <div class="min-w-1/3 border-b-2" v-else>&nbsp;</div>
     </button>
@@ -23,7 +23,7 @@
         :style="'background:' + (opt.color || 'var(--default-color-dark, #666)')"
         class="category-option text-white rounded m-1 border border-gray-400 pointer p-2 shadow-2xl"
       >
-        <!--<span class="icon">{{ opt.icon }}</span>-->
+        <span class="icon">{{ opt.icon }}</span>
         {{ opt.name }}
       </div>
     </div>

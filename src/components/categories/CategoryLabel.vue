@@ -20,11 +20,9 @@
 
 <template>
   <div class="category-label flex">
-  <!--
     <figure :style="figureStyles">
-      <span class="icon">{{ getName(category.subcategory) }}</span>
+      <span class="icon">{{ getIcon(category.subcategory) }}</span>
     </figure>
-  -->
 
     <div class="flex flex-col justify-start pl-1">
       <span class="text-small leading-tight mb-1">
@@ -42,6 +40,8 @@
 import { mapState } from 'vuex'
 
 export default {
+  name: 'CategoryLabel',
+
   props: {
     category: { required: true, type: Object, },
   },
@@ -103,15 +103,13 @@ export default {
      * @return String
      */
     getIcon(key = '') {
-      let cat = this.cache[key];
-      const arr = [ 'fas', ];
+      let cat = this.cache[key]
+      let icon = '💵'
 
-      if (!cat)
-        arr.push('dollar-sign');
-      else
-        arr.push(cat.icon);
+      if (cat)
+        icon = cat.icon
 
-      return arr;
+      return icon
     },
   },
 }

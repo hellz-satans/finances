@@ -3,322 +3,327 @@
 		{
 			"key": "food",
 			"name": "Food & Drinks",
-			"icon": "utensils",
+			"icon": "🍴",
 			"subcategories": [
 				{
 					"key": "groceries",
 					"name": "Groceries",
-					"icon": "shopping-basket"
+					"icon": "🛒"
 				},
 				{
 					"key": "restaurant",
 					"name": "Restaurant",
-					"icon": "utensils"
+					"icon": "🍽"
 				},
 				{
 					"key": "fastfood",
 					"name": "Fast Food",
-					"icon": "utensils"
+					"icon": "🍽"
 				},
 				{
 					"key": "coffee",
 					"name": "Coffee",
-					"icon": "coffee"
+					"icon": "☕️"
 				},
 				{
 					"key": "bar",
 					"name": "Bar",
-					"icon": "beer"
+					"icon": "🍺"
 				},
 				{
 					"key": "petfood",
 					"name": "Pet Food",
-					"icon": "dog"
+					"icon": "🦴"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "shopping-cart"
+					"icon": "🛒"
 				}
 			]
 		},
 		{
 			"key": "shopping",
 			"name": "Shopping",
-			"icon": "tags",
+			"icon": "🏷",
 			"subcategories": [
 				{
 					"key": "gifts",
 					"name": "Gifts",
-					"icon": "gift"
+					"icon": "🎁"
 				},
 				{
 					"key": "clothes",
 					"name": "Clothes",
-					"icon": "shopping-cart"
+					"icon": "👖"
 				},
 				{
 					"key": "books",
 					"name": "Books",
-					"icon": "book"
+					"icon": "📖"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "tag"
+					"icon": "🏷"
 				}
 			]
 		},
 		{
 			"key": "health",
 			"name": "Health & Beauty",
-			"icon": "heartbeat",
+			"icon": "🩺",
 			"subcategories": [
 				{
 					"key": "hospital",
 					"name": "Hospital",
-					"icon": "stethoscope"
+					"icon": "🏥"
 				},
 				{
 					"key": "dentist",
 					"name": "Dentist",
-					"icon": "user-md"
+					"icon": "🦷"
 				},
 				{
 					"key": "medicines",
 					"name": "Medicines",
-					"icon": "pills"
+					"icon": "💊"
 				},
 				{
 					"key": "gym",
 					"name": "Gym",
-					"icon": "balance-scale"
+					"icon": "🏋️"
 				},
 				{
 					"key": "haircut",
 					"name": "Haircut",
-					"icon": "cut"
+					"icon": "✂️"
 				}
 			]
 		},
 		{
 			"key": "hobbies",
 			"name": "Hobbies",
-			"icon": "hiking",
+			"icon": "🏔",
 			"subcategories": [
 				{
 					"key": "movies",
 					"name": "Movies",
-					"icon": "film"
+					"icon": "📽"
 				},
 				{
 					"key": "nature",
 					"name": "Nature",
-					"icon": "leaf"
+					"icon": "🍃"
 				},
 				{
 					"key": "museums",
 					"name": "Museums",
-					"icon": "university"
+					"icon": "🎭"
 				},
 				{
 					"key": "vacations",
 					"name": "Vacations",
-					"icon": "map"
+					"icon": "🏖"
 				},
 				{
 					"key": "concerts",
 					"name": "Concerts",
-					"icon": "music"
+					"icon": "🎼"
 				},
 				{
 					"key": "sports",
 					"name": "Sports",
-					"icon": "futbol"
+					"icon": "⚽️"
 				}
 			]
 		},
 		{
 			"key": "social",
 			"name": "Social",
-			"icon": "users",
+			"icon": "🎉",
 			"subcategories": [
 				{
 					"key": "gathering",
 					"name": "Gathering",
-					"icon": "users"
+					"icon": "🎉"
 				},
 				{
 					"key": "drinks",
 					"name": "Drinks",
-					"icon": "beer"
+					"icon": "🍻"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "street-view"
+					"icon": "🗺"
 				}
 			]
 		},
 		{
 			"key": "household",
 			"name": "Household",
-			"icon": "home",
+			"icon": "🏡",
 			"subcategories": [
 				{
 					"key": "cleaning",
 					"name": "Cleaning Products",
-					"icon": "bath"
+					"icon": "🛁"
 				},
 				{
 					"key": "services",
 					"name": "Basic Services",
-					"icon": "home"
+					"icon": "🏡"
 				},
 				{
 					"key": "rent",
 					"name": "Rent",
-					"icon": "home"
+					"icon": "🏡"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "dollar-sign"
+					"icon": "💵"
 				}
 			]
 		},
 		{
 			"key": "transport",
 			"name": "Transportation",
-			"icon": "bicycle",
+			"icon": "🚲",
 			"subcategories": [
 				{
 					"key": "taxi",
 					"name": "Taxi",
-					"icon": "taxi"
+					"icon": "🚕"
 				},
 				{
 					"key": "public",
 					"name": "Public Transport",
-					"icon": "subway"
+					"icon": "🚟"
+				},
+				{
+					"key": "gasoline",
+					"name": "Gasoline",
+					"icon": "🚗"
 				},
 				{
 					"key": "flights",
 					"name": "Flights",
-					"icon": "plane"
+					"icon": "✈️"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "car"
+					"icon": "🚗"
 				}
 			]
 		},
 		{
 			"key": "tech",
 			"name": "Technology",
-			"icon": "laptop",
+			"icon": "💻",
 			"subcategories": [
 				{
 					"key": "hosting",
 					"name": "Hosting",
-					"icon": "hdd"
+					"icon": "☁️"
 				},
 				{
 					"key": "gadgets",
 					"name": "Gadgets",
-					"icon": "phone"
+					"icon": "📱"
 				},
 				{
 					"key": "videogames",
 					"name": "Videogames",
-					"icon": "gamepad"
+					"icon": "🎮"
 				},
 				{
 					"key": "streaming",
 					"name": "Streaming",
-					"icon": "cloud"
+					"icon": "☁️"
 				},
 				{
 					"key": "software",
 					"name": "Software",
-					"icon": "keyboard"
+					"icon": "⌨️"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "save"
+					"icon": "💽"
 				}
 			]
 		},
 		{
 			"key": "subscriptions",
 			"name": "Subscriptions",
-			"icon": "sync",
+			"icon": "🔃",
 			"subcategories": [
 				{
 					"key": "insurance",
 					"name": "Insurance",
-					"icon": "certificate"
+					"icon": "📃"
 				},
 				{
 					"key": "streaming",
 					"name": "Streaming",
-					"icon": "tv"
+					"icon": "📺"
 				},
 				{
 					"key": "donations",
 					"name": "Donations",
-					"icon": "heart"
+					"icon": "❣️"
 				},
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "sync"
+					"icon": "🔃"
 				}
 			]
 		},
 		{
 			"key": "income",
 			"name": "Income",
-			"icon": "dollar-sign",
+			"icon": "💵",
 			"subcategories": [
 				{
 					"key": "income",
 					"name": "Wage, Invoices",
-					"icon": "dollar-sign"
+					"icon": "💵"
 				},
 				{
 					"key": "investments",
 					"name": "Interests, Dividends",
-					"icon": "chart-line"
+					"icon": "📈"
 				},
 				{
 					"key": "presents",
 					"name": "Gifts",
-					"icon": "birthday-cake"
+					"icon": "🎂"
 				},
 				{
 					"key": "rental",
 					"name": "Rental Income",
-					"icon": "building"
+					"icon": "🏡"
 				},
 				{
 					"key": "sales",
 					"name": "Sales",
-					"icon": "handshake"
+					"icon": "✍️"
 				}
 			]
 		},
 		{
 			"key": "other",
 			"name": "Other",
-			"icon": "dollar-sign",
+			"icon": "💵",
 			"subcategories": [
 				{
 					"key": "other",
 					"name": "Other",
-					"icon": "dollar-sign"
+					"icon": "💵"
 				}
 			]
 		}

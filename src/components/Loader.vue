@@ -5,7 +5,7 @@
       <div class="spinner"></div>
       <div class="spinner"></div>
     </div>
-    <p>my<br>expenses</p>
+    <p>my<br>finances</p>
   </div>
 </template>
 
