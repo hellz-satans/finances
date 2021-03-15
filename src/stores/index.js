@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 
+import { exportDB } from '@/db/export'
 import modules from '@/stores/modules'
 import { downloadJsonUsingBrowser } from '@/services/downloads'
 
