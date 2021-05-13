@@ -5,6 +5,7 @@
       :placeholder="placeholder"
       class="block appearance-none w-full p-2 rounded focus:outline-none"
     >
+      <option v-if="!required" value=""></option>
       <option
         v-for="(option, i) in options"
         :key="i"
@@ -25,6 +26,7 @@ export default {
   name: "Dropdown",
 
   props: {
+    required: { type: Boolean, default: false },
     options: { type: Array, required: true, },
     placeholder: { type: String, default: "Select an option", },
   },
