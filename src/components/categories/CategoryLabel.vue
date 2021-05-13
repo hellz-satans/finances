@@ -20,7 +20,7 @@
 
 <template>
   <div class="category-label flex">
-    <figure :style="figureStyles">
+    <figure class="text-2xl">
       <span class="icon">{{ getIcon(category.subcategory) }}</span>
     </figure>
 
@@ -28,7 +28,6 @@
       <span class="text-small leading-tight mb-1">
         {{ getName(category.subcategory, true) }},
       </span>
-      <br>
       <span class="text-xsmall leading-tight">
         {{ getName(category.category) }}
       </span>
@@ -68,13 +67,10 @@ export default {
         'background-color': this.color,
         color: '#eee',
       };
-      let str = ''
 
-      for (const k in styles) {
-        str += `${k}: ${styles[k]};`
-      }
-
-      return str;
+      return Object.entries(styles)
+        .map(e => e.join(':'))
+        .join(';')
     },
   },
 
