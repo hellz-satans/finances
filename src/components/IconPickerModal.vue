@@ -28,7 +28,7 @@
           class="icon-container"
           v-for="(arr, i) in iconList"
           :key="i"
-          @click="$emit('input', arr[1]) ; isOpen = false"
+          @click="iconPicked(arr[1])"
         >
           <span class="icon">{{ arr }}</span>
           <span class="icon-name text-xsmall">{{ arr[1].replace(/-/g, ' ') }}</span>
@@ -87,6 +87,14 @@ export default {
 
     searchRegEx() {
       return new RegExp(`.*${this.search.toLowerCase()}.*`);
+    },
+  },
+
+  methods: {
+    iconPicked(icon) {
+      this.$emit('input', icon)
+      this.$emit('update:modelValue', icon)
+      this.isOpen = false
     },
   },
 }

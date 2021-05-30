@@ -5,20 +5,22 @@ import db from '@/db'
 import { expensesInRange, filterExpenses } from '@/stores/filters'
 import { expenseConstraints } from '@/stores/constraints'
 
+export const DEFAULT_FILTERS = [
+  {
+    field: 'date',
+    op: '>=',
+    value: dayjs().startOf('month').toDate(),
+    name: 'lapse',
+  },
+]
+
 export const ExpensesStore = {
   namespaced: true,
 
   state: {
     expenseErrors: {},
     expenses: [],
-    filters: [
-      {
-        field: 'date',
-        op: '>=',
-        value: dayjs().startOf('month').toDate(),
-        name: 'lapse',
-      },
-    ],
+    filters: DEFAULT_FILTERS,
   },
 
   mutations: {

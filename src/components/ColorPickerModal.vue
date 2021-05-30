@@ -11,7 +11,7 @@
     >
       <div>
         <v-swatches
-          @input="$emit('input', $event) ; isOpen = false"
+          @input="colorPicked($event)"
           inline
           shapes="circles"
           :swatches="colorList"
@@ -55,6 +55,14 @@ export default {
 
   computed: {
     colorList() { return colors; },
+  },
+
+  methods: {
+    colorPicked(color) {
+      this.$emit('input', color)
+      this.$emit('update:modelValue', color)
+      this.isOpen = false
+    },
   },
 }
 </script>

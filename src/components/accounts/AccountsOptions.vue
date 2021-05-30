@@ -29,7 +29,7 @@
       v-for="acc in filteredAccounts"
       :key="acc.key"
       :style="accountButtonStyles(acc)"
-      @click="$emit('input', acc.key)"
+      @click="emitValue(acc.key)"
     >
       {{ acc.name }}
     </button>
@@ -60,6 +60,12 @@ export default {
       }
 
       return styles
+    },
+
+    emitValue(key) {
+      // keep it backwards-compatible
+      this.$emit('input', key)
+      this.$emit('update:modelValue', key);
     },
   },
 

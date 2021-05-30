@@ -50,7 +50,7 @@ export default {
         this.$emit('update:modelValue', val * this.sign);
         this.money = val;
       } else {
-        this.$emit('input', 0);
+        this.$emit('update:modelValue', 0);
       }
     },
 

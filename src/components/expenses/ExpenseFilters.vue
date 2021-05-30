@@ -63,6 +63,17 @@
         />
       </div>
 
+      <div class="w-full">
+        <label for="account">Account</label>
+        <dropdown
+          placeholder="Account"
+          fluid
+          selection
+          :options="accountsOptions"
+          v-model="account"
+        />
+      </div>
+
       <footer class="actions text-right mt-4">
         <button
           type="reset"
@@ -84,6 +95,7 @@ import { mapGetters, mapState } from 'vuex'
 import dayjs from 'dayjs'
 import Dropdown from '@/components/Dropdown.vue'
 import MoneyInput from '@/components/MoneyInput.vue'
+import { DEFAULT_FILTERS } from '@/stores/modules/expenses'
 
 export default {
   name: 'ExpenseFilters',
@@ -100,6 +112,7 @@ export default {
     return {
       startDate: null,
       endDate: null,
+      account: null,
       category: null,
       comparator: '>=',
       price: 0,
@@ -146,18 +159,27 @@ export default {
         })
       }
 
+      if (this.account) {
+        filters.push({
+          field: 'account',
+          op: '===',
+          value: this.account,
+        })
+      }
+
       this.$store.dispatch('expenses/setFilters', filters)
     },
 
     resetFilters() {
-      this.startDate = this.endDate = this.category = null
+      this.startDate = this.endDate = this.account = this.category = null
       this.comparator = '>='
       this.price = 0
-      this.$store.dispatch('expenses/setFilters', [])
+      this.$store.dispatch('expenses/setFilters', DEFAULT_FILTERS)
     }
   },
 
   computed: {
+    ... mapGetters('accounts', [ 'accountsOptions' ]),
     ... mapGetters('categories', [ 'categoryOptions' ]),
     ... mapState('expenses', [ 'filters' ]),
 

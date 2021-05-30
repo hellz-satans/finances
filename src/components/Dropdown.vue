@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown relative">
     <select
-      @input="$emit('input', $event.target.value)"
+      @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
       class="block appearance-none w-full p-2 rounded focus:outline-none"
     >
