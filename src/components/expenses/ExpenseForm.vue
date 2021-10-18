@@ -34,6 +34,7 @@
           v-model="category"
           :options="categories"
           :category="category"
+          @update:model-value="setDefaultSubcategory($event)"
         />
         <p v-for="(err, i) in expenseErrors.category" :key="i" class="red text">
           {{ err }}
@@ -107,7 +108,6 @@ export default {
       category: {},
       subcategory: {},
       account: 'cash',
-      loaded: false,
     }
   },
 
@@ -161,6 +161,9 @@ export default {
     },
 
     loadForm(id) {
+      if (!id || id === 'new')
+        return
+
       let exp = this.expenses.find(e => e.id == id); // comparing Number with String
 
       if (exp) {
@@ -173,20 +176,19 @@ export default {
           .find(el => el.key == exp.subcategory);
       }
     },
+
+    setDefaultSubcategory(category) {
+      // we check the store directly 'cuz maybe component reference hasn't updated
+      this.subcategory = this.categorySubcategories(category.key)[0]
+    },
   },
 
   created() {
-    let id = this.$route.params.expense_id
+    // set default category & subcategory
+    this.category = this.otherCategory.category;
+    this.subcategory = this.otherCategory.subcategory;
 
-    if (id && id != 'new') {
-      this.loadForm(id)
-    } else {
-      // load category & subcategory
-      this.category    = this.otherCategory.category;
-      this.subcategory = this.otherCategory.subcategory;
-    }
-
-    this.loaded = true;
+    this.loadForm(this.$route.params.expense_id)
   },
 }
 </script>
