@@ -12,22 +12,6 @@
       <Sidebar />
     </header>
 
-    <nav v-if="currentRoute == 'home'">
-      <router-link
-        class="expense-form-button text-white bg-green-500 text-large"
-        to="/expense/new"
-      >
-        +
-      </router-link>
-
-      <router-link
-        class="transfer-form-button text-white bg-blue-500 text-large"
-        to="/transfer"
-      >
-        &#8644;
-      </router-link>
-    </nav>
-
     <router-view></router-view>
   </section>
 
