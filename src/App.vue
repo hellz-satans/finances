@@ -4,18 +4,12 @@
   </transition>
 
   <section v-if="!isLoading">
-    <header
-      class="flex justify-between items-baseline py-1 px-3 border-b-2 border-grey-900"
-    >
-      <router-link to="/" class="title">My Finances</router-link>
-
-      <Sidebar />
-    </header>
-
     <router-view></router-view>
+
+    <bottomnav />
   </section>
 
-  <footer class="py-2 border-t-2 border-grey-900" v-if="!isLoading">
+  <footer class="pt-2 border-t-2 border-grey-900" v-if="!isLoading">
     <p class="text-center text-small mb-0">
       {{ NAME }} <strong>v{{ VERSION }}</strong>
     </p>
@@ -26,6 +20,7 @@
 
 <script>
 import { NAME, VERSION } from '@/config/application_properties'
+import Bottomnav from '@/components/Bottomnav.vue'
 import Loader  from '@/components/Loader.vue'
 import Sidebar from '@/components/Sidebar.vue'
 
@@ -34,6 +29,7 @@ const INITIAL_LOAD_TIMEOUT = 1700;
 
 export default {
   components: {
+    Bottomnav,
     Loader,
     Sidebar,
   },

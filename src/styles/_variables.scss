@@ -20,12 +20,22 @@ $white: #e6ffff;
 $bg_dark: #232323;
 $bg_darker: #121212;
 $fg_dark: #dedede;
+$fg_darker: #ababab;
+
+$text-color: #232323;
+$text-color-dark: #121212;
+$text-color-light: #dedede;
 
 $primary-color-degree: 285;
+$secondary-color-degree: 105;
 
 $primary-color-dark:  hsl($primary-color-degree, 15%, 13%);
 $primary-color:       hsl($primary-color-degree, 15%, 26%);
 $primary-color-light: hsl($primary-color-degree, 35%, 50%);
+
+$secondary-color-dark:  hsl($secondary-color-degree, 55%, 30%);
+$secondary-color:       hsl($secondary-color-degree, 55%, 50%);
+$secondary-color-light: hsl($secondary-color-degree, 55%, 70%);
 
 $link-color: #1e70bf;
 
@@ -51,10 +61,18 @@ $shadow-color: $primary-color-light;
   --bg: #{$bg_dark};
   --bg-dark: #{$bg_darker};
   --fg: #{$fg_dark};
+  --fg-dark: #{$fg_darker};
   --link-color: var(--yellow);
+
   --primary-color: #{$primary-color};
   --primary-color-dark: #{$primary-color-dark};
   --primary-color-light: #{$primary-color-light};
+  --secondary-color: #{$secondary-color};
+  --secondary-color-dark: #{$secondary-color-dark};
+  --secondary-color-light: #{$secondary-color-light};
+  --text-color: #{$text-color};
+  --text-color-dark: #{$text-color-dark};
+  --text-color-light: #{$text-color-light};
 
   --btn-bg: #{$btn-bg};
   --input-bg: #{$input-bg};
@@ -62,6 +80,11 @@ $shadow-color: $primary-color-light;
   --border-color: #{$border-color};
   --border-color-light: #{$border-color-light};
   --shadow-color: #{$shadow-color};
+
+  --bottomnav-bg: #{$secondary-color-light};
+  --bottomnav-fg: #{$secondary-color-dark};
+  --bottomnav-border-color: #{$secondary-color-dark};
+  --bottomnav-height: 3rem;
 }
 
 @media (prefers-color-scheme: light) {

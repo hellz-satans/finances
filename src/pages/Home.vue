@@ -1,4 +1,10 @@
 <template>
+  <header
+    class="flex justify-between items-baseline py-1 px-3 border-b-2 border-grey-900"
+  >
+    <span class="title">My Finances</span>
+  </header>
+
   <balance-summary />
 
   <nav>
@@ -40,3 +46,23 @@ export default {
   },
 };
 </script>
+
+<style>
+.expense-form, .transfer-form {
+  &-button {
+    position: absolute;
+    right: 1rem;
+    z-index: 999;
+    cursor: pointer;
+    border-radius: 1em;
+    width:  2em;
+    height: 2em;
+    line-height: 1em;
+    padding-top: 0.5em;
+    text-align: center;
+  }
+}
+
+.expense-form-button  { bottom: calc(var(--bottomnav-height) + 1rem); }
+.transfer-form-button { bottom: calc(var(--bottomnav-height) + 4rem); }
+</style>

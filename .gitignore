@@ -4,3 +4,4 @@ dist/finances
 *.local
 # vim swap files
 .*.swp
+public/icons.svg

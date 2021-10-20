@@ -10,6 +10,7 @@ body {
   line-height: 20px;
   background-color: var(--bg);
   color: var(--fg);
+  padding-bottom: var(--bottomnav-height);
 }
 
 /* set font size so safari does NOT zoom */
