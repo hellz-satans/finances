@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .expense-form, .transfer-form {
   &-button {
     position: absolute;

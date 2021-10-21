@@ -1,18 +1,3 @@
-.expense-form, .transfer-form {
-  &-button {
-    position: fixed;
-    right: 1rem;
-    z-index: 999;
-    cursor: pointer;
-    border-radius: 1em;
-    width:  2em;
-    height: 2em;
-    line-height: 1em;
-    padding-top: 0.5em;
-    text-align: center;
-  }
-}
-
 .btn {
   border: 1px solid var(--border-color);
   background-color: var(--btn-bg);
