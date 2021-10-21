@@ -11,7 +11,7 @@
 
     <div class="bottomnav-control text-center">
       <router-link to="/" class="flex flex-col align-center">
-        <img class="icon" src="/icons/house.png" alt="Home icon" >
+        <img class="house icon" src="/icons/house.png" alt="Home icon" >
         <span class="inline-block">
           Home
         </span>
@@ -69,6 +69,12 @@
     max-height: 1.5rem;
     max-width: 1.5rem;
     margin: 0 auto;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .house.icon {
+      filter: invert(1);
+    }
   }
 }
 </style>
