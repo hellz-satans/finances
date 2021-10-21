@@ -4,6 +4,11 @@
  * Original: https://github.com/vuetailwind/components/blob/13ee91518e5af15d49df0193b07c441d72c23a10/modal/with-header-and-close-button/v-modal.vue
  */
 <style lang="scss">
+.v-modal-bg {
+  background-color: #777777;
+  background-color: rgba(32, 32, 32, 0.8);
+}
+
 .v-modal {
   .container {
     box-shadow: 0 0 0.3em 0.05em var(--shadow-color, #bbbbbb);
@@ -21,12 +26,12 @@
 
 <template>
   <div class="fixed w-full h-full top-0 left-0 flex items-center justify-center z-10" v-if="open">
-    <div class="absolute w-full h-full" @click="close"></div>
+    <div class="v-modal-bg absolute w-full h-full" @click="close"></div>
 
     <div class="absolute max-h-full v-modal p-4" :class="maxWidth">
-      <div class="container overflow-hidden rounded">
+      <div class="container overflow-hidden rounded border border-gray-400">
         <header
-          class="px-4 py-4 leading-none flex justify-between items-center font-medium text-sm border-b select-none">
+          class="px-3 py-2 leading-none flex justify-between items-center font-medium text-sm border-b select-none">
           <h3>{{ title }}</h3>
           <div @click="close" class="text-2xl cursor-pointer">
             &#215;

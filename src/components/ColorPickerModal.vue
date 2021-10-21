@@ -24,7 +24,7 @@
       <div class="actions text-right">
         <button
           type="button"
-          class="py-2 px-4 hover:underline"
+          class="pt-3 px-3"
           @click.prevent.stop="isOpen = false"
         >
           Close

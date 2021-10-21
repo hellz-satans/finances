@@ -12,7 +12,8 @@
     text-align: center;
 
     .icon {
-      padding: 0.5em;
+      font-size: $icon-size;
+      padding: 0.25em;
     }
   }
 }

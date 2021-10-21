@@ -56,10 +56,13 @@
       </header>
 
       <section class="icon-cat-subcat">
-        <icon-picker-modal
-          v-model="category.icon"
-          :icon="category.icon"
-        />
+        <div class="icon-picker flex flex-col justify-center rounded-xl border border-gray-100">
+          <input
+            class="bg-transparent block border-0 text-center text-4xl"
+            v-model="icon"
+            placeholder="emoji"
+          />
+        </div>
 
         <div class="cat-subcat">
           <div class="cat mb-4">
@@ -100,7 +103,7 @@ import { DEFAULT_VALUES } from '@/stores/modules/categories';
 const OPTION_NEW = {
   key: null,
   name: 'New category',
-  icon: 'plus',
+  icon: '+',
   color: DEFAULT_VALUES.color,
 };
 
@@ -128,6 +131,7 @@ export default {
         name:  null,
         key:   null,
       },
+      icon: DEFAULT_VALUES.icon,
     };
   },
 
@@ -175,7 +179,7 @@ export default {
         subcategory: this.subcategory.name,
         subcategoryKey: this.subcategory.key,
         color: this.category.color,
-        icon: this.category.icon,
+        icon: this.icon,
         isSubcategory: !!this.subcategory.name,
       };
 
@@ -206,30 +210,26 @@ export default {
   },
 
   watch: {
-    category(newVal, oldVal) {
-      for (let k in DEFAULT_VALUES) {
-        if (newVal[k]) {
-          this.category[k]    = newVal[k];
-          this.subcategory[k] = newVal[k];
-        } else {
-          this.category[k]    = DEFAULT_VALUES[k];
-          this.subcategory[k] = DEFAULT_VALUES[k];
-        }
+    category(newCategory, oldVal) {
+      for (let field in DEFAULT_VALUES) {
+        this.category[field] = newCategory[field] || DEFAULT_VALUES[field];
+
+        if (field === 'icon')
+          this.icon = this.category[field]
       }
 
-      if (newVal.key === OPTION_NEW.key)
+      if (newCategory.key === OPTION_NEW.key)
         this.$refs.categoryInput.focus();
 
       this.resetSubcategory();
     },
 
-    subcategory(newVal, oldVal) {
-      for (let k in DEFAULT_VALUES) {
-        if (newVal[k]) {
-          this.subcategory[k] = newVal[k];
-        } else {
-          this.subcategory[k] = DEFAULT_VALUES[k];
-        }
+    subcategory(newSubcategory, _oldVal) {
+      for (let field in DEFAULT_VALUES) {
+        this.subcategory[field] = newSubcategory[field] || DEFAULT_VALUES[field];
+
+        if (field === 'icon')
+          this.icon = this.subcategory[field]
       }
     }
   },
@@ -262,11 +262,8 @@ export default {
     }
 
     .icon-picker {
-      margin: 0;
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
+      flex-shrink: 1;
+      flex: 0 1 35%;
 
       .toggler {
         border-width: 2px;
@@ -279,6 +276,7 @@ export default {
 
     .cat-subcat {
       display: flex;
+      flex: 1 0 50%;
       flex-flow: column nowrap;
       margin-left: 0.5em;
     }
