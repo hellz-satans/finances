@@ -63,7 +63,8 @@
   }
 
   svg, img {
-    fill: var(--fg-dark);
+    fill: var(--fg);
+    stroke: var(--fg);
     background: transparent;
     max-height: 1.5rem;
     max-width: 1.5rem;
