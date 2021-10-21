@@ -18,9 +18,27 @@
       </li>
     </ul>
 
-    <p>It's hard keeping record on what you spend money, and if you're a bit
-    paranoid with your phone and apps, it continues to be hard. We're writing
-    this simple application to keep a record and easily dispose the information.
+    <p>It's hard keeping record on what you spend money, and if you're a bit paranoid with your
+    phone and apps, it continues to be hard. This simple application was written to keep a record
+    and easily dispose the information.
+    </p>
+
+    <p>Initially I was using <a href="https://budgetbakers.com/">BudgetBakers</a>' app, which is,
+    if you haven't used it, <strong>GREAT</strong>.<br>
+    Honestly, this privacy-focused, small app doesn't really compete with the quality of
+    BudgetBakers; I highly recommend it. But when I got familiar enough and reached the paywall,
+    I was offered to continue using the app albeit with limited functionality, and I thought to
+    myself: <q>what's the catch?</q>
+    </p>
+
+    <p>Then it dawned on me that they could be harvesting data to sell it later or whatever,
+    and I don't really know who they are, what their intentions are or what they can and
+    <em>could</em> do, really.
+    </p>
+
+    <p>So, here we are. I wrote a quick'n'dirty solution at first
+    (<a href="https://hellz-satans.github.io/my-finances-pwa/">v1</a>) and I've been tweaking and
+    removing stuff over the time, which is what you're reading.
     </p>
 
     <p>PWA using <a href="https://vuejs.org" rel="nofollow">Vue</a>
@@ -53,8 +71,8 @@
 
 <style lang="scss">
 .about {
-  h1 { margin-bottom: 1rem; }
-  h2 { margin-bottom: 0.875rem; }
+  h1 { margin: 1rem 0; }
+  h2 { margin: 0.875rem 0; }
 
   p { margin-bottom: 0.75rem; }
   ul {

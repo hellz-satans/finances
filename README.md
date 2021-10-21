@@ -8,9 +8,20 @@ own hosting provider.
 * Data stored in browsers' IndexedDB through [Dexie.js](https://dexie.org)
 * Icons bundled with [svgeez]
 
-It's hard keeping record on what you spend money, and if you're a bit
-paranoid with your phone and apps, it continues to be hard. We're writing
-this simple application to keep a record and easily dispose the information.
+It's hard keeping record on what you spend money, and if you're a bit paranoid with your phone and
+apps, it continues to be hard. This simple application was written to keep a record and easily
+dispose the information.
+
+Initially I was using [BudgetBakers]' app, which is, if you haven't used it, **GREAT**. Honestly,
+this privacy-focused, small app doesn't really compete with the quality of BudgetBakers; I highly
+recommend it. But when I got familiar enough and reached the paywall, I was offered to continue
+using the app albeit with limited functionality, and I thought to myself: what's the catch?
+
+Then it dawned on me that they could be harvesting data to sell it later or whatever, and I don't
+really know who they are, what their intentions are or what they can and _could_ do, really.
+
+So, here we are. I wrote a quick'n'dirty solution at first ([v1]) and I've been tweaking and
+removing stuff over the time, which is what you're reading.
 
 ## Images and Icons
 
@@ -33,8 +44,11 @@ This was upgraded from Vue2/webpack to Vue3/vite, the basic scripts are:
 
 * `dev` (`yarn dev`): start development server
 * `build` (`yarn build`): transpile assets, ready for deployment
-* `serve` (`yarn serve`): start preview server, whatever that is
+* `serve` (`yarn serve`): start preview server from which the output of `build` is served
 
+[Demo]: https://hellz-satans.github.io/finances/
+[BudgetBakers]: https://budgetbakers.com/
+[v1]: https://hellz-satans.github.io/my-finances-pwa/
 [svgeez]: https://github.com/jgarber623/svgeez
 [House image]: https://www.radiohead.com/library/#ir
 [Stanley Donwood]: https://www.slowlydownward.com/
