@@ -67,6 +67,8 @@ export default {
 
   &__options {
     background-color: var(--bg-dark);
+    max-height: 40vh;
+    overflow-y: scroll;
   }
 }
 </style>

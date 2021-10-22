@@ -41,9 +41,8 @@
     removing stuff over the time, which is what you're reading.
     </p>
 
-    <p>PWA using <a href="https://vuejs.org" rel="nofollow">Vue</a>
-    and browsers IndexedDB through
-    <a href="https://dexie.org" rel="nofollow">Dexie.js</a>.
+    <p>Source code hosted on github
+    <a href="https://github.com/hellz-satans/finances/">hellz-satans/finances</a>.
     </p>
 
     <h2>Images and Icons</h2>

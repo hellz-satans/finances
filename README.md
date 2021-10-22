@@ -21,7 +21,7 @@ Then it dawned on me that they could be harvesting data to sell it later or what
 really know who they are, what their intentions are or what they can and _could_ do, really.
 
 So, here we are. I wrote a quick'n'dirty solution at first ([v1]) and I've been tweaking and
-removing stuff over the time, which is what you're reading.
+removing stuff over time, which is what you're reading.
 
 ## Images and Icons
 

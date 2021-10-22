@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 .expense-form, .transfer-form {
   &-button {
-    position: absolute;
+    position: fixed;
     right: 1rem;
     z-index: 999;
     cursor: pointer;
