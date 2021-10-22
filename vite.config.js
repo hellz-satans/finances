@@ -10,6 +10,8 @@ export default {
     { find: '@', replacement: path.resolve(__dirname, 'src') },
   ],
 
+  base: '/finances/',
+
   build: {
     manifest: true,
     outDir: 'dist/finances',
