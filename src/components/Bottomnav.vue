@@ -46,7 +46,7 @@
   height: var(--bottomnav-height);
   width: 100%;
   z-index: 10;
-  padding-top: 0.35rem;
+  padding: 0.5rem 0 0.75rem;
 
   font-size: 0.625rem;
   font-weight: 500;
