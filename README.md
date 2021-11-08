@@ -4,6 +4,9 @@ Expenses record keeper without a back-end -- **easy to use, easy to erase**.
 Don't trust that the page isn't sending your data somewhere? Fork it and upload it to your
 own hosting provider.
 
+![Screenshot of webapp with light color scheme](/public/img/screenshot.png)
+![Screenshot of webapp with dark color scheme](/public/img/screenshot-dark.png)
+
 * Web app written with [Vue](https://v3.vuejs.org)
 * Data stored in browsers' IndexedDB through [Dexie.js](https://dexie.org)
 * Icons bundled with [svgeez]
