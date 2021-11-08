@@ -1,5 +1,5 @@
 <template>
-  <nav class="bottomnav flex justify-around align-center">
+  <nav class="bottomnav">
     <div class="bottomnav-control text-center">
       <router-link to="/about" class="flex-col align-center">
         <svg><use xlink:href="#icons-about" /></svg>
@@ -46,7 +46,12 @@
   height: var(--bottomnav-height);
   width: 100%;
   z-index: 10;
-  padding: 0.5rem 0 0.75rem;
+  padding: 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
 
   font-size: 0.625rem;
   font-weight: 500;
