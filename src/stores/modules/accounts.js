@@ -145,19 +145,32 @@ const AccountsStore = {
      * @param {Object} data
      */
     transfer({ commit, dispatch, state }, data) {
-      if (!state.cache[data.from] || !state.cache[data.to])
-        throw "Invalid accounts";
-      let amount = Number(data.amount)
+      const from = state.cache[data.from]
+      const to = state.cache[data.to]
+      const amount = Number(data.amount)
 
-      dispatch('add', {
-        amount: (amount * -1),
-        key: state.cache[data.from].key,
-      }).then((fromKey) => {
+      if (!from || !to)
+        throw "Invalid accounts";
+
+      // expenses/createExpense will dispatch accounts/add(price * -1)
+      dispatch(
+        'expenses/createExpense',
+        {
+          account: from.key,
+          category: 'transfer',
+          date: new Date(),
+          description: `Transfer -> ${to.name} (${to.key})`,
+          price: (amount * -1),
+          subcategory: 'transfer_transfer',
+        },
+        { root: true }
+      ).then(() => {
         return dispatch('add', {
           amount: amount,
-          key: state.cache[data.to].key,
+          key: to.key,
         })
       }).then((toKey) => {
+        commit('expenses/getExpenses', undefined, { root: true })
         return true;
       })
     },

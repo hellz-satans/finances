@@ -316,6 +316,18 @@
 			]
 		},
 		{
+			"key": "transfer",
+			"name": "Transfer",
+			"icon": "💵",
+			"subcategories": [
+				{
+					"key": "transfer",
+					"name": "Transfer",
+					"icon": "💵"
+				}
+			]
+		},
+		{
 			"key": "other",
 			"name": "Other",
 			"icon": "💵",

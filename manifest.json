@@ -4,7 +4,7 @@
 	"description": "Privacy-focused expenses record keeper",
 	"display": "fullscreen",
 	"start_url": "/finances/index.html",
-	"theme_color": "#9653ac",
+	"theme_color": "#232323",
 	"background_color": "#232323",
 	"icons": [
 		{
