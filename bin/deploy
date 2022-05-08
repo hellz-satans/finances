@@ -4,21 +4,24 @@
 set -e
 DIST_PATH="dist/finances"
 BRANCH="${1:-master}"
+DEPLOY_BRANCH="gh-pages"
 
-# delete gh-pages branches if the exist
-git branch -D gh-pages || true
-git push origin --delete gh-pages || true
+# delete $DEPLOY_BRANCH branches if the exist
+git branch -D $DEPLOY_BRANCH || true
+git push origin --delete $DEPLOY_BRANCH || true
 
 git checkout "$BRANCH"
 yarn build --base="${DIST_PATH#dist}/"
 
-# push to newly createg gh-pages branch
-git checkout -b gh-pages
-sed -i bak -e "s|${DIST_PATH}|#${DIST_PATH}|" .gitignore
+# push to newly createg $DEPLOY_BRANCH branch
+git checkout -b $DEPLOY_BRANCH
+sed -ibak -e "s|${DIST_PATH}|#${DIST_PATH}|" .gitignore
 git add "${DIST_PATH}"
 git commit -m "Build $BRANCH"
-git subtree push --prefix "${DIST_PATH}" origin gh-pages
+git subtree push --prefix "${DIST_PATH}" origin $DEPLOY_BRANCH
 
 # switch back to initial branch
-sed -i bak -e "s|#${DIST_PATH}|${DIST_PATH}|" .gitignore
+sed -ibak -e "s|#${DIST_PATH}|${DIST_PATH}|" .gitignore
 git checkout "$BRANCH"
+
+[[ -f .gitignorebak ]] && rm .gitignorebak
