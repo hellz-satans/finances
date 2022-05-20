@@ -4,7 +4,7 @@
       <router-link to="/about" class="flex-col align-center">
         <svg><use xlink:href="#icons-about" /></svg>
         <span class="inline-block">
-          About
+          {{ $t('navbar.about') }}
         </span>
       </router-link>
     </div>
@@ -13,7 +13,7 @@
       <router-link to="/" class="flex flex-col align-center">
         <img class="house icon" src="/icons/house.png" alt="Home icon" >
         <span class="inline-block">
-          Home
+          {{ $t('navbar.home') }}
         </span>
       </router-link>
     </div>
@@ -22,7 +22,7 @@
       <router-link to="/categories" class="flex flex-col align-center">
         <svg><use xlink:href="#icons-archives" /></svg>
         <span class="inline-block">
-          Categories
+          {{ $t('navbar.categories') }}
         </span>
       </router-link>
     </div>
@@ -31,7 +31,7 @@
       <router-link to="/import-export" class="flex flex-col align-center">
         <svg><use xlink:href="#icons-cassette" /></svg>
         <span class="inline-block small">
-          Data
+          {{ $t('navbar.data') }}
         </span>
       </router-link>
     </div>

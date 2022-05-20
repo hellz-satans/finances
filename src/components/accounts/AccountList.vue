@@ -9,7 +9,7 @@
     <div class="account-link">
       <router-link to="/account/new">
         <span class="icon text-large">+</span>
-        Add account
+        {{ $t('accounts.new_account') }}
       </router-link>
     </div>
   </section>

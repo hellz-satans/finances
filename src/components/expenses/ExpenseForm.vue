@@ -5,7 +5,7 @@
     @submit.stop.prevent="submitExpense"
   >
     <div class="w-full">
-      <label hidden class="hidden" for="amount">Amount</label>
+      <label hidden class="hidden" for="amount">{{ $t('expenses.amount') }}</label>
       <money-input
         v-model.lazy="price"
         :value="price"
@@ -16,19 +16,16 @@
     </div>
 
     <div class="w-full">
-      <label class="block font-semibold mb-1" for="date">Date</label>
+      <label class="block font-semibold mb-1" for="date">{{ $t('expenses.date') }}</label>
       <input type="date" v-model="date" class="w-full" />
       <p v-for="(err, i) in expenseErrors.date" :key="i" class="red text">
         {{ err }}
       </p>
     </div>
 
-    <div class="flex flex-row flex-no-wrap mb-4">
-    </div>
-
-    <div class="flex flex-row flex-no-wrap mb-4">
+    <div class="flex flex-row flex-no-wrap my-4">
       <div class="w-1/2 pr-1">
-        <label class="block font-semibold mb-1" for="category">Category</label>
+        <label class="block font-semibold mb-1" for="category">{{ $t('expenses.category') }}</label>
         <category-picker
           class="w-full"
           v-model="category"
@@ -43,7 +40,7 @@
 
       <div class="w-1/2 pl-1">
         <label class="block font-semibold mb-1" for="subcategory">
-          Subcategory
+          {{ $t('expenses.subcategory') }}
         </label>
         <category-picker
           class="w-full"
@@ -59,7 +56,7 @@
     </div>
 
     <div class="w-full">
-      <label class="block font-semibold" for="account">Account</label>
+      <label class="block font-semibold" for="account">{{ $t('expenses.account') }}</label>
       <accounts-options :account="account" @input="account = $event" />
       <p v-for="(err, i) in expenseErrors.account" :key="i" class="red text">
         {{ err }}
@@ -67,7 +64,7 @@
     </div>
 
     <div class="w-full">
-      <label class="block font-semibold mb-1" for="description">Description</label>
+      <label class="block font-semibold mb-1" for="description">{{ $t('expenses.description') }}</label>
       <input
         name="description"
         v-model="description"
@@ -79,7 +76,7 @@
 
     <footer class="text-right w-full mt-4">
       <button type="submit" class="btn-submit">
-        Save
+        {{ $t('actions.save') }}
       </button>
     </footer>
   </form>

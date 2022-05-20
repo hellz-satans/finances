@@ -4,10 +4,10 @@
     @submit.stop.prevent="doTransfer"
     class="transfer-form my-4 mx-2"
   >
-    <h1>Transfer</h1>
+    <h1>{{ $t('accounts.transfer') }}</h1>
 
     <div class="w-full my-3">
-      <label hidden class="hidden" for="price">Amount</label>
+      <label hidden class="hidden" for="price">{{ $t('accounts.amount') }}</label>
       <money-input
         name="amount"
         v-model.lazy="amount"
@@ -16,7 +16,7 @@
     </div>
 
     <div class="w-full">
-      <label class="block" for="from">From</label>
+      <label class="block" for="from">{{ $t('accounts.from_account') }}</label>
       <accounts-options
         :account="from"
         :exclude="[ to ]"
@@ -25,7 +25,7 @@
     </div>
 
     <div class="w-full">
-      <label for="to">To</label>
+      <label for="to">{{ $t('accounts.to_account') }}</label>
       <accounts-options
         :account="to"
         :exclude="[ from ]"
@@ -37,7 +37,7 @@
       <button
         positive
         type="submit"
-      >Submit</button>
+      >{{ $t('actions.submit') }}</button>
     </footer>
 	</form>
 </template>

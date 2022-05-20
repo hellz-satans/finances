@@ -1,14 +1,14 @@
 <template>
   <section class="import-export m-4">
-    <h1 class="text-3xl">Data</h1>
+    <h1 class="text-3xl">{{ $t('data.title') }}</h1>
 
     <article class="card">
       <header>
-        <h2>Import</h2>
+        <h2>{{ $t('data.import.title') }}</h2>
       </header>
 
       <section>
-        <p>Select an exported file and import it</p>
+        <p v-html="$t('data.import.description')"></p>
         <input
           ref="importFile"
           name="importFile"
@@ -24,32 +24,25 @@
           @click.prevent.stop="readData"
         >
           <span class="icon">&#128193;</span>
-          Upload
+          {{ $t('data.import.action') }}
         </button>
       </footer>
     </article>
 
     <article class="card">
       <header class="card-header">
-        <h2>Export</h2>
+        <h2>{{ $t('data.export.title') }}</h2>
       </header>
 
       <section class="card-body">
         <ul>
-          <li>Accounts</li>
-          <li>Expenses</li>
+          <li>{{ $t('data.export.accounts') }}</li>
+          <li>{{ $t('data.export.expenses') }}</li>
         </ul>
 
         <details>
-          <summary>
-            If you're having trouble exporting as <code>.json</code>, export
-            the data as a <code>.txt</code> file, it will still be in JSON
-            format, just diferent extension.
-          </summary>
-          <p>
-            Some mobile browsers will not let you download <code>.json</code>
-            files for security reasons.
-          </p>
+          <summary v-html="$t('data.export.summary')"></summary>
+          <p class="text-sm mt-2" v-html="$t('data.export.description')"></p>
         </details>
       </section>
 
@@ -60,7 +53,7 @@
           class="mr-4"
         >
           <span class="icon">&#128190;</span>
-          As .json
+          {{ $t('data.export.as') }} .json
         </button>
 
         <button
@@ -68,18 +61,18 @@
           @click.prevent.stop="exportData('txt')"
         >
           <span class="icon">&#128190;</span>
-          As .txt
+          {{ $t('data.export.as') }} .txt
         </button>
       </footer>
     </article>
 
     <article class="card">
       <header>
-        <h2>Seed</h2>
+        <h2>{{ $t('data.seed.title') }}</h2>
       </header>
 
       <section>
-        <p>Seed test data to see how it works</p>
+        <p v-html="$t('data.seed.description')"></p>
       </section>
 
       <footer class="justify-center text-white bg-yellow-500 border border-yellow-600">
@@ -88,21 +81,18 @@
           @click.prevent.stop="seedData"
         >
           <span class="icon">&#9881;</span>
-          Seed
+          {{ $t('data.seed.action') }}
         </button>
       </footer>
     </article>
 
     <article class="card">
       <header>
-        <h2>Destroy</h2>
+        <h2>{{ $t('data.destroy.title') }}</h2>
       </header>
 
       <section>
-        <p>
-          Destroy <strong>all</strong> local data
-          &mdash; export first if unsure
-        </p>
+        <p v-html="$t('data.destroy.description')"></p>
       </section>
 
       <footer class="justify-center text-white bg-red-500 border border-red-600">
@@ -111,7 +101,7 @@
           @click.prevent.stop="confirmDelete"
         >
           <span class="icon">&#128465;</span>
-          Destroy
+          {{ $t('data.destroy.action') }}
         </button>
       </footer>
     </article>

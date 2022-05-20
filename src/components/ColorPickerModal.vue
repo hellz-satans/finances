@@ -1,12 +1,12 @@
 <template>
   <div class="color-picker">
     <div class="toggler" @click.stop.prevent="isOpen = true">
-      Change color
+      {{ $t('color_picker.change_color') }}
     </div>
 
     <v-modal
       v-if="isOpen"
-      title="Pick a color"
+      :title="$t('color_picker.pick_color')"
       @close="isOpen = false"
     >
       <div>
@@ -27,7 +27,7 @@
           class="pt-3 px-3"
           @click.prevent.stop="isOpen = false"
         >
-          Close
+          {{ $t('actions.close') }}
         </button>
       </div>
     </v-modal>

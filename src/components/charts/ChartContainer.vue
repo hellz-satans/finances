@@ -2,27 +2,27 @@
   <aside class="chart-container">
     <header class="mt-3 mb-1 flex flex-row flex-no-wrap justify-center">
       <button
-        class="btn mx-2 px-3 py-1"
+        class="btn mx-2 px-3 py-1 lowercase"
         @click="periodicity = 'week'"
-      >weekly</button>
+      >{{ $t('charts.weekly') }}</button>
       <button
-        class="btn mx-2 px-3 py-1"
+        class="btn mx-2 px-3 py-1 lowercase"
         @click="periodicity = 'month'"
-      >monthly</button>
+      >{{ $t('charts.monthly') }}</button>
     </header>
 
     <xy-chart
       :data="data"
-      :title="`${periodicity}ly summary`"
-      :xLabel="periodicity"
+      :title="$t('charts.summary', { periodicity: $t(`charts.${periodicity}ly`) })"
+      :xLabel="$t(`charts.${periodicity}`)"
       :options="xkcdOptions"
-      yLabel="$ Money"
+      :yLabel="`$ ${$t('charts.money')}`"
       v-if="chart === 'xy' && expenses.length > 0"
     />
 
     <footer class="text-center px-3">
       <label>
-        Cumulative?
+        {{ $t('charts.cumulative') }}
         <input type="checkbox" v-model="cumulative" />
       </label>
     </footer>
@@ -72,8 +72,8 @@ export default {
         k = null,
         periodIncome  = {},
         periodOutcome = {};
-      const income  = { label: "Income",  data: [] };
-      const outcome = { label: "Outcome", data: [] };
+      const income  = { label: this.$t('income'),  data: [] };
+      const outcome = { label: this.$t('outcome'), data: [] };
       const periods = [];
 
       for (i = 0; i < this.expenses.length; ++i) {

@@ -10,7 +10,7 @@
         class="block font-semibold mb-3"
         for="account_balance"
       >
-        Balance
+        {{ $t('accounts.balance') }}
       </label>
 
       <money-input
@@ -29,7 +29,7 @@
         class="block font-semibold mb-3"
         for="account_name"
       >
-        Name
+        {{ $t('accounts.name') }}
       </label>
 
       <input
@@ -46,7 +46,7 @@
     </div>
 
     <div class="w-full">
-      <label class="block font-semibold" for="account_color">Color</label>
+      <label class="block font-semibold" for="account_color">{{ $t('accounts.color') }}</label>
       <div class="mt-2">
         <v-swatches
           @input="color = $event"
@@ -61,7 +61,7 @@
     <footer class="actions text-right">
       <button
         type="submit"
-      >Save</button>
+      >{{ $t('actions.save') }}</button>
     </footer>
   </form>
 </template>

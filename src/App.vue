@@ -15,7 +15,7 @@
     </p>
 
     <p class="text-center text-xsmall">
-      By juankman94<sup>&reg;</sup> &mdash;
+      {{ $t('footer.by') }} juankman94<sup>&reg;</sup> &mdash;
       <a href="https://github.com/hellz-satans/finances/">Source code</a>
     </p>
   </footer>

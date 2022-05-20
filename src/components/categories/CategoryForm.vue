@@ -6,7 +6,7 @@
   >
     <section class="category-options">
       <div class="w-full mb-4">
-        <label class="block font-medium">Category</label>
+        <label class="block font-medium">{{ $t('categories.category') }}</label>
         <div class="flex flex-row">
           <category-picker
             class="w-full"
@@ -26,7 +26,7 @@
       </div>
 
       <div class="w-full mb-4">
-        <label class="block font-medium">Subcategory</label>
+        <label class="block font-medium">{{ $t('categories.subcategory') }}</label>
         <div class="flex flex-row">
           <category-picker
             class="w-full"
@@ -69,7 +69,7 @@
             <input
               ref="categoryInput"
               v-model="category.name"
-              placeholder="Category"
+              :placeholder="$t('categories.category')"
             />
           </div>
 
@@ -77,7 +77,7 @@
             <input
               ref="subcategoryInput"
               v-model="subcategory.name"
-              placeholder="Subcategory"
+              :placeholder="$t('categories.subcategory')"
             />
           </div>
         </div>
@@ -87,7 +87,7 @@
     <footer class="actions text-right">
       <button
         type="submit"
-      >Submit</button>
+      >{{ $t('actions.save') }}</button>
     </footer>
   </form>
 </template>

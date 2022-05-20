@@ -17,16 +17,16 @@
 <template>
   <section class="expenses-list">
     <header class="text-right mb-3 mx-4 text-small">
-      <span class="text font-medium green">Income</span>:
+      <span class="text font-medium green">{{ $t('income') }}</span>:
       {{ currency(income) }},
-      <span class="text font-medium orange">Outcome</span>:
+      <span class="text font-medium orange">{{ $t('outcome') }}</span>:
       {{ currency(outcome) }}<br>
-      <span class="text font-medium">Total</span>:
+      <span class="text font-medium">{{ $t('total') }}</span>:
       {{ currency(expensesSum) }}
     </header>
 
     <h2 class="text-center" v-if="expenses.length === 0">
-      Move along, nothing to show here. Try changing the filters!
+      {{ $t('expenses.no_expenses') }}
     </h2>
 
     <article
@@ -60,17 +60,17 @@
 
         <p class="px-2 text-small">{{ e.description }}</p>
 
-        <div class="actions min-w-1/5 text-right text-small">
-          <router-link class="inline-block mr-1" :to="`/expense/${e.id}`">
-            Edit
+        <div class="actions min-w-1/5 text-xs flex flex-col align-center">
+          <router-link class="block text-center" :to="`/expense/${e.id}`">
+            {{ $t('actions.edit') }}
           </router-link>
 
           <button
             href="#"
-            class="red pointer whitespace-no-wrap"
+            class="block red pointer whitespace-no-wrap"
             @click="deleteProxy(e.id)"
           >
-            Delete
+            {{ $t('actions.delete') }}
           </button>
         </div>
       </div>
@@ -83,7 +83,7 @@
         @click="upTo += 20"
         v-if="expenses.length > upTo"
       >
-        Show more
+        {{ $t('expenses.show_more') }}
       </button>
     </footer>
   </section>
@@ -136,7 +136,7 @@ export default {
     },
 
     deleteProxy(id) {
-      if (window.confirm('Are you sure?'))
+      if (window.confirm(this.$t('confirm')))
         this.deleteExpense(id);
     },
   },

@@ -1,30 +1,34 @@
 <template>
   <section class="balance-summary text-right m-3">
     <p :class="cssClasses">
-      <span class="inline-block mb-1 hidden">Balance:</span>
+      <span class="inline-block mb-1 hidden">{{ $t('balance_summary.balance') }}:</span>
       <span class="text-xxlarge">{{ currency(totalBalance) }}</span>
     </p>
 
     <p class="balance-summary__goal">
-      Goal:
+      {{ $t('balance_summary.goal') }}:
       <span class="text-large">{{ currency(goal) }}</span>
     </p>
 
-    <span>Week:</span>
-    <span class="font-medium">{{ currency(expensesPastWeek) }}</span>
-    <br>
-    <span>Month:</span>
-    <span class="font-medium">{{ currency(expensesPastMonth) }}</span>
+    <p class="text-sm">
+      <h4 class="text-base">{{ $t('balance_summary.expenses') }}</h4>
 
-    <br />
+      <span>{{ $t('balance_summary.week') }}: &nbsp;</span>
+      <span class="font-medium">{{ currency(expensesPastWeek) }}</span>
+      <br>
+      <span>{{ $t('balance_summary.month') }}: &nbsp;</span>
+      <span class="font-medium">{{ currency(expensesPastMonth) }}</span>
+    </p>
 
-    <router-link
-      class="text-small rounded inline-block py-1 px-3 m-2"
-      to="/preference/goal?type=money"
-    >
-      Edit goal &nbsp;
-      <span class="icon inline-block mirror">&#9999;</span>
-    </router-link>
+    <footer>
+      <router-link
+        class="text-small rounded inline-block py-1 px-3 m-2"
+        to="/preference/goal?type=money"
+      >
+        {{ $t('balance_summary.edit_goal') }} &nbsp;
+        <span class="icon inline-block mirror">&#9999;</span>
+      </router-link>
+    </footer>
   </section>
 </template>
 

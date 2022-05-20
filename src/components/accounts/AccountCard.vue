@@ -25,7 +25,7 @@
 
     <footer class="m-0 text-smaller text-right">
       <label>
-        Include in balance?
+        {{ $t('accounts.include_balance') }}
         <input
           type="checkbox"
           :checked="account.includeInSummary"

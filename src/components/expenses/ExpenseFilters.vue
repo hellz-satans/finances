@@ -1,7 +1,7 @@
 <template>
   <details class="expense-filters">
     <summary>
-      <strong>Filters</strong>: {{ filtersSummary }}
+      <strong>{{ $t('filters.title') }}</strong>: {{ filtersSummary }}
     </summary>
 
     <form
@@ -10,7 +10,7 @@
     >
       <div class="flex flex-row flex-no-wrap">
         <div class="w-1/2 pr-2">
-          <label for="startDate">Start date</label>
+          <label for="startDate">{{ $t('filters.start_date') }}</label>
           <input
             type="date"
             id="startDate"
@@ -20,7 +20,7 @@
         </div>
 
         <div class="w-1/2 pl-2">
-          <label for="date">End date</label>
+          <label for="date">{{ $t('filters.end_date') }}</label>
           <input
             type="date"
             v-model="endDate"
@@ -30,19 +30,19 @@
       </div>
 
       <fieldset>
-        <legend>Price</legend>
+        <legend>{{ $t('filters.price') }}</legend>
 
         <label for="comparator" class="block w-1/2">
-          <span hidden>Price Comparator</span>
+          <span hidden>{{ $t('filters.comparator') }}</span>
           <dropdown
             v-model="comparator"
             :options="comparatorOptions"
-            placeholder="Price Comparator"
+            :placeholder="$t('filters.comparator')"
           />
         </label>
 
         <label for="price" class="block w-1/2">
-          <span hidden>Price</span>
+          <span hidden>{{ $t('filters.price') }}</span>
           <money-input
             id="price"
             name="price"
@@ -52,24 +52,24 @@
         </label>
       </fieldset>
 
-      <div class="w-full">
-        <label for="category">Category</label>
+      <div class="w-full mt-2">
+        <label for="category">{{ $t('filters.category') }}</label>
         <dropdown
-          placeholder="Category"
           fluid
           selection
           :options="categoryOptions"
+          :placeholder="$t('filters.category')"
           v-model="category"
         />
       </div>
 
-      <div class="w-full">
-        <label for="account">Account</label>
+      <div class="w-full mt-2">
+        <label for="account">{{ $t('filters.account') }}</label>
         <dropdown
-          placeholder="Account"
           fluid
           selection
           :options="accountsOptions"
+          :placeholder="$t('filters.account')"
           v-model="account"
         />
       </div>
@@ -79,12 +79,12 @@
           type="reset"
           @click="resetFilters"
           class="btn"
-        >Reset</button>
+        >{{ $t('actions.reset') }}</button>
 
         <button
           type="submit"
           class="btn ml-4"
-        >Filter</button>
+        >{{ $t('actions.filter') }}</button>
       </footer>
     </form>
   </details>
@@ -117,8 +117,8 @@ export default {
       comparator: '>=',
       price: 0,
       comparatorOptions: [
-        { text: 'Up to (<=)', value: '<=' },
-        { text: 'At least (>=)', value: '>=' },
+        { text: this.$t('filters.up_to'), value: '<=' },
+        { text: this.$t('filters.at_least'), value: '>=' },
       ]
     };
   },
