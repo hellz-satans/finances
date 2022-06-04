@@ -5,3 +5,4 @@ dist/finances
 # vim swap files
 .*.swp
 public/icons.svg
+storybook-static

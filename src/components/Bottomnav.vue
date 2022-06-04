@@ -1,9 +1,9 @@
 <template>
-  <nav class="bottomnav">
+  <nav :class="{bottomnav: true, compact: compact}">
     <div class="bottomnav-control text-center">
       <router-link to="/about" class="flex-col align-center">
         <svg><use xlink:href="#icons-about" /></svg>
-        <span class="inline-block">
+        <span class="block">
           {{ $t('navbar.about') }}
         </span>
       </router-link>
@@ -38,6 +38,14 @@
   </nav>
 </template>
 
+<script>
+export default {
+  props: {
+    compact: { type: Boolean, default: false },
+  },
+}
+</script>
+
 <style lang="scss">
 .bottomnav {
   position: fixed;
@@ -60,6 +68,10 @@
   background-color: var(--bg);
   border-top: 1px solid var(--fg-dark);
   filter: drop-shadow(0.25rem 0.25rem 0.25rem var(--fg));
+
+  &.compact {
+    height: var(--bottomnav-height-compact);
+  }
 
   a,
   a:visited {

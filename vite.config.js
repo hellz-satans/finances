@@ -6,9 +6,11 @@ const path = require('path')
  * @type {import('vite').UserConfig}
  */
 export default {
-  alias: [
-    { find: '@', replacement: path.resolve(__dirname, 'src') },
-  ],
+  resolve: {
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+    ],
+  },
 
   base: '/finances/',
 
