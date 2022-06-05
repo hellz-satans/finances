@@ -1,9 +1,16 @@
 import db from '@/db';
+import { i18n } from '@/i18n'
 
 const requiredFields = [
 	'key',
 	'value',
 ]
+
+const CALLBACKS = {
+  locale(value) {
+    i18n.global.locale = value
+  },
+}
 
 const PreferencesStore = {
 	state: {
@@ -17,6 +24,10 @@ const PreferencesStore = {
 				.then(arr => {
           for (let el of arr) {
             state.preferences[el.key] = el.value
+
+            if (CALLBACKS[el.key]) {
+              CALLBACKS[el.key](el.value)
+            }
           }
         })
 				.catch((err) => {
@@ -35,17 +46,14 @@ const PreferencesStore = {
       let prom = null;
 
 			for (const k of requiredFields) {
-				if (!data[k]
-            || data[k] === ''
-            || data[k].trim && data[k].trim() === ''
-        ) {
+				if (data[k] === undefined) {
 					console.error('preferences/updatePreference: missing', k, data);
 					return false;
 				}
 			}
 
       // preference already exists
-      if (state.preferences[data.key]) {
+      if (state.preferences[data.key] !== undefined) {
         prom = db.preferences.update(data.key, data);
       } else {
         prom = db.preferences.add(data);

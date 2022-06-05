@@ -1,95 +1,99 @@
 <template>
-  <form
-    name="category"
-    class="category-form p-3"
-    @submit.stop.prevent="submitForm"
-  >
-    <section class="category-options">
-      <div class="w-full mb-4">
-        <label class="block font-medium">{{ $t('categories.category') }}</label>
-        <div class="flex flex-row">
-          <category-picker
-            class="w-full"
-            v-model="category"
-            :options="categoryOptions"
-            :category="category"
-          />
-          <transition name="sweep-left">
-            <delete-category-button
-              class="ml-2 w-1/5"
-              v-if="categoryDeletable"
+  <section class="category-form m-4">
+    <h1 class="text-3xl mb-2">{{ $t('categories.title') }}</h1>
+
+    <form
+      name="category"
+      class="category-form p-3"
+      @submit.stop.prevent="submitForm"
+    >
+      <section class="category-options">
+        <div class="w-full mb-4">
+          <label class="block font-medium">{{ $t('categories.category') }}</label>
+          <div class="flex flex-row">
+            <category-picker
+              class="w-full"
+              v-model="category"
+              :options="categoryOptions"
               :category="category"
-              @deleted="resetCategory"
             />
-          </transition>
-        </div>
-      </div>
-
-      <div class="w-full mb-4">
-        <label class="block font-medium">{{ $t('categories.subcategory') }}</label>
-        <div class="flex flex-row">
-          <category-picker
-            class="w-full"
-            v-model="subcategory"
-            :disabled="! category.name"
-            :options="subcategoryOptions"
-            :category="subcategory"
-          />
-          <transition name="sweep-left">
-            <delete-category-button
-              class="ml-2 w-1/5"
-              v-if="subcategoryDeletable"
-              :category="subcategory"
-              @deleted="resetSubcategory"
-            />
-          </transition>
-        </div>
-      </div>
-    </section>
-
-    <article :style="previewStyle" class="category-preview card pt-0 pb-6">
-      <header class="justify-end m-0 mt-2 mr-4 p-0">
-        <color-picker-modal
-          class="inline-block"
-          @input="setColor($event)"
-        />
-      </header>
-
-      <section class="icon-cat-subcat">
-        <div class="icon-picker flex flex-col justify-center rounded-xl border border-gray-100">
-          <input
-            class="bg-transparent block border-0 text-center text-4xl"
-            v-model="icon"
-            placeholder="emoji"
-          />
-        </div>
-
-        <div class="cat-subcat">
-          <div class="cat mb-4">
-            <input
-              ref="categoryInput"
-              v-model="category.name"
-              :placeholder="$t('categories.category')"
-            />
+            <transition name="sweep-left">
+              <delete-category-button
+                class="ml-2 w-1/5"
+                v-if="categoryDeletable"
+                :category="category"
+                @deleted="resetCategory"
+              />
+            </transition>
           </div>
+        </div>
 
-          <div class="subcat">
-            <input
-              ref="subcategoryInput"
-              v-model="subcategory.name"
-              :placeholder="$t('categories.subcategory')"
+        <div class="w-full mb-4">
+          <label class="block font-medium">{{ $t('categories.subcategory') }}</label>
+          <div class="flex flex-row">
+            <category-picker
+              class="w-full"
+              v-model="subcategory"
+              :disabled="! category.name"
+              :options="subcategoryOptions"
+              :category="subcategory"
             />
+            <transition name="sweep-left">
+              <delete-category-button
+                class="ml-2 w-1/5"
+                v-if="subcategoryDeletable"
+                :category="subcategory"
+                @deleted="resetSubcategory"
+              />
+            </transition>
           </div>
         </div>
       </section>
-    </article>
 
-    <footer class="actions text-right">
-      <button
-        type="submit"
-      >{{ $t('actions.save') }}</button>
-    </footer>
-  </form>
+      <article :style="previewStyle" class="category-preview card pt-0 pb-6">
+        <header class="justify-end m-0 mt-2 mr-4 p-0">
+          <color-picker-modal
+            class="inline-block"
+            @input="setColor($event)"
+          />
+        </header>
+
+        <section class="icon-cat-subcat">
+          <div class="icon-picker flex flex-col justify-center rounded-xl border border-gray-100">
+            <input
+              class="bg-transparent block border-0 text-center text-4xl"
+              v-model="icon"
+              placeholder="emoji"
+            />
+          </div>
+
+          <div class="cat-subcat">
+            <div class="cat mb-4">
+              <input
+                ref="categoryInput"
+                v-model="category.name"
+                :placeholder="$t('categories.category')"
+              />
+            </div>
+
+            <div class="subcat">
+              <input
+                ref="subcategoryInput"
+                v-model="subcategory.name"
+                :placeholder="$t('categories.subcategory')"
+              />
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="actions text-right">
+        <button
+          type="submit"
+        >{{ $t('actions.save') }}</button>
+      </footer>
+    </form>
+  </section>
 </template>
 
 <script>

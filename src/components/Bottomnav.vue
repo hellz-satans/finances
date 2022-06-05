@@ -19,19 +19,10 @@
     </div>
 
     <div class="bottomnav-control text-center">
-      <router-link to="/categories" class="flex flex-col align-center">
-        <svg><use xlink:href="#icons-archives" /></svg>
-        <span class="inline-block">
-          {{ $t('navbar.categories') }}
-        </span>
-      </router-link>
-    </div>
-
-    <div class="bottomnav-control text-center">
-      <router-link to="/import-export" class="flex flex-col align-center">
-        <svg><use xlink:href="#icons-cassette" /></svg>
+      <router-link to="/settings" class="flex flex-col align-center">
+        <svg><use xlink:href="#icons-settings" /></svg>
         <span class="inline-block small">
-          {{ $t('navbar.data') }}
+          {{ $t('navbar.settings') }}
         </span>
       </router-link>
     </div>

@@ -72,6 +72,16 @@ select option:focus
   color: var(--bg);
 }
 
+fieldset {
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  padding: 0.25rem 0.50rem;
+}
+legend {
+  padding: 0 0.5rem;
+  font-weight: 600;
+}
+
 .pointer { cursor: pointer; }
 .strike-through, .strike { text-decoration: line-through; }
 
@@ -133,6 +143,15 @@ select option:focus
 .rot-90 { transform: rotate(90deg); }
 .rot-180 { transform: rotate(180deg); }
 .rot-270 { transform: rotate(270deg); }
+
+.icon {
+  fill: var(--fg);
+  stroke: var(--fg);
+  background: transparent;
+  max-height: 1.5rem;
+  max-width: 1.5rem;
+  margin: 0 auto;
+}
 
 /**
  * spacings, e.g.:

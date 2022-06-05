@@ -6,6 +6,7 @@ import CategoryForm from '@/components/categories/CategoryForm.vue'
 import ExpenseForm from '@/components/expenses/ExpenseForm.vue'
 import Home from '@/pages/Home.vue'
 import ImportExport from '@/pages/ImportExport.vue'
+import Settings from '@/pages/Settings.vue'
 import PreferenceForm from '@/components/PreferenceForm.vue'
 import TransferForm from '@/components/accounts/TransferForm.vue'
 
@@ -57,6 +58,13 @@ export const router = createRouter({
       name: 'data',
       icon: 'folder-open',
       component: ImportExport
+    },
+
+    {
+      path: '/settings',
+      name: 'settings',
+      icon: 'settings',
+      component: Settings,
     },
 
     {

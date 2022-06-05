@@ -6,7 +6,7 @@
   <section v-if="!isLoading">
     <router-view></router-view>
 
-    <bottomnav />
+    <bottomnav :compact="navbarCompact" />
   </section>
 
   <footer class="pt-2 border-t-2 border-grey-900" v-if="!isLoading">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { NAME, VERSION } from '@/config/application_properties'
 import Bottomnav from '@/components/Bottomnav.vue'
 import Loader  from '@/components/Loader.vue'
@@ -38,6 +39,9 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      navbarCompact: state => state.preferences.preferences.navbarCompact,
+    }),
     NAME: () => NAME,
     VERSION: () => VERSION,
 

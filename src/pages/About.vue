@@ -56,6 +56,8 @@
       <li><a href="https://commons.wikimedia.org/wiki/File:About_icon_(The_Noun_Project).svg" rel="nofollow">About icon</a> by <a href="https://thenounproject.com/goldenroof/" rel="nofollow">Yaroslav Samoylov</a>
         (<a href="https://web.archive.org/web/20210123183012/https://thenounproject.com/goldenroof/" rel="nofollow">archive</a>),
         <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="nofollow">CC BY-SA 3.0</a></li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Gear_shape_black_11.svg" rel="nofollow">Settings icon</a> by <a href="https://commons.wikimedia.org/wiki/User:Heatherawalls" rel="nofollow">Heatherawalls</a>
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="nofollow">CC0 1.0</a></li>
     </ul>
 
     <p>SVG icons are found in

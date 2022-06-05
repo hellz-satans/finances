@@ -39,6 +39,7 @@ const TRANSLATIONS = {
     },
 
     categories: {
+      title: 'Categories',
       category: 'Category',
       change_color: 'Change color',
       subcategory: 'Subcategory',
@@ -119,6 +120,12 @@ const TRANSLATIONS = {
       categories: 'Categories',
       data: 'Data',
       home: 'Home',
+      settings: 'Settings',
+    },
+
+    settings: {
+      language: 'Language',
+      compact: 'Compact',
     },
 
     income: 'Income',
@@ -165,6 +172,7 @@ const TRANSLATIONS = {
     },
 
     categories: {
+      title: 'Categorias',
       category: 'Categoria',
       change_color: 'Cambiar color',
       subcategory: 'Subcategoria',
@@ -245,6 +253,12 @@ const TRANSLATIONS = {
       categories: 'Categorias',
       data: 'Datos',
       home: 'Inicio',
+      settings: 'Configuración',
+    },
+
+    settings: {
+      language: 'Idioma',
+      compact: 'Compacto',
     },
 
     income: 'Ingresos',
