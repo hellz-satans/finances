@@ -149,8 +149,11 @@ const AccountsStore = {
       const to = state.cache[data.to]
       const amount = Number(data.amount)
 
-      if (!from || !to)
-        throw "Invalid accounts";
+      if (!from || !to) {
+        const err = `Invalid accounts: from = ${data.from}, to = ${data.to}`;
+        window.alert(err)
+        throw err
+      }
 
       // expenses/createExpense will dispatch accounts/add(price * -1)
       dispatch(
