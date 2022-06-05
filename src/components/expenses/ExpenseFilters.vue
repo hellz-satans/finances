@@ -219,14 +219,6 @@ export default {
       justify-content: space-evenly;
       align-items: center;
       align-content: space-around;
-      border: 1px solid #ccc;
-      border-radius: 0.3rem;
-      padding: 0.25rem 0.50rem;
-
-      legend {
-        padding: 0 0.5rem;
-        font-weight: 600;
-      }
 
       label {
         flex-grow: 1;

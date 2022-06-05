@@ -24,6 +24,7 @@ const TRANSLATIONS = {
       reset: 'Reset',
       save: 'Save',
       submit: 'Submit',
+      transfer: 'Transfer',
       update: 'Update',
     },
 
@@ -91,6 +92,7 @@ const TRANSLATIONS = {
 
     expenses: {
       account: 'Account',
+      add: 'Add expense',
       category: 'Category',
       date: 'Date',
       description: 'Description',
@@ -157,6 +159,7 @@ const TRANSLATIONS = {
       reset: 'Limpiar',
       save: 'Guardar',
       submit: 'Enviar',
+      transfer: 'Transferir',
       update: 'Actualizar',
     },
 
@@ -224,6 +227,7 @@ const TRANSLATIONS = {
 
     expenses: {
       account: 'Cuenta',
+      add: 'Registrar gasto',
       category: 'Categoria',
       date: 'Fecha',
       description: 'Descripción',
