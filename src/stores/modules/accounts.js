@@ -165,6 +165,7 @@ const AccountsStore = {
           description: `Transfer -> ${to.name} (${to.key})`,
           price: (amount * -1),
           subcategory: 'transfer_transfer',
+          transfer: true,
         },
         { root: true }
       ).then(() => {

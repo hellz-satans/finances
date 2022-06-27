@@ -55,7 +55,9 @@ export default {
 
   computed: {
     expenses() {
-      return this.$store.state.expenses.expenses;
+      return this.$store.state.expenses
+        .expenses
+        .filter(e => !e.transfer);
     },
 
     xkcdOptions() {

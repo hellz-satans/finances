@@ -153,6 +153,7 @@ export default {
     income() {
       return this.expenses
         .filter(e => e.price > 0)
+        .filter(e => !e.transfer)
         .map(e => e.price)
         .concat([ 0, ]) // to prevent reduce on empty array
         .reduce((total, curr) => total + curr);
@@ -161,6 +162,7 @@ export default {
     outcome() {
       return this.expenses
         .filter(e => e.price < 0)
+        .filter(e => !e.transfer)
         .map(e => e.price)
         .concat([ 0, ]) // to prevent reduce on empty array
         .reduce((total, curr) => total + curr);

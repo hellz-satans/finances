@@ -108,6 +108,7 @@ const expensesSum = (expenses) => {
   }
 
   return expenses
+    .filter(e => !e.transfer)
     .map(expense => expense.price)
     .reduce((total, curr) => total + curr)
 }
