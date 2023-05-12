@@ -72,15 +72,7 @@ const PreferencesStore = {
           let exists = false
 
           for (let pref of newData) {
-            exists = arr.some((el) => {
-              return el.key === pref.key
-            })
-
-            if (exists) {
-              dispatch('updatePreference', pref)
-            } else {
-              dispatch('createPreference', pref)
-            }
+            dispatch('submitPreference', pref)
           }
 				})
 				.catch((err) => {

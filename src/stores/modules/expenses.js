@@ -229,10 +229,20 @@ export const ExpensesStore = {
         .reduce((total, curr) => total + curr)
     },
     expensesPastWeek: (state) => {
-      return expensesInRange(state.expenses, 1, 'week', { onlyNegative: true })
+      return expensesInRange(
+        state.expenses,
+        1,
+        'week',
+        { onlyNegative: true, skipTransfer: true }
+      );
     },
     expensesPastMonth: (state) => {
-      return expensesInRange(state.expenses, 1, 'month', { onlyNegative: true })
+      return expensesInRange(
+        state.expenses,
+        1,
+        'month',
+        { onlyNegative: true, skipTransfer: true }
+      );
     },
   },
 }

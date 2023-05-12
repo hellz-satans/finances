@@ -1,5 +1,5 @@
 <template>
-  <section class="import-export m-4">
+  <section class="import-export p-4">
     <h1 class="text-3xl">{{ $t('data.title') }}</h1>
 
     <article class="card">

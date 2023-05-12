@@ -57,14 +57,15 @@ const filterExpenses = (expense, filters) => {
 /**
  * Calculate total expenses in the specified range.
  *
- * @option decreasing Boolean Flag indicating that the list is in decreasing
+ * @option decreasing {Boolean} Flag indicating that the list is in decreasing
  *         order
- * @option onlyNegative Boolean Only get records with a price less than 0
+ * @option onlyNegative {Boolean} Only get records with a price less than 0
+ * @option skipTransfer {Boolean} Filter out records that have `transfer: true` property
  *
- * @param n Number
- * @param unit String Any dayjs.js compatible unit
- * @param options Object
- * @return Number
+ * @param n {Number}
+ * @param unit {String} Any dayjs.js compatible unit
+ * @param options {Object}
+ * @return {Number}
  */
 const expensesInRange = (expenses, n = 1, unit = 'week', options = {}) => {
 	const endDate = dayjs().endOf('day')
@@ -91,6 +92,12 @@ const expensesInRange = (expenses, n = 1, unit = 'week', options = {}) => {
         return true
       else
         return exp.price < 0
+    })
+    .filter((exp) => {
+      if (options.skipTransfer && exp.transfer)
+        return false;
+      else
+        return true;
     })
 		.map(expense => expense.price)
 		.reduce((total, curr) => total + curr)

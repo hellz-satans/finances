@@ -181,7 +181,7 @@ const AccountsStore = {
 
 		deleteAccount({ commit, dispatch }, account) {
       if (account.key == DEFAULT_ACCOUNT.key) {
-        dispatch('preferences/createPreference',
+        dispatch('preferences/submitPreference',
           {
             key: SKIP_DEFAULT_ACCOUNT,
             value: true,
