@@ -45,7 +45,7 @@
       />
     </div>
 
-    <div class="w-full">
+    <div class="w-full mb-4">
       <label class="block font-semibold" for="account_color">{{ $t('accounts.color') }}</label>
       <div class="mt-2">
         <v-swatches
@@ -56,6 +56,24 @@
           background-color="transparent"
         />
       </div>
+    </div>
+
+    <div class="w-full mb-4" v-if="currenciesEnabled">
+      <label class="block font-semibold mb-3" for="account_currency">
+        {{ $t('accounts.currency') }}
+      </label>
+
+
+      <input
+        :style="accountStyles"
+        class="block appearance-none w-full border p-2 rounded"
+        id="account_currency"
+        name="account_currency"
+        v-model="currency"
+        placeholder="MXN"
+        minlength="2"
+        pattern=".+"
+      />
     </div>
 
     <footer class="actions text-right">
@@ -128,8 +146,12 @@ export default {
       }
     },
   },
+
   computed: {
-    ... mapState('accounts', [ 'accounts', ]),
+    ... mapState({
+      accounts: state => state.accounts.accounts,
+      currenciesEnabled: state => state.preferences.preferences.accountsCurrencies,
+    }),
 
     action() {
       return this.key ? 'Update' : 'Add';

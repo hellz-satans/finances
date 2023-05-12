@@ -50,7 +50,7 @@
 
       <div class="flex field justify-between items-center">
         <label class="inline-block my-2" for="accounts_currencies">
-          {{ $t('accounts.currency') }}
+          {{ $t('accounts.currency_support') }}
         </label>
         <input class="inline-block" id="accounts_currencies" name="accounts_currencies" v-model="accountsCurrencies" type="checkbox">
       </div>
