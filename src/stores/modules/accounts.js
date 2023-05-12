@@ -54,6 +54,7 @@ const AccountsStore = {
         // TODO: add filter for account name
         account.key = account.name.toLowerCase()
       }
+
       return db.accounts.add(account)
         .then((key) => {
           account.key = key;
@@ -140,19 +141,28 @@ const AccountsStore = {
      * Transfer amount from one account to another
      *
      * @option data {Number} amount
+     * @option data {Number} exchangeRate Amount will be multiplied by it,
+     *   i.e., `amount * exchangeRate`. Default `1`.
      * @option data {String} from Account key
      * @option data {String} to Account key
      * @param {Object} data
      */
     transfer({ commit, dispatch, state }, data) {
+      data.exchangeRate = data.exchangeRate || 1;
       const from = state.cache[data.from]
       const to = state.cache[data.to]
-      const amount = Number(data.amount)
+      const amount = Number(data.amount * data.exchangeRate)
 
       if (!from || !to) {
         const err = `Invalid accounts: from = ${data.from}, to = ${data.to}`;
         window.alert(err)
         throw err
+      }
+
+      let description = `Transfer -> ${to.name} (${to.key})`;
+
+      if (data.exchangeRate != 1) {
+        description += `. Exchange rate: 1 ${from.currency} = ${data.exchangeRate} ${to.currency}`;
       }
 
       // expenses/createExpense will dispatch accounts/add(price * -1)
@@ -162,7 +172,7 @@ const AccountsStore = {
           account: from.key,
           category: 'transfer',
           date: new Date(),
-          description: `Transfer -> ${to.name} (${to.key})`,
+          description: description,
           price: (amount * -1),
           subcategory: 'transfer_transfer',
           transfer: true,

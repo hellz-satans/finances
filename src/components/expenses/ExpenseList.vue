@@ -60,8 +60,8 @@
 
         <p class="px-2 text-small">{{ e.description }}</p>
 
-        <div class="actions min-w-1/5 text-xs flex flex-col align-center">
-          <router-link class="block text-center" :to="`/expense/${e.id}`">
+        <div class="actions min-w-1/5 text-sm flex flex-col align-center">
+          <router-link class="block text-center mb-2 sm:mb-0" :to="`/expense/${e.id}`">
             {{ $t('actions.edit') }}
           </router-link>
 

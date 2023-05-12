@@ -10,6 +10,7 @@
       v-bind="moneyConf"
       @input="emitValue($event)"
       :value="money"
+      :precision="precision"
     />
   </div>
 </template>
@@ -23,6 +24,7 @@ export default {
   },
 
   props: {
+    precision: { type: Number, default: 2 },
     value: { type: Number, required: true, default: 0, },
     hideSign: { type: Boolean, default: false, },
   },
@@ -31,7 +33,7 @@ export default {
     return {
       moneyConf: {
         prefix: '$',
-        precision: 2,
+        precision: this.precision,
         masked: false,
       },
       money: 0, // for internal handling

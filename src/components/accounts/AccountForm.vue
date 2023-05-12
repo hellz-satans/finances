@@ -100,11 +100,12 @@ export default {
 
   data() {
     return {
-      balance: 0,
-      color:   primaryColor,
-      key:     null,
-      loaded:  false,
-      name:    null,
+      balance:  0,
+      color:    primaryColor,
+      currency: '',
+      key:      null,
+      loaded:   false,
+      name:     null,
     };
   },
 
@@ -115,6 +116,10 @@ export default {
         color:   this.color,
         key:     this.key,
         name:    this.name,
+      }
+
+      if (this.currenciesEnabled) {
+        data.currency = this.currency;
       }
 
       if (document.forms.account.checkValidity()) {
