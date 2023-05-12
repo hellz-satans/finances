@@ -20,7 +20,10 @@
     </header>
 
     <section class="m-0 p-0">
-      <h3 class="balance">{{ balance }}</h3>
+      <h3 class="balance">
+        {{ balance }}
+        {{ account.currency }}
+      </h3>
     </section>
 
     <footer class="m-0 text-smaller text-right">
