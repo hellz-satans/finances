@@ -34,7 +34,7 @@
       />
     </div>
 
-    <div class="w-full" v-if="needsExchangeRate">
+    <div class="w-full mb-4" v-if="needsExchangeRate">
       <label for="exchange_rate">
         {{ $t('accounts.exchange_rate') }}
         (1 {{ this.fromAccount.currency }} = <code>?</code> {{ this.toAccount.currency }})

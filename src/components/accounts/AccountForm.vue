@@ -63,7 +63,6 @@
         {{ $t('accounts.currency') }}
       </label>
 
-
       <input
         :style="accountStyles"
         class="block appearance-none w-full border p-2 rounded"
@@ -144,10 +143,11 @@ export default {
       let acc = this.accounts.find(a => a.key == key);
 
       if (acc) {
-        this.balance = acc.balance;
-        this.color   = acc.color;
-        this.key     = acc.key;
-        this.name    = acc.name;
+        this.balance  = acc.balance;
+        this.color    = acc.color;
+        this.currency = acc.currency;
+        this.key      = acc.key;
+        this.name     = acc.name;
       }
     },
   },

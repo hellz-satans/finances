@@ -149,9 +149,10 @@ const AccountsStore = {
      */
     transfer({ commit, dispatch, state }, data) {
       data.exchangeRate = data.exchangeRate || 1;
-      const from = state.cache[data.from]
-      const to = state.cache[data.to]
-      const amount = Number(data.amount * data.exchangeRate)
+      const from = state.cache[data.from];
+      const to = state.cache[data.to];
+      const amount = Number(data.amount);
+      const amountExRate = Number(data.amount * data.exchangeRate);
 
       if (!from || !to) {
         const err = `Invalid accounts: from = ${data.from}, to = ${data.to}`;
@@ -180,7 +181,7 @@ const AccountsStore = {
         { root: true }
       ).then(() => {
         return dispatch('add', {
-          amount: amount,
+          amount: amountExRate,
           key: to.key,
         })
       }).then((toKey) => {
