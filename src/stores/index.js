@@ -83,9 +83,13 @@ export const store = createStore({
     },
   },
 
-	getters: {
-		balanceSummary: (state, getters, rootGetters) => {
-			return getters['accounts/totalBalance'] - getters['expenses/totalExpenses'];
-		},
-	}
+  state: {
+    debugMessages: []
+  },
+
+  getters: {
+    balanceSummary: (state, getters, rootGetters) => {
+      return getters['accounts/totalBalance'] - getters['expenses/totalExpenses'];
+    },
+  }
 })

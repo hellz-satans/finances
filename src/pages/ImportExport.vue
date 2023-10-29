@@ -1,5 +1,5 @@
 <template>
-  <section class="import-export p-4">
+  <section id="import-export">
     <h1 class="text-3xl">{{ $t('data.title') }}</h1>
 
     <article class="card">
@@ -133,3 +133,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+#import-export {
+  @apply p-4;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="import-export m-4">
+  <section id="settings">
     <h1 class="text-3xl mb-2">{{ $t('navbar.settings') }}</h1>
 
     <ul class="list-none ml-0 my-4">
@@ -36,25 +36,49 @@
       />
     </label>
 
-    <fieldset class="mt-4">
+    <fieldset>
       <legend>Navbar</legend>
 
-      <div class="flex field justify-between items-center">
-        <label class="inline-block my-2" for="navbar_compact">{{ $t('settings.compact') }}</label>
-        <input class="inline-block" id="navbar_compact" name="navbar_compact" v-model="navbarCompact" type="checkbox">
+      <div class="settings-control">
+        <label for="navbar_compact">{{ $t('settings.compact') }}</label>
+        <input id="navbar_compact" name="navbar_compact" v-model="navbarCompact" type="checkbox">
       </div>
     </fieldset>
 
-    <fieldset class="mt-4">
+    <fieldset>
       <legend>{{ $t('accounts.plural') }}</legend>
 
-      <div class="flex field justify-between items-center">
-        <label class="inline-block my-2" for="accounts_currencies">
+      <div class="settings-control">
+        <label for="accounts_currencies">
           {{ $t('accounts.currency_support') }}
         </label>
-        <input class="inline-block" id="accounts_currencies" name="accounts_currencies" v-model="accountsCurrencies" type="checkbox">
+        <input id="accounts_currencies" name="accounts_currencies" v-model="accountsCurrencies" type="checkbox">
       </div>
     </fieldset>
+
+    <fieldset>
+      <legend>Debug</legend>
+
+      <div class="settings-control">
+        <label for="debug_messages">
+          {{ $t('debug.debug_messages') }}
+        </label>
+        <input
+          id="debug_messages"
+          name="debug_messages"
+          v-model="enableDebugMessages"
+          type="checkbox"
+        >
+      </div>
+    </fieldset>
+
+    <aside v-if="enableDebugMessages" class="mt-4 pt-4 border-t-2">
+      <h2>{{ $t('debug.debug_messages') }}</h2>
+
+      <ul class="pl-2 mt-2">
+        <li v-for="(msg, idx) in debugMessages">{{ msg }}</li>
+      </ul>
+    </aside>
   </section>
 </template>
 
@@ -77,6 +101,24 @@ export default {
   },
 
   computed: {
+    debugMessages() {
+      return this.$store.state.debugMessages;
+    },
+
+    accountsCurrencies: {
+      get() { return this.$store.state.preferences.preferences.accountsCurrencies },
+      set(value) {
+        this.$store.dispatch('preferences/submitPreference', { key: 'accountsCurrencies', value: !!value })
+      },
+    },
+
+    enableDebugMessages: {
+      get() { return this.$store.state.preferences.preferences.enableDebugMessages },
+      set(value) {
+        this.$store.dispatch('preferences/submitPreference', { key: 'enableDebugMessages', value: !!value })
+      },
+    },
+
     lang: {
       get() { return this.$store.state.preferences.preferences.locale },
       set(locale) {
@@ -91,13 +133,28 @@ export default {
         this.$store.dispatch('preferences/submitPreference', { key: 'navbarCompact', value: !!value })
       },
     },
-
-    accountsCurrencies: {
-      get() { return this.$store.state.preferences.preferences.accountsCurrencies },
-      set(value) {
-        this.$store.dispatch('preferences/submitPreference', { key: 'accountsCurrencies', value: !!value })
-      },
-    },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+#settings {
+  @apply m-4;
+
+  fieldset {
+    @apply mt-4;
+
+    .settings-control {
+      @apply flex justify-between items-center;
+
+      label {
+        @apply inline-block my-2;
+      }
+
+      input {
+        display: inline-block;
+      }
+    }
+  }
+}
+</style>

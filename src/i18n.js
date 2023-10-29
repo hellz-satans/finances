@@ -95,6 +95,10 @@ const TRANSLATIONS = {
       title: 'Data',
     },
 
+    debug: {
+      debug_messages: 'Debug messages',
+    },
+
     expenses: {
       account: 'Account',
       add: 'Add expense',
@@ -234,6 +238,10 @@ const TRANSLATIONS = {
         title: 'Datos de prueba',
       },
       title: 'Datos',
+    },
+
+    debug: {
+      debug_messages: 'Mensajes de depuración',
     },
 
     expenses: {
