@@ -55,11 +55,6 @@ export default {
             type: 'image/png'
           },
           {
-            src: `${ICONS_DIR}/maskable-finances-512x512.png`,
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
             src: `${ICONS_DIR}/finances-512x512.png`,
             sizes: '512x512',
             type: 'image/png'
@@ -68,7 +63,13 @@ export default {
             src: `${ICONS_DIR}/finances-64x64.png`,
             sizes: '64x64',
             type: 'image/png'
-          }
+          },
+          {
+            src: `${ICONS_DIR}/maskable-finances-512x512.png`,
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable'
+          },
         ]
       }
     })
