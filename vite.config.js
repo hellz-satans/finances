@@ -70,7 +70,17 @@ export default {
             type: 'image/png',
             purpose: 'maskable'
           },
-        ]
+        ],
+        shortcuts: [
+          {
+            name: 'Add expense',
+            url: `${BASE_PATH}/expense/new`,
+          },
+          {
+            name: 'Register transfer',
+            url: `${BASE_PATH}/transfer`,
+          },
+        ],
       }
     })
   ],
