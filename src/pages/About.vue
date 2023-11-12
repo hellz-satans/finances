@@ -58,7 +58,12 @@
         <a href="https://creativecommons.org/licenses/by-sa/3.0" rel="nofollow">CC BY-SA 3.0</a></li>
       <li><a href="https://commons.wikimedia.org/wiki/File:Gear_shape_black_11.svg" rel="nofollow">Settings icon</a> by <a href="https://commons.wikimedia.org/wiki/User:Heatherawalls" rel="nofollow">Heatherawalls</a>
         <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="nofollow">CC0 1.0</a></li>
+      <li><a href="https://svgsilh.com/image/2756790.html" rel="noopener noreferrer">Internet home symbol web</a> (logo icon),
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=openverse" rel="noopener noreferrer">CC0 1.0</a></li>
+      <li><a href="https://www.rawpixel.com/image/7376754/png-sticker-public-domain-money" rel="noopener noreferrer">Gold coins png sticker</a> (logo icon),
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=openverse" rel="noopener noreferrer">CC0 1.0</a></li>
     </ul>
+
 
     <p>SVG icons are found in
     <a href="https://github.com/hellz-satans/finances/blob/master/public/icons">public/icons</a>,

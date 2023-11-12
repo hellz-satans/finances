@@ -41,6 +41,8 @@ SVG icons are found in [public/icons](public/icons), bundled together by running
 `svgeez build --source public/icons --destination public/icons.svg` then I copy the contents
 of the output file (`icons.svg`) to [index.html](index.html).
 
+PWA logo assets generated with `@vite-pwa/assets-generator` with the `minimal` preset.
+
 ## Development
 
 This was upgraded from Vue2/webpack to Vue3/vite, the basic scripts are:

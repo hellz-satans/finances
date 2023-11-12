@@ -1,11 +1,5 @@
 <template>
-  <header
-    class="flex justify-between items-baseline py-1 px-3 border-b-2 border-grey-900"
-  >
-    <span class="title">My Finances</span>
-  </header>
-
-  <balance-summary />
+  <balance-summary class="mt-4" />
 
   <!--
   <nav>
