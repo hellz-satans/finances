@@ -2,7 +2,7 @@
   <section id="import-export">
     <h1 class="text-3xl">{{ $t('data.title') }}</h1>
 
-    <article class="card">
+    <article class="card my-4">
       <header>
         <h2>{{ $t('data.import.title') }}</h2>
       </header>
@@ -29,7 +29,7 @@
       </footer>
     </article>
 
-    <article class="card">
+    <article class="card my-4">
       <header class="card-header">
         <h2>{{ $t('data.export.title') }}</h2>
       </header>
@@ -66,7 +66,7 @@
       </footer>
     </article>
 
-    <article class="card">
+    <article class="card my-4">
       <header>
         <h2>{{ $t('data.seed.title') }}</h2>
       </header>
@@ -86,7 +86,7 @@
       </footer>
     </article>
 
-    <article class="card">
+    <article class="card my-4">
       <header>
         <h2>{{ $t('data.destroy.title') }}</h2>
       </header>
@@ -109,26 +109,28 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
 
 export default {
   methods: {
     ... mapActions([ 'deleteData', 'exportData', 'importData', 'seedData' ]),
+
     handleFile(ev) {
       if (this.$refs.importFile.files.length > 0) {
-        const reader = new FileReader()
+        const reader = new FileReader();
 
-          reader.addEventListener('load', (ev) => {
-            const data = JSON.parse(ev.target.result)
-              this.importData(data)
-          })
+        reader.addEventListener('load', (ev) => {
+          const data = JSON.parse(ev.target.result);
 
-        reader.readAsBinaryString(this.$refs.importFile.files.item(0))
+          this.importData(data);
+        });
+
+        reader.readAsText(this.$refs.importFile.files.item(0), 'utf-8');
       }
     },
 
     confirmDelete() {
-      window.confirm('Are you sure?') && this.deleteData()
+      window.confirm(this.$t('confirm')) && this.deleteData()
     },
   }
 }

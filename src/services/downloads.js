@@ -28,7 +28,7 @@ function downloadJsonUsingBrowser (name, data) {
 	const a = document.createElement('a')
 	const blob = new Blob(
     [ JSON.stringify(data, jsonDownloadReplacer) ],
-    { type: 'application/octet-stream' }
+    { type: 'text/plain;charset=utf-8' }
   )
 	let uri = null
 

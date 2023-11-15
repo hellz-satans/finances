@@ -1,7 +1,20 @@
-import db from '@/db';
+import db from '@/db'
 import { CategoriesService } from '@/services/categories';
 import { categories as seeds } from '@/db/seeds';
 import COLORS from '@/config/colors';
+
+/**
+ * Category input object.
+ *
+ * @typedef {CategoryInput}
+ * @property categoryKey {string} If blank, it will be automatically generated from the {#category} property.
+ * @property category {string}
+ * @property color {string} Valid string representing a color: Hex-code, HSL, etc.
+ * @property icon {string} Emoji character
+ * @property isSubcategory {boolean}
+ * @property subcategoryKey {string} If blank, it will be automatically generated from the {#subcategory} property.
+ * @property subcategory {string}
+ */
 
 const DEFAULT_VALUES = {
   color: '#455A64',
@@ -66,6 +79,13 @@ const CategoriesStore = {
   },
 
   actions: {
+    /**
+     * Create category record.
+     *
+     * This automatically creates category/subcategory if it doesn't exist.
+     *
+     * @param input {CategoryInput}
+     */
     async submitCategory({ dispatch, commit, state }, input) {
       let category = null,
         data = null,
@@ -75,16 +95,19 @@ const CategoriesStore = {
         key:  input.categoryKey,
         name: input.category,
         color: input.color,
-        isSubcategory: false,
+        isSubcategory: input.isSubcategory,
       }
       // do NOT update category icon when we edit a subcategory
       if (!input.isSubcategory) data.icon = input.icon;
 
-      if (!data.key)
+      if (!data.key) {
         data.key = CategoriesService.generateKey(data.name);
+      }
+
       category = await CategoriesService.upsert(data.key, data);
 
       if (input.isSubcategory) {
+        // Create subcategory if passed
         data = {
           key:   input.subcategoryKey,
           name:  input.subcategory,
@@ -92,6 +115,7 @@ const CategoriesStore = {
           icon:  input.icon,
           isSubcategory: true,
         };
+
         if (!data.key) {
           data.key = CategoriesService.generateKey(data.name);
           data.key = `${category.key}_${data.key}`;
@@ -175,6 +199,31 @@ const CategoriesStore = {
 
             // so we never run out of colors
             COLORS.push(color);
+          }
+        })
+        .then(() => commit('getCategories'))
+        .then(() => commit('getSubcategories'));
+    },
+
+    /**
+     * @param newData {Array<CategoryInput>}
+     */
+    importCategories({ commit, dispatch }, newData) {
+      db.categories
+        .toArray()
+        .then((arr) => {
+          for (const importedCategory of newData) {
+            if ( !arr.find(el => el.key == importedCategory.key) ) {
+              dispatch('submitCategory', {
+                categoryKey: importedCategory.key,
+                category: importedCategory.name,
+                color: importedCategory.color,
+                icon: importedCategory.icon,
+                isSubcategory: !!importedCategory.isSubcategory,
+                subcategoryKey: importedCategory.key,
+                subcategory: importedCategory.name,
+              });
+            }
           }
         })
         .then(() => commit('getCategories'))

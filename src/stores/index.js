@@ -1,8 +1,8 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
-import { exportDB } from '@/db/export'
-import modules from '@/stores/modules'
-import { downloadJsonUsingBrowser } from '@/services/downloads'
+import { exportDB } from '@/db/exporter';
+import modules from '@/stores/modules';
+import { downloadJsonUsingBrowser } from '@/services/downloads';
 
 export const store = createStore({
   modules: {
@@ -49,28 +49,34 @@ export const store = createStore({
 		 */
 		exportData({ state }, ext = 'json') {
       exportDB()
+        // .then((data) => {
+        //   console.debug('db#exportDB: data =', data);
+        // });
         .then((data) => {
           downloadJsonUsingBrowser(`my_finances.${ext}`, data)
-        })
+        });
 		},
 
-		/**
-		 * Import secured data.
-		 *
-		 * Maybe ask the user for a passphrase or something like that and
-		 * decipher before inserting.
-		 */
-		importData({ dispatch }, data) {
-			if (data.accounts) {
+    /**
+     * Import secured data.
+     *
+     * Maybe ask the user for a passphrase or something like that and
+     * decipher before inserting.
+     */
+    importData({ dispatch }, data) {
+      if (data.accounts) {
         dispatch('accounts/importAccounts', data.accounts)
-			}
-			if (data.expenses) {
+      }
+      if (data.categories) {
+        dispatch('categories/importCategories', data.categories)
+      }
+      if (data.expenses) {
         dispatch('expenses/importExpenses', data.expenses)
-			}
-			if (data.preferences) {
+      }
+      if (data.preferences) {
         dispatch('preferences/importPreferences', data.preferences)
-			}
-		},
+      }
+    },
 
     /**
      * Seed data to DB.
