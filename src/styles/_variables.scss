@@ -107,7 +107,7 @@ $shadow-color: $primary-color-light;
 
     --border-color: #{$border-color};
     --border-color-light: #{$border-color-light};
-    --shadow-color: #{$btn-bg};
+    --shadow-color: #{hsl($cyan_degree, $cyan_saturation, $cyan_lightness)};
 
     --code-bg: #eaeaea;
     --code-fg: var(--fg);

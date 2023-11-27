@@ -46,8 +46,12 @@ const TRANSLATIONS = {
 
     categories: {
       title: 'Categories',
+      new_category: 'Add category',
+      categories: 'Categories',
       category: 'Category',
       change_color: 'Change color',
+      new_subcategory: 'Add subcategory',
+      subcategories: 'Subcategories',
       subcategory: 'Subcategory',
     },
 
@@ -191,8 +195,12 @@ const TRANSLATIONS = {
 
     categories: {
       title: 'Categorias',
+      new_category: 'Agregar categoria',
+      categories: 'Categorias',
       category: 'Categoria',
       change_color: 'Cambiar color',
+      new_subcategory: 'Agregar subcategoria',
+      subcategories: 'Subcategorias',
       subcategory: 'Subcategoria',
     },
 

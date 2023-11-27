@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import About from '@/pages/About.vue'
 import AccountForm from '@/components/accounts/AccountForm.vue'
+import Categories from '@/pages/Categories.vue'
 import CategoryForm from '@/components/categories/CategoryForm.vue'
 import ExpenseForm from '@/components/expenses/ExpenseForm.vue'
 import Home from '@/pages/Home.vue'
@@ -50,7 +51,7 @@ export const router = createRouter({
       path: '/categories',
       name: 'categories',
       icon: 'database',
-      component: CategoryForm,
+      component: Categories,
     },
 
     {
