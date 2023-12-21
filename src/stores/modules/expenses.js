@@ -205,6 +205,7 @@ export const ExpensesStore = {
           for (i = 1; i <= n; ++i) {
             cat = categories[Math.floor(Math.random() * (categories.length))]
             let expense = {
+              demo: true,
               description: `Example expense #${i}`,
               price: Math.floor(Math.random() * (100 - 20) + 20) * -1,
               category: cat.key.split('_')[0],

@@ -7,3 +7,4 @@ dist/finances
 public/icons.svg
 storybook-static
 dev-dist/
+data/

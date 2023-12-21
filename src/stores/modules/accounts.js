@@ -284,6 +284,7 @@ const AccountsStore = {
 
       for (i = 1; i <= n; ++i) {
         account = {
+          demo: true,
           key: `account${i}`,
           name: `Account #${i}`,
           balance: i * 100,

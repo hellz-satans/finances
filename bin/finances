@@ -1,0 +1,172 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+#
+# Usage: finances <action> <arguments> [<options>]
+#
+# Script to manipulate JSON archive data from web app.
+#
+# * Convert JSON archive to spreadsheet format
+# * Filter out demo data
+#
+# @see https://github.com/westonganger/spreadsheet_architect/
+
+require "bundler/inline"
+require "json"
+
+gemfile do
+  source "https://rubygems.org"
+
+  gem "dry-cli", "1.0"
+  gem "spreadsheet_architect", "~> 5.0"
+end
+
+module Finances
+  class Converter
+    SHEETS_COLUMNS = {
+      accounts: %w[balance color currency includeInSummary key name],
+      categories: %w[key name isSubcategory color icon],
+      expenses: %w[id account category subcategory price date transfer description],
+      preferences: %w[key value]
+    }.freeze
+
+    def initialize(in_file:, out_file:)
+      @in_file = in_file
+      @out_file = out_file
+    end
+
+    class << self
+      def to_json(spreadsheet_file)
+      end
+
+      def to_spreadsheet(json_filename:, out_file:)
+        new(in_file: json_filename, out_file: out_file)
+          .write_spreadsheet
+      end
+
+      def filter_demo_data(json_filename:, out_file:)
+        new(in_file: json_filename, out_file: out_file)
+          .filter_demo_data
+      end
+    end
+
+    # Filter out data created with the "Seed data" feature.
+    #
+    # Write new, filtered JSON archive to {@out_file}
+    # @return [nil]
+    def filter_demo_data
+      filtered_json = {}
+
+      filtered_json[:categories] = json_data[:categories]
+      filtered_json[:preferences] = json_data[:categories]
+      filtered_json[:accounts] = json_data[:accounts]
+        .select { |account| !account[:demo] }
+      filtered_json[:expenses] = json_data[:expenses]
+        .select { |expense| !expense[:demo] }
+        .select do |expense|
+          expense[:description].nil? || !expense[:description].match?(%r{Example expense})
+        end
+
+      print "Writing data to '#{@out_file}'... "
+      File.write(@out_file, JSON.pretty_generate(filtered_json))
+      puts "done!"
+    end
+
+    # Convert JSON archive to ODF spreadsheet with multiple sheets
+    #
+    # Write spreadsheet to {@out_file}
+    # @return [nil]
+    def write_spreadsheet
+      ods_spreadsheet = nil
+
+      SHEETS_COLUMNS.keys.each do |sheet|
+        puts "[WARN] Field #{sheet} not found in data" if !json_data.key?(sheet)
+
+        ods_spreadsheet = SpreadsheetArchitect.to_rodf_spreadsheet(
+          {
+            data: json2sheet(SHEETS_COLUMNS[sheet], json_data[sheet]),
+            headers: SHEETS_COLUMNS[sheet],
+            sheet_name: sheet.to_s
+          },
+          ods_spreadsheet
+        )
+      end
+
+      print "Writing data to '#{@out_file}'... "
+      File.open(@out_file, "w+b") do |f|
+        f.write ods_spreadsheet.bytes
+      end
+      puts "done!"
+    end
+
+    private
+
+    def json_data
+      @json_data ||= JSON.parse(File.read(@in_file), symbolize_names: true)
+    end
+
+    # Get row values in the same order as headers
+    #
+    # == Example
+    #
+    #   headers = ["price", "description"]
+    #   data = [[[:description, "First row"], [:price, 10]], [[:description, "Second row"], [:price, 20]]]
+    #   json2sheet(headers, data)
+    #   # [[10, "First row"], [20, "Second row"]]
+    #
+    #
+    # @param headers [Array<String>]
+    # @param data [Array<Array<Array>>]
+    # @return [Array<Array<Object>>]
+    def json2sheet(headers, data)
+      return [] if data.nil? || data.empty?
+
+      data.map do |row|
+        new_row = []
+        headers.each do |col|
+          new_row << row.find { |el| el.first.to_s == col }&.last
+        end
+        new_row
+      end
+    end
+  end
+
+  module CLI
+    module Commands
+      extend Dry::CLI::Registry
+
+      class Version < Dry::CLI::Command
+        desc "Print version"
+
+        def call(*)
+          puts "0.0.1"
+        end
+      end
+
+      class ConvertToSheet < Dry::CLI::Command
+        desc "Convert JSON archive to spreadsheet format"
+
+        argument :in_file, type: :string, required: true, desc: "Input file"
+        option :out_file, type: :string, default: "my_finances.ods", required: false, aliases: ["-s"], desc: "Spreadsheet file"
+        def call(in_file:, out_file: "my_finances.ods", **)
+          Converter.to_spreadsheet(json_filename: in_file, out_file: out_file)
+        end
+      end
+
+      class RemoveDemoData < Dry::CLI::Command
+        desc "Remove demo data from JSON archive"
+
+        argument :in_file, type: :string, required: true, desc: "Input file"
+        option :out_file, type: :string, default: "my_finances-filtered.json", required: false, aliases: ["-o"], desc: "Filtered JSON archive"
+        def call(in_file:, out_file: "my_finances-filtered.json", **)
+          Converter.filter_demo_data(json_filename: in_file, out_file: out_file)
+        end
+      end
+
+      register "version", Version, aliases: ["v", "-v", "--version"]
+      register "json2sheet", ConvertToSheet, aliases: ["j2s"]
+      register "remove-demo-data", RemoveDemoData
+    end
+  end
+end
+
+Dry::CLI.new(Finances::CLI::Commands).call
