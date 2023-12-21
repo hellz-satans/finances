@@ -18,8 +18,8 @@
       </li>
     </ul>
 
-    <p>It's hard keeping record on what you spend money, and if you're a bit paranoid with your
-    phone and apps, it continues to be hard. This simple application was written to keep a record
+    <p>It's hard keeping record on what you spend money on, and if you're a careful with your
+    data, it can be harder. This simple application was written to keep a record
     and easily dispose the information.
     </p>
 
@@ -38,7 +38,7 @@
 
     <p>So, here we are. I wrote a quick'n'dirty solution at first
     (<a href="https://hellz-satans.github.io/my-finances-pwa/">v1</a>) and I've been tweaking and
-    removing stuff over the time, which is what you're reading.
+    removing stuff over time, which is what you're reading.
     </p>
 
     <p>Source code hosted on github

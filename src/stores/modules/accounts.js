@@ -163,7 +163,7 @@ const AccountsStore = {
       let description = `Transfer -> ${to.name} (${to.key})`;
 
       if (data.exchangeRate != 1) {
-        description += `. Exchange rate: 1 ${from.currency} = ${data.exchangeRate} ${to.currency}`;
+        description += `. ${amountExRate} at exchange rate: 1 ${from.currency} = ${data.exchangeRate} ${to.currency}`;
       }
 
       // expenses/createExpense will dispatch accounts/add(price * -1)
