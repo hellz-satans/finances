@@ -50,6 +50,7 @@ const TRANSLATIONS = {
       categories: 'Categories',
       category: 'Category',
       change_color: 'Change color',
+      color: 'Color',
       new_subcategory: 'Add subcategory',
       subcategories: 'Subcategories',
       subcategory: 'Subcategory',

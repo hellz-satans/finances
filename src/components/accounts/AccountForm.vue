@@ -46,7 +46,17 @@
     </div>
 
     <div class="w-full mb-4">
-      <label class="block font-semibold" for="account_color">{{ $t('accounts.color') }}</label>
+      <label class="block font-semibold" for="account_color">
+        {{ $t('accounts.color') }}
+        <span class="color-picker">
+          (
+          current color
+          <div class="color-picker--current" :style="`background-color: ${color}`">
+          </div>
+          )
+        </span>
+      </label>
+
       <div class="mt-2">
         <v-swatches
           @input="color = $event"

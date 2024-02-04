@@ -5,15 +5,15 @@
         <h1 class="inline-box text-2xl">{{ $t("categories.categories") }}</h1>
 
         <div v-if="!!selectedCategory" class="text-sm">
-          <router-link to="#">
-            {{ $t("actions.edit") }}
+          <router-link :to="`/categories/${selectedCategory.key}`">
+            {{ $t('actions.edit') }}
           </router-link>
         </div>
       </header>
 
       <article class="horizontal-list">
         <div class="item">
-          <router-link to="#">
+          <router-link to="/categories/new">
             + {{ $t("categories.new_category") }}
           </router-link>
         </div>
@@ -38,15 +38,15 @@
         <h2 class="inline-box ">{{ $t("categories.subcategories") }}</h2>
 
         <div v-if="!!selectedSubcategory" class="text-sm">
-          <router-link to="#">
+          <router-link :to="`/subcategories/${selectedSubcategory.key}`">
             {{ $t("actions.edit") }}
           </router-link>
         </div>
       </header>
 
       <article class="horizontal-list flex-wrap">
-        <div class="item" v-show="!!selectedCategory">
-          <router-link to="#">
+        <div class="item" v-if="!!selectedCategory">
+          <router-link :to="`/subcategories/new?category_key=${selectedCategory.key}`">
             + {{ $t("categories.new_subcategory") }}
           </router-link>
         </div>

@@ -94,6 +94,16 @@ const CategoriesService = {
     return count;
   },
 
+  /**
+   * @param name {string} E.g., "food", "food_coffe"
+   * @return {string[]} Array with 1 or 2 elements.
+   *   The first element being the category name and the second the
+   *   subcategory name.
+   */
+  explodeName(name) {
+    return name.split('_');
+  },
+
   generateKey: stringKeyFilter,
 };
 

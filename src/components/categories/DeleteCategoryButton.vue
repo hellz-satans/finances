@@ -4,6 +4,7 @@
     type="button"
     @click.stop.prevent="confirmDelete"
   >
+    {{ $t('actions.delete') }}
     <span class="icon">&#128465;</span>
   </button>
 </template>

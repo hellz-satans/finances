@@ -7,13 +7,11 @@ import COLORS from '@/config/colors';
  * Category input object.
  *
  * @typedef {CategoryInput}
- * @property categoryKey {string} If blank, it will be automatically generated from the {#category} property.
- * @property category {string}
+ * @property key {string} If blank, it will be automatically generated from the {#name} property, e.g., "food_coffee"
+ * @property name {string} Category name, e.g., "Coffee"
  * @property color {string} Valid string representing a color: Hex-code, HSL, etc.
  * @property icon {string} Emoji character
  * @property isSubcategory {boolean}
- * @property subcategoryKey {string} If blank, it will be automatically generated from the {#subcategory} property.
- * @property subcategory {string}
  */
 
 const DEFAULT_VALUES = {
@@ -92,8 +90,8 @@ const CategoriesStore = {
         subcategory = null;
 
       data = {
-        key:  input.categoryKey,
-        name: input.category,
+        key:  input.key,
+        name: input.name,
         color: input.color,
         isSubcategory: input.isSubcategory,
       }
@@ -109,16 +107,16 @@ const CategoriesStore = {
       if (input.isSubcategory) {
         // Create subcategory if passed
         data = {
-          key:   input.subcategoryKey,
-          name:  input.subcategory,
+          key:   input.key,
+          name:  input.name,
           color: input.color,
           icon:  input.icon,
           isSubcategory: true,
         };
 
         if (!data.key) {
-          data.key = CategoriesService.generateKey(data.name);
-          data.key = `${category.key}_${data.key}`;
+          data.key = [category.key, CategoriesService.generateKey(data.name)]
+            .join('_');
         }
 
         subcategory = await CategoriesService.upsert(data.key, data);
@@ -215,13 +213,11 @@ const CategoriesStore = {
           for (const importedCategory of newData) {
             if ( !arr.find(el => el.key == importedCategory.key) ) {
               dispatch('submitCategory', {
-                categoryKey: importedCategory.key,
-                category: importedCategory.name,
+                key: importedCategory.key,
+                name: importedCategory.name,
                 color: importedCategory.color,
                 icon: importedCategory.icon,
                 isSubcategory: !!importedCategory.isSubcategory,
-                subcategoryKey: importedCategory.key,
-                subcategory: importedCategory.name,
               });
             }
           }

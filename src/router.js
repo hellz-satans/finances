@@ -4,6 +4,7 @@ import About from '@/pages/About.vue'
 import AccountForm from '@/components/accounts/AccountForm.vue'
 import Categories from '@/pages/Categories.vue'
 import CategoryForm from '@/components/categories/CategoryForm.vue'
+import SubcategoryForm from '@/components/categories/SubcategoryForm.vue'
 import ExpenseForm from '@/components/expenses/ExpenseForm.vue'
 import Home from '@/pages/Home.vue'
 import ImportExport from '@/pages/ImportExport.vue'
@@ -52,6 +53,22 @@ export const router = createRouter({
       name: 'categories',
       icon: 'database',
       component: Categories,
+    },
+
+    {
+      path: '/categories/:category_key',
+      name: 'category',
+      icon: 'database',
+      component: CategoryForm,
+      hide: true,
+    },
+
+    {
+      path: '/subcategories/:subcategory_key',
+      name: 'subcategory',
+      icon: 'database',
+      component: SubcategoryForm,
+      hide: true,
     },
 
     {

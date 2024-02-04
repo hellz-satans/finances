@@ -17,8 +17,26 @@
           id="category_name"
           name="category_name"
           required
-          v-model="name"
+          disabled="disabled"
           :placeholder="$t('categories.category')"
+          :value="category?.name"
+        />
+      </div>
+
+      <div class="w-full mb-4">
+        <label
+          class="block font-semibold mb-3"
+          for="subcategory_name"
+        >
+          Subcategory
+        </label>
+
+        <input
+          id="subcategory_name"
+          name="subcategory_name"
+          required
+          v-model="name"
+          :placeholder="$t('categories.subcategory')"
         />
       </div>
 
@@ -40,7 +58,7 @@
       </div>
 
       <div class="w-full mb-4">
-        <label class="block font-semibold" for="category_color">
+        <label class="flex items-center font-semibold" for="category_color">
           Color
           <span class="color-picker">
             (
@@ -77,6 +95,7 @@ import DeleteCategoryButton from '@/components/categories/DeleteCategoryButton.v
 import VSwatches from 'vue-swatches/src/VSwatches.vue';
 import { DEFAULT_VALUES } from '@/stores/modules/categories';
 import colors from '@/config/colors';
+import { CategoriesService } from '@/services/categories';
 
 const OPTION_NEW = {
   key: null,
@@ -95,19 +114,22 @@ export default {
 
   data() {
     return {
+      category: null,
       color: DEFAULT_VALUES.color,
       icon: DEFAULT_VALUES.icon,
-      isSubcategory: false,
+      isSubcategory: true,
       key: null,
       name: null,
     };
   },
 
   created() {
-    const key = this.$route.params.category_key;
+    const categoryKey = this.$route.query.category_key || 'other';
+    const subcategoryKey = this.$route.params.subcategory_key;
 
-    if (key && key != 'new') {
-      this.loadForm(key);
+    this.loadCategory(categoryKey);
+    if (subcategoryKey && subcategoryKey != 'new') {
+      this.loadForm(subcategoryKey);
     }
   },
 
@@ -136,15 +158,30 @@ export default {
   methods: {
     ... mapActions('categories', [ 'submitCategory', ]),
 
-    loadForm(key) {
-      let category = this.cache[key];
+    /**
+     * Load category data
+     *
+     * @param key {string} E.g., "food"
+     */
+    loadCategory(key) {
+      this.category = this.cache[key];
+    },
 
-      if (category) {
-        this.color         = category.color;
-        this.icon          = category.icon;
-        this.isSubcategory = category.isSubcategory;
-        this.key           = category.key;
-        this.name          = category.name;
+    /**
+     * Load subcategory data
+     *
+     * @param key {string} E.g., "food_coffee"
+     */
+    loadForm(key) {
+      this.loadCategory(CategoriesService.explodeName(key)[0]);
+      let subcategory = this.cache[key];
+
+      if (subcategory) {
+        this.color         = subcategory.color;
+        this.icon          = subcategory.icon;
+        this.isSubcategory = subcategory.isSubcategory;
+        this.key           = subcategory.key;
+        this.name          = subcategory.name;
       }
     },
 
@@ -152,11 +189,12 @@ export default {
       const data = {
         color: this.color,
         icon: this.icon,
-        isSubcategory: false,
+        isSubcategory: true,
         key: this.key,
         name: this.name,
       };
 
+      console.debug('SubcategoryForm#submitForm: data =', data);
       this.submitCategory(data)
         .then((record) => {
           if (record) {
