@@ -50,7 +50,7 @@
         {{ $t('accounts.color') }}
         <span class="color-picker">
           (
-          current color
+          {{ $t('color_picker.current_color') }}
           <div class="color-picker--current" :style="`background-color: ${color}`">
           </div>
           )

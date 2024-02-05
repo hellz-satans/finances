@@ -10,7 +10,7 @@
           class="block font-semibold mb-3"
           for="category_name"
         >
-          Category
+          {{ $t('categories.category') }}
         </label>
 
         <input
@@ -27,7 +27,7 @@
           class="block font-semibold mb-3"
           for="category_icon"
         >
-          Icon (emoji)
+          {{ $t('categories.icon') }}
         </label>
 
         <input
@@ -35,7 +35,7 @@
           name="category_icon"
           required
           v-model="icon"
-          placeholder="Pick an emoji"
+          :placeholder="$t('categories.pick_emoji')"
         />
       </div>
 
@@ -44,7 +44,7 @@
           Color
           <span class="color-picker">
             (
-            current color
+            {{ $t('color_picker.current_color') }}
             <div class="color-picker--current" :style="`background-color: ${color}`">
             </div>
             )
@@ -62,7 +62,13 @@
         </div>
       </div>
 
-      <footer class="text-right w-full mt-4">
+      <footer class="flex justify-between items-center w-full mt-4">
+        <delete-category-button
+          :categoryKey="recordKey"
+          :is-subcategory="false"
+          @deleted="redirectAfterDelete"
+        />
+
         <button type="submit" class="btn-submit">
           {{ $t('actions.save') }}
         </button>
@@ -78,13 +84,6 @@ import VSwatches from 'vue-swatches/src/VSwatches.vue';
 import { DEFAULT_VALUES } from '@/stores/modules/categories';
 import colors from '@/config/colors';
 
-const OPTION_NEW = {
-  key: null,
-  name: 'New category',
-  icon: '+',
-  color: DEFAULT_VALUES.color,
-};
-
 export default {
   name: 'CategoryForm',
 
@@ -96,18 +95,19 @@ export default {
   data() {
     return {
       color: DEFAULT_VALUES.color,
+      deletable: false,
       icon: DEFAULT_VALUES.icon,
       isSubcategory: false,
-      key: null,
+      recordKey: null,
       name: null,
     };
   },
 
   created() {
-    const key = this.$route.params.category_key;
+    const categoryKey = this.$route.params.category_key;
 
-    if (key && key != 'new') {
-      this.loadForm(key);
+    if (categoryKey && categoryKey != 'new') {
+      this.loadForm(categoryKey);
     }
   },
 
@@ -116,14 +116,6 @@ export default {
     ... mapGetters('categories', [ 'categorySubcategories', ]),
 
     colorList() { return colors; },
-
-    categoryDeletable() {
-      return this.category.key && this.category.key != OPTION_NEW.key;
-    },
-
-    subcategoryDeletable() {
-      return this.subcategory.key && this.subcategory.key != OPTION_NEW.key;
-    },
 
     categoryStyles() {
       return {
@@ -136,16 +128,21 @@ export default {
   methods: {
     ... mapActions('categories', [ 'submitCategory', ]),
 
-    loadForm(key) {
-      let category = this.cache[key];
+    loadForm(categoryKey) {
+      let category = this.cache[categoryKey];
 
       if (category) {
+        this.deletable     = true;
         this.color         = category.color;
         this.icon          = category.icon;
         this.isSubcategory = category.isSubcategory;
-        this.key           = category.key;
+        this.recordKey     = category.key;
         this.name          = category.name;
       }
+    },
+
+    redirectAfterDelete() {
+      this.$router.push('/categories');
     },
 
     submitForm() {
@@ -153,7 +150,7 @@ export default {
         color: this.color,
         icon: this.icon,
         isSubcategory: false,
-        key: this.key,
+        key: this.recordKey,
         name: this.name,
       };
 

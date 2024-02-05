@@ -10,7 +10,7 @@
           class="block font-semibold mb-3"
           for="category_name"
         >
-          Category
+          {{ $t('categories.category') }}
         </label>
 
         <input
@@ -28,7 +28,7 @@
           class="block font-semibold mb-3"
           for="subcategory_name"
         >
-          Subcategory
+          {{ $t('categories.subcategory') }}
         </label>
 
         <input
@@ -45,7 +45,7 @@
           class="block font-semibold mb-3"
           for="category_icon"
         >
-          Icon (emoji)
+          {{ $t('categories.icon') }}
         </label>
 
         <input
@@ -53,7 +53,7 @@
           name="category_icon"
           required
           v-model="icon"
-          placeholder="Pick an emoji"
+          :placeholder="$t('categories.pick_emoji')"
         />
       </div>
 
@@ -62,7 +62,7 @@
           Color
           <span class="color-picker">
             (
-            current color
+            {{ $t('color_picker.current_color') }}
             <div class="color-picker--current" :style="`background-color: ${color}`">
             </div>
             )
@@ -80,7 +80,16 @@
         </div>
       </div>
 
-      <footer class="text-right w-full mt-4">
+      <footer class="flex justify-between items-center w-full mt-4">
+        <div>
+          <delete-category-button
+            :categoryKey="recordKey"
+            :is-subcategory="isSubcategory"
+            @deleted="redirectAfterDelete"
+            v-if="deletable"
+          />
+        </div>
+
         <button type="submit" class="btn-submit">
           {{ $t('actions.save') }}
         </button>
@@ -97,15 +106,8 @@ import { DEFAULT_VALUES } from '@/stores/modules/categories';
 import colors from '@/config/colors';
 import { CategoriesService } from '@/services/categories';
 
-const OPTION_NEW = {
-  key: null,
-  name: 'New category',
-  icon: '+',
-  color: DEFAULT_VALUES.color,
-};
-
 export default {
-  name: 'CategoryForm',
+  name: 'SubcategoryForm',
 
   components: {
     DeleteCategoryButton,
@@ -116,10 +118,11 @@ export default {
     return {
       category: null,
       color: DEFAULT_VALUES.color,
+      deletable: false,
       icon: DEFAULT_VALUES.icon,
       isSubcategory: true,
-      key: null,
       name: null,
+      recordKey: null,
     };
   },
 
@@ -139,14 +142,6 @@ export default {
 
     colorList() { return colors; },
 
-    categoryDeletable() {
-      return this.category.key && this.category.key != OPTION_NEW.key;
-    },
-
-    subcategoryDeletable() {
-      return this.subcategory.key && this.subcategory.key != OPTION_NEW.key;
-    },
-
     categoryStyles() {
       return {
         'background-color': this.color,
@@ -161,28 +156,38 @@ export default {
     /**
      * Load category data
      *
-     * @param key {string} E.g., "food"
+     * @param categoryKey {string} E.g., "food"
      */
-    loadCategory(key) {
-      this.category = this.cache[key];
+    loadCategory(categoryKey) {
+      this.category = this.cache[categoryKey];
+
+      if (!this.color || this.color == DEFAULT_VALUES.color) {
+        this.color = this.category.color;
+      }
     },
 
     /**
      * Load subcategory data
      *
-     * @param key {string} E.g., "food_coffee"
+     * @param subcategoryKey {string} E.g., "food_coffee"
      */
-    loadForm(key) {
-      this.loadCategory(CategoriesService.explodeName(key)[0]);
-      let subcategory = this.cache[key];
+    loadForm(subcategoryKey) {
+      const categoryKey = CategoriesService.explodeName(subcategoryKey)[0] || DEFAULT_VALUES.key;
+      this.loadCategory(categoryKey);
+      let subcategory = this.cache[subcategoryKey];
 
       if (subcategory) {
         this.color         = subcategory.color;
         this.icon          = subcategory.icon;
         this.isSubcategory = subcategory.isSubcategory;
-        this.key           = subcategory.key;
+        this.recordKey     = subcategory.key;
         this.name          = subcategory.name;
+        this.deletable     = true;
       }
+    },
+
+    redirectAfterDelete() {
+      this.$router.push('/categories');
     },
 
     submitForm() {
@@ -190,11 +195,17 @@ export default {
         color: this.color,
         icon: this.icon,
         isSubcategory: true,
-        key: this.key,
+        key: this.recordKey,
         name: this.name,
       };
 
-      console.debug('SubcategoryForm#submitForm: data =', data);
+      if (!data.key) {
+        data.key = [
+          this.category.key,
+          CategoriesService.generateKey(data.name)
+        ].join('_')
+      }
+
       this.submitCategory(data)
         .then((record) => {
           if (record) {

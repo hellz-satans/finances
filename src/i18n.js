@@ -23,9 +23,11 @@ const TRANSLATIONS = {
     actions: {
       add: 'Add',
       close: 'Close',
+      confirm: 'Are you sure?',
       edit: 'Edit',
       delete: 'Delete',
       filter: 'Filter',
+      no_turning_back: "There's no turning back.",
       reset: 'Reset',
       save: 'Save',
       submit: 'Submit',
@@ -51,7 +53,10 @@ const TRANSLATIONS = {
       category: 'Category',
       change_color: 'Change color',
       color: 'Color',
+      delete_category_notice: 'This will delete all of the related subcategories.',
+      icon: 'Icon (emoji)',
       new_subcategory: 'Add subcategory',
+      pick_emoji: 'Pick an emoji',
       subcategories: 'Subcategories',
       subcategory: 'Subcategory',
     },
@@ -68,6 +73,7 @@ const TRANSLATIONS = {
 
     color_picker: {
       change_color: 'Change color',
+      current_color: 'Current color',
       pick_color: 'Pick a color',
     },
 
@@ -173,9 +179,11 @@ const TRANSLATIONS = {
     actions: {
       add: 'Agregar',
       close: 'Cerrar',
+      confirm: '¿Estás seguro?',
       edit: 'Editar',
       delete: 'Borrar',
       filter: 'Filtrar',
+      no_turning_back: 'No hay vuelta atras.',
       reset: 'Limpiar',
       save: 'Guardar',
       submit: 'Enviar',
@@ -200,7 +208,10 @@ const TRANSLATIONS = {
       categories: 'Categorias',
       category: 'Categoria',
       change_color: 'Cambiar color',
+      delete_category_notice: 'Esto borrará todas las subcategorias relacionadas.',
+      icon: 'Ícono (emoji)',
       new_subcategory: 'Agregar subcategoria',
+      pick_emoji: 'Escoge un emoji',
       subcategories: 'Subcategorias',
       subcategory: 'Subcategoria',
     },
@@ -217,6 +228,7 @@ const TRANSLATIONS = {
 
     color_picker: {
       change_color: 'Cambiar color',
+      current_color: 'Color actual',
       pick_color: 'Escoge un color',
     },
 

@@ -71,17 +71,23 @@ const CategoriesService = {
       });
   },
 
-  async deleteCategory(category) {
+  /**
+   * Delete category specified by {key}
+   *
+   * @param key {string}
+   * @param isSubcategory {boolean}
+   */
+  async deleteCategory(key, isSubcategory) {
     let count = 0;
 
-    if (!category.isSubcategory) {
+    if (!isSubcategory) {
       count = await db.categories
         .where("key")
-        .startsWith(category.key)
+        .startsWith(key)
         .modify({ deleted: true });
     } else {
       await db.categories
-        .get(category.key)
+        .get(key)
         .then((sub) => {
           if (sub) {
             sub.deleted = true;

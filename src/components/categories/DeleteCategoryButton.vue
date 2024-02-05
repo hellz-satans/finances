@@ -1,6 +1,6 @@
 <template>
   <button
-    class="delete-category-button rounded text-white bg-red-500 border-red-500 py-2 px-3"
+    class="btn-danger"
     type="button"
     @click.stop.prevent="confirmDelete"
   >
@@ -11,29 +11,36 @@
 
 <script>
 import { mapActions } from 'vuex';
-const CONFIRM_TITLE = "Are you sure?";
 
 export default {
   name: "DeleteCategoryButton",
 
   props: {
-    category: { type: Object, required: true, },
+    categoryKey: { type: String, required: true, },
+    isSubcategory: { type: Boolean, required: true, },
+  },
+
+  computed: {
+    prueba() {
+      return this.categoryKey + (this.isSubcategory ? 'sub' : 'no sub');
+    },
   },
 
   methods: {
     ... mapActions('categories', [ 'deleteCategory', ]),
 
     async confirmDelete() {
-      let msg = `${CONFIRM_TITLE}\n\n`,
+      let msg = this.$t('actions.confirm') + '\n\n',
         count = 0;
 
-      if (!this.category.isSubcategory) {
-        msg += "This will delete all of the related subcategories.\n";
+      if (!this.isSubcategory) {
+        msg += this.$t('categories.delete_category_notice') + '\n';
       }
 
-      msg += "There's no turning back.";
+      msg += this.$t('actions.no_turning_back');
+
       if (window.confirm(msg)) {
-        count = await this.deleteCategory(this.category);
+        count = await this.deleteCategory({key: this.categoryKey, isSubcategory: this.isSubcategory});
       }
 
       if (count > 0) {

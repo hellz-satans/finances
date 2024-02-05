@@ -77,6 +77,11 @@ $shadow-color: $primary-color-light;
   --btn-bg: #{$btn-bg};
   --input-bg: #{$input-bg};
 
+  --danger-bg: var(--orange);
+  --danger-fg: var(--black);
+  --success-bg: var(--cyan);
+  --success-fg: var(--black);
+
   --border-color: #{$border-color};
   --border-color-light: #{$border-color-light};
   --shadow-color: #{$shadow-color};
@@ -101,6 +106,9 @@ $shadow-color: $primary-color-light;
     --primary-color: #{$primary-color};
     --primary-color-dark: #{$primary-color-dark};
     --primary-color-light: #{$primary-color-light};
+
+    --danger-bg: var(--red);
+    --danger-fg: var(--white);
 
     --input-bg: #{hsla($cyan_degree, $cyan_saturation, $cyan_lightness, 0.15)};
     --btn-bg: #{$btn-bg};

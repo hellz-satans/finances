@@ -11,11 +11,14 @@
 }
 
 .btn-submit, button[type=submit] {
-  @apply btn bg-green-500 border-green-600 text-white;
+  @extend .btn;
 }
 
-.btn-cancel, .btn-red {
-  @apply btn bg-red-500 border-red-600 text-white;
+.btn-cancel, .btn-danger, .btn-red {
+  @extend .btn;
+  background-color: var(--danger-bg);
+  color: var(--danger-fg);
+  border-color: var(--danger-bg);
 }
 
 .color-picker {

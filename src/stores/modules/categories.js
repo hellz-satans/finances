@@ -17,6 +17,7 @@ import COLORS from '@/config/colors';
 const DEFAULT_VALUES = {
   color: '#455A64',
   icon:  '💵',
+  key: 'other',
 };
 const OTHER_CATEGORY = {
   color: DEFAULT_VALUES.color,
@@ -90,6 +91,7 @@ const CategoriesStore = {
         subcategory = null;
 
       data = {
+        deleted: false,
         key:  input.key,
         name: input.name,
         color: input.color,
@@ -107,6 +109,7 @@ const CategoriesStore = {
       if (input.isSubcategory) {
         // Create subcategory if passed
         data = {
+          deleted: false,
           key:   input.key,
           name:  input.name,
           color: input.color,
@@ -142,8 +145,9 @@ const CategoriesStore = {
 			db.categories.clear()
     },
 
+
     async deleteCategory({ commit, state }, input) {
-      const count = await CategoriesService.deleteCategory(input);
+      const count = await CategoriesService.deleteCategory(input.key, input.isSubcategory);
       console.info(`Deleted ${count} categories`);
 
       // expensive, but I'm lazy
