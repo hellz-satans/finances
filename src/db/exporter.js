@@ -1,4 +1,4 @@
-import db from '@/db';
+import { db } from '@/db';
 
 export const exportDB = async function() {
   const data = {};
@@ -8,7 +8,7 @@ export const exportDB = async function() {
     db
     .accounts
     .toArray()
-    .filter(el => !el.demo)
+    .then(arr => arr.filter(el => !el.demo))
     .then(arr => data.accounts = arr)
   );
   promises.push(db.categories.toArray().then(arr => data.categories = arr));
@@ -16,7 +16,7 @@ export const exportDB = async function() {
     db
     .expenses
     .toArray()
-    .filter(el => !el.demo)
+    .then(arr => arr.filter(el => !el.demo))
     .then(arr => data.expenses = arr)
   );
   promises.push(db.preferences.toArray().then(arr => data.preferences = arr));

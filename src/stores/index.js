@@ -63,11 +63,16 @@ export const store = createStore({
           downloadJsonUsingBrowser(`my_finances.${ext}`, data)
         })
         .catch((err) => {
+          const stack = err.stack
+            .split('\n')
+            .slice(0, 3)
+            .join('\n');
+
           dispatch(
             'addDebugMessage',
             {
               level: 'error',
-              message: `Could not export data: ${err}`
+              message: `Unexpected error: ${err.message}\n\n${stack}`
             }
           );
         });

@@ -73,9 +73,9 @@
     </fieldset>
 
     <aside v-if="enableDebugMessages" class="mt-4 pt-4 border-t-2">
-      <h2>{{ $t('debug.debug_messages') }}</h2>
+      <h2 class="mb-4">{{ $t('debug.debug_messages') }}</h2>
 
-      <ul class="pl-2 mt-2">
+      <ul class="debug-messages">
         <li
           v-for="(msg, idx) in debugMessages"
           :class="msg.level"
