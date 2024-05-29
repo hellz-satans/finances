@@ -76,7 +76,10 @@
       <h2>{{ $t('debug.debug_messages') }}</h2>
 
       <ul class="pl-2 mt-2">
-        <li v-for="(msg, idx) in debugMessages">{{ msg }}</li>
+        <li
+          v-for="(msg, idx) in debugMessages"
+          :class="msg.level"
+        >{{ msg.message }}</li>
       </ul>
     </aside>
   </section>

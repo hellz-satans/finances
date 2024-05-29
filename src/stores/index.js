@@ -24,6 +24,12 @@ export const store = createStore({
 		},
   },
 
+  mutations: {
+    addDebugMessage(state, msg) {
+      state.debugMessages.push(msg);
+    },
+  },
+
   actions: {
 		/**
 		 * Destroy local data:
@@ -87,6 +93,23 @@ export const store = createStore({
       dispatch('accounts/seedData')
       dispatch('expenses/seedData')
     },
+
+    addDebugMessage({ commit }, msg) {
+      commit('addDebugMessage', msg);
+
+      switch (msg.level) {
+        case 'error':
+          console.error(msg.message || msg);
+          break;
+        case 'warn':
+          console.warn(msg.message || msg);
+          break;
+        case 'info':
+        default:
+          console.info(msg.message || msg);
+          break;
+      }
+    }
   },
 
   state: {
