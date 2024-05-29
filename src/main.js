@@ -13,7 +13,7 @@ Finances.use(router)
 Finances.use(store)
 
 Finances.config.errorHandler = (err, instance, info) => {
-  store.dispatch('addDebugMessage', 'error', err);
+  store.dispatch('addDebugMessage', { level: 'error', message: err });
 };
 
 Finances.mount('#app')

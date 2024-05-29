@@ -53,13 +53,23 @@ export const store = createStore({
 		 * First encode data and then cipher it, see
 		 * https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
 		 */
-		exportData({ state }, ext = 'json') {
+		exportData({ dispatch, state }, ext = 'json') {
+      dispatch('addDebugMessage', { level: 'info', message: 'Exporting data...' });
       exportDB()
         // .then((data) => {
         //   console.debug('db#exportDB: data =', data);
         // });
         .then((data) => {
           downloadJsonUsingBrowser(`my_finances.${ext}`, data)
+        })
+        .catch((err) => {
+          dispatch(
+            'addDebugMessage',
+            {
+              level: 'error',
+              message: `Could not export data: ${err}`
+            }
+          );
         });
 		},
 
